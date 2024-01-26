@@ -19,3 +19,7 @@ class RowTemplate1(RowTemplate1Template):
     """This method is called when the button is clicked"""
     anvil.server.call('reprocessar', self.item['id_integracao'])
 
+  def button_reprocessar_hide(self, **event_args):
+    """This method is called when the Button is removed from the screen"""
+    if self.item['status'] == 'C':
+      self.button_reprocessar.visible = False

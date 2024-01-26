@@ -18,6 +18,7 @@ class Form1(Form1Template):
   def button_error_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.repeating_panel_1.items = anvil.server.call('get_integracoes_erros')
+    
 
   def button_process_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -34,11 +35,10 @@ class Form1(Form1Template):
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.repeating_panel_1.items = anvil.server.call('get_hoje')
+    if self.item['status'] == 'C':
+      self.button_reprocessar.visible = False
 
-  def text_box_search_pressed_enter(self, **event_args):
+  def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     self.repeating_panel_1.items = anvil.server.call('get_seqPlanilha', self.text_box_search.text)
 
-  def button_search_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.repeating_panel_1.items = anvil.server.call('get_seqPlanilha', self.text_box_search.text)
