@@ -1,5 +1,20 @@
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: false, enable_automatically: true, use_email: true,
+    confirm_email: true, use_google: false, require_secure_passwords: true}
+  server_config: {user_table: users}
+- source: /runtime/services/google.yml
+  client_config: {}
+  server_config: {}
+package_name: Integracoes
 allow_embedding: false
-package_name: Material_Design_1
+name: Integracoes
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+metadata: {title: Integracoes, description: Integracoes Crestani}
+startup_form: Form1
 db_schema:
   users:
     client: none
@@ -24,18 +39,4 @@ db_schema:
       admin_ui: {order: 5, width: 200}
       type: bool
     title: Users
-name: Material Design 1
-startup_form: Form1
 uplink_visible: true
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-services:
-- source: /runtime/services/tables.yml
-  client_config: {}
-  server_config: {}
-- source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: false, enable_automatically: true, use_email: true,
-    confirm_email: true, use_google: false, require_secure_passwords: true}
-  server_config: {user_table: users}
-- source: /runtime/services/google.yml
-  client_config: {}
-  server_config: {}
