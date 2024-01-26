@@ -8,6 +8,30 @@ components:
   name: content_panel
   layout_properties: {slot: default}
   components:
+  - name: button_error
+    properties: {role: raised, align: center, tooltip: Erros na Integração, foreground: 'theme:White',
+      text: Erros, spacing_above: medium, background: '#e01b24', bold: true, underline: false,
+      icon: 'fa:hand-stop-o'}
+    type: Button
+    layout_properties: {grid_position: 'TECPAW,VGGEQC', full_width_row: false}
+    event_bindings: {click: button_error_click}
+  - name: button_process
+    properties: {text: Em Processamento, background: '#f9f06b', role: raised, icon: 'fa:warning'}
+    type: Button
+    layout_properties: {grid_position: 'TECPAW,JDTWPW'}
+    event_bindings: {click: button_process_click}
+  - name: button_success
+    properties: {text: Sucesso, background: '#33d17a', foreground: 'theme:White',
+      role: raised, icon: 'fa:check-circle'}
+    type: Button
+    layout_properties: {grid_position: 'TECPAW,OVXGDB'}
+    event_bindings: {click: button_success_click}
+  - name: button_all
+    properties: {text: Todos, bold: true, role: raised, background: 'theme:Gray 600',
+      foreground: 'theme:Secondary 700', icon: 'fa:google-wallet'}
+    type: Button
+    layout_properties: {grid_position: 'TECPAW,ONXSVF'}
+    event_bindings: {click: button_all_click}
   - name: data_grid_1
     properties:
       columns:
@@ -15,21 +39,22 @@ components:
       - {id: VJQQOR, title: Rota, data_key: rota, expand: true}
       - {id: OJLQEN, title: Op., data_key: operacao, width: 45, expand: false}
       - {id: ZJPWOX, data_key: tipoEntrada, title: T.E., width: 47, expand: false}
-      - {id: FXZTZM, data_key: mensagem, title: Mensagem, width: 287, expand: false}
-      - {id: VITNKK, data_key: criacao, title: Criação}
-      - {id: OALCCK, data_key: integracao, title: Integração}
-      - {id: WUFDHG, data_key: alteracao, title: Alteração}
+      - {id: FXZTZM, data_key: mensagem, title: Mensagem, width: 501, expand: false}
+      - {id: VITNKK, data_key: criacao, title: Criação, width: 110, expand: true}
+      - {id: OALCCK, data_key: integracao, title: Integração, width: 102, expand: true}
+      - {id: WUFDHG, data_key: alteracao, title: Alteração, expand: true}
       - {id: MUMTIF, data_key: status, title: Status, width: 59, expand: false}
-      - {id: IQELXQ, data_key: column_10, title: Column 10}
-      - {id: AZYVAA, data_key: column_11, title: Column 11}
+      - {id: IQELXQ, data_key: column_10, title: Ações}
       visible: true
-      spacing_below: large
+      spacing_below: small
       spacing_above: small
+      rows_per_page: 10
     type: DataGrid
     components:
     - name: repeating_panel_1
       properties: {item_template: Form1.RowTemplate1}
       type: RepeatingPanel
+      layout_properties: {pinned: false}
     layout_properties: {grid_position: 'RXPVIT,NFPKKC', full_width_row: true}
 - type: FlowPanel
   properties: {}
