@@ -13,7 +13,7 @@ package_name: Integracoes
 allow_embedding: false
 name: Integracoes
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-metadata: {title: Integracoes, description: Integracoes Crestani}
+metadata: {title: Integrações, description: Integrações Crestani, logo_img: 'asset:logoCrestani.jpeg'}
 startup_form: Form1
 db_schema:
   users:
