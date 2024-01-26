@@ -18,16 +18,18 @@ components:
       type: ColumnPanel
       layout_properties: {grid_position: 'UJBVQK,CGRFBG', full_width_row: true}
       components:
-      - name: text_box_1
+      - name: text_box_search
         properties: {placeholder: Digite a Seq_planilha}
         type: TextBox
         layout_properties: {grid_position: 'KQZZDY,OJBCDR'}
-      - name: button_1
+        event_bindings: {pressed_enter: text_box_search_pressed_enter}
+      - name: button_search
         properties: {text: Procurar, icon: 'fa:search'}
         type: Button
         layout_properties: {grid_position: 'KQZZDY,SQWWKP'}
+        event_bindings: {click: button_search_click}
     - name: column_panel_2
-      properties: {}
+      properties: {col_widths: '{"BCHBTU":10,"RJNXGZ":10,"JQVZIL":15,"DDFKVW":13,"SJYMNL":12}'}
       type: ColumnPanel
       layout_properties: {grid_position: 'UJBVQK,EBXBMT', full_width_row: true}
       components:
@@ -36,31 +38,32 @@ components:
 
             ', background: 'theme:Gray 300'}
         type: Button
-        layout_properties: {grid_position: 'NAFNCY,BCHBTU'}
+        layout_properties: {grid_position: 'NAFNCY,BCHBTU', full_width_row: true}
+        event_bindings: {click: button_2_click}
       - name: button_error
         properties: {role: raised, align: center, tooltip: Erros na Integração, foreground: 'theme:White',
           text: Erros, spacing_above: medium, background: '#e01b24', bold: true, underline: false,
           icon: 'fa:hand-stop-o'}
         type: Button
-        layout_properties: {grid_position: 'NAFNCY,RJNXGZ'}
+        layout_properties: {grid_position: 'NAFNCY,RJNXGZ', full_width_row: true}
         event_bindings: {click: button_error_click}
       - name: button_process
         properties: {text: Em Processamento, background: '#f9f06b', role: raised,
           icon: 'fa:warning'}
         type: Button
-        layout_properties: {grid_position: 'NAFNCY,JQVZIL'}
+        layout_properties: {grid_position: 'NAFNCY,JQVZIL', full_width_row: true}
         event_bindings: {click: button_process_click}
       - name: button_success
         properties: {text: Sucesso, background: '#33d17a', foreground: 'theme:White',
           role: raised, icon: 'fa:check-circle'}
         type: Button
-        layout_properties: {grid_position: 'NAFNCY,DDFKVW'}
+        layout_properties: {grid_position: 'NAFNCY,DDFKVW', full_width_row: true}
         event_bindings: {click: button_success_click}
       - name: button_all
         properties: {text: Todos, bold: true, role: raised, background: 'theme:Gray
             600', foreground: 'theme:Secondary 700', icon: 'fa:google-wallet'}
         type: Button
-        layout_properties: {grid_position: 'NAFNCY,SJYMNL'}
+        layout_properties: {grid_position: 'NAFNCY,SJYMNL', full_width_row: true}
         event_bindings: {click: button_all_click}
   - name: spacer_1
     properties: {height: 7}
