@@ -8,4 +8,4 @@ components:
     background: 'theme:Primary 500', foreground: 'theme:White'}
   type: Button
   layout_properties: {column: IQELXQ}
-  event_bindings: {click: button_reprocessar_click, hide: button_reprocessar_hide}
+  event_bindings: {click: button_reprocessar_click}

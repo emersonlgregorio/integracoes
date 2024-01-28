@@ -14,11 +14,10 @@ class Form1(Form1Template):
     self.init_components(**properties)
     anvil.users.login_with_form() 
     # Any code you write here will run before the form opens.
-
+      
   def button_error_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.repeating_panel_1.items = anvil.server.call('get_integracoes_erros')
-    
 
   def button_process_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -35,10 +34,10 @@ class Form1(Form1Template):
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.repeating_panel_1.items = anvil.server.call('get_hoje')
-    if self.item['status'] == 'C':
-      self.button_reprocessar.visible = False
+    self.data_grid_1.border = "1px solid #888888"
 
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     self.repeating_panel_1.items = anvil.server.call('get_seqPlanilha', self.text_box_search.text)
+
 
