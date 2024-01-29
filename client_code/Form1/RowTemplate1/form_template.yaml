@@ -5,7 +5,7 @@ container:
 components:
 - name: button_reprocessar
   properties: {text: '', icon: 'fa:send-o', enabled: true, bold: false, role: raised,
-    background: 'theme:Primary 500', foreground: 'theme:White'}
+    background: 'theme:Primary 500', foreground: 'theme:White', tooltip: Enviar integração novamente}
   type: Button
   layout_properties: {column: IQELXQ}
   event_bindings: {click: button_reprocessar_click}
