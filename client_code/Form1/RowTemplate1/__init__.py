@@ -21,5 +21,12 @@ class RowTemplate1(RowTemplate1Template):
   def button_reprocessar_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.server.call('reprocessar', self.item['id_integracao'])
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    alert(content=f"{self.item['rota']}",
+         title='Dados da Integração',
+         large=True
+         )
     
 
