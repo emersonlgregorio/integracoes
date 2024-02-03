@@ -1,0 +1,41 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: headline_1
+    properties: {role: headline, text: Monitor de Integrações}
+    type: Label
+    layout_properties: {grid_position: 'JESIMN,HGWNHV'}
+  - name: column_panel_1
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'IHIOLC,ZOSHPO'}
+  - name: column_panel_2
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'IHIOLC,HVMKMS'}
+    components:
+    - name: button_1
+      properties: {text: Hoje}
+      type: Button
+      layout_properties: {grid_position: 'AZYQBN,MTCUIV'}
+      event_bindings: {click: button_1_click}
+  - name: repeating_panel_1
+    properties: {item_template: MonitorIntegracoes.ItemTemplate1}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'GKYSVJ,VYPFMB'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- name: link_1
+  properties: {text: voltar}
+  type: Link
+  layout_properties: {slot: title}
+  event_bindings: {click: link_1_click}

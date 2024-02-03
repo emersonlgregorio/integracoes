@@ -40,4 +40,8 @@ class Form1(Form1Template):
     """This method is called when the user presses Enter in this text box"""
     self.repeating_panel_1.items = anvil.server.call('get_seqPlanilha', self.text_box_search.text)
 
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('MonitorIntegracoes')
+
 

@@ -1,0 +1,84 @@
+is_package: true
+container: {type: ColumnPanel}
+components:
+- name: card_1
+  properties: {role: card, col_widths: '{"OZTLXF":10,"GAYGAU":10,"FMHZAN":25,"YVPOUV":5,"SCDXCS":10,"GUPXRP":10,"JSTFSU":10,"TSUNEC":31,"EEVEZA":5,"ZYHNYO":15,"DRYRAE":10,"IZCJKG":10,"HMIKSG":10,"YHFQTJ":10}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'KPOVWH,DLJAWB'}
+  components:
+  - name: label_1
+    properties: {text: 'Seq Planilha:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'WFBRBW,OZTLXF'}
+  - name: text_box_seqPlanilha
+    properties: {placeholder: SeqPlanilha, text: ''}
+    type: TextBox
+    layout_properties: {grid_position: 'WFBRBW,GAYGAU'}
+    data_bindings:
+    - {property: text, code: 'self.item[''seqPlanilha'']', writeback: false}
+  - name: label_2
+    properties: {text: 'Rota:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'WFBRBW,YVPOUV'}
+  - name: text_box_rota
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'WFBRBW,FMHZAN'}
+    data_bindings:
+    - {property: placeholder, code: 'self.item[''rota'']', writeback: false}
+  - name: label_3
+    properties: {text: 'Operação:
+
+        '}
+    type: Label
+    layout_properties: {grid_position: 'WFBRBW,SCDXCS'}
+  - name: text_box_operacao
+    properties: {text: 'self.item[''operacao'']'}
+    type: TextBox
+    layout_properties: {grid_position: 'WFBRBW,GUPXRP'}
+    data_bindings:
+    - {property: placeholder, code: '', writeback: false}
+  - name: label_4
+    properties: {text: 'Tipo Ent:
+
+        '}
+    type: Label
+    layout_properties: {grid_position: 'WFBRBW,JSTFSU'}
+  - name: text_box_tipoEntrada
+    properties: {text: 'self.item[''tipoEntrada'']'}
+    type: TextBox
+    layout_properties: {grid_position: 'WFBRBW,TSUNEC'}
+    data_bindings:
+    - {property: placeholder, code: '', writeback: false}
+  - name: label_5
+    properties: {text: 'Criação:
+
+        '}
+    type: Label
+    layout_properties: {grid_position: 'VJSFRH,EEVEZA'}
+  - name: text_box_1
+    properties: {text: 'self.item[''criacao'']'}
+    type: TextBox
+    layout_properties: {grid_position: 'VJSFRH,ZYHNYO'}
+    data_bindings:
+    - {property: text, code: 'self.item[''criacao'']', writeback: false}
+  - name: label_5_copy
+    properties: {text: 'Envio Integração:
+
+        '}
+    type: Label
+    layout_properties: {grid_position: 'VJSFRH,DRYRAE'}
+  - name: text_box_2
+    properties: {text: 'self.item[''integracao'']'}
+    type: TextBox
+    layout_properties: {grid_position: 'VJSFRH,IZCJKG'}
+    data_bindings:
+    - {property: text, code: 'self.item[''integracao'']', writeback: false}
+  - name: label_5_copy_2
+    properties: {text: Finalização}
+    type: Label
+    layout_properties: {grid_position: 'VJSFRH,HMIKSG'}
+  - name: text_box_3
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'VJSFRH,YHFQTJ'}
