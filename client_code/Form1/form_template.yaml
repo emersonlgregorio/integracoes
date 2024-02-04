@@ -77,15 +77,15 @@ components:
     properties:
       columns:
       - {id: JKSDUP, title: Seq_Planilha, data_key: seqPlanilha, width: 111, expand: false}
-      - {id: VJQQOR, title: Rota, data_key: rota, expand: true}
+      - {id: VJQQOR, title: Rota, data_key: rota, expand: false, width: '150'}
       - {id: OJLQEN, title: Op., data_key: operacao, width: 45, expand: false}
       - {id: ZJPWOX, data_key: tipoEntrada, title: T.E., width: 47, expand: false}
-      - {id: FXZTZM, data_key: mensagem, title: Mensagem, width: 501, expand: false}
-      - {id: VITNKK, data_key: criacao, title: Criação, width: 110, expand: true}
-      - {id: OALCCK, data_key: integracao, title: Integração, width: 102, expand: true}
-      - {id: WUFDHG, data_key: alteracao, title: Alteração, expand: true}
-      - {id: MUMTIF, data_key: status, title: Status, width: 59, expand: false}
-      - {id: IQELXQ, data_key: column_10, title: Ações, width: 63, expand: false}
+      - {id: FXZTZM, data_key: mensagem, title: Mensagem, width: '800', expand: true}
+      - {id: VITNKK, data_key: criacao, title: Criação, width: '150', expand: false}
+      - {id: OALCCK, data_key: integracao, title: Integração, width: '150', expand: false}
+      - {id: WUFDHG, data_key: alteracao, title: Alteração, expand: false, width: '150'}
+      - {id: MUMTIF, data_key: status, title: Status, width: '50', expand: false}
+      - {id: IQELXQ, data_key: column_10, title: Ações, width: '60', expand: false}
       visible: true
       spacing_below: small
       spacing_above: small

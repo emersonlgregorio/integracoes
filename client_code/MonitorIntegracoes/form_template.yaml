@@ -26,15 +26,15 @@ components:
       type: Button
       layout_properties: {grid_position: 'AZYQBN,MTCUIV'}
       event_bindings: {click: button_1_click}
-  - name: grid_panel_1
-    properties: {}
-    type: GridPanel
-    layout_properties: {grid_position: 'EVPQQB,NSURGL'}
+  - name: data_grid_1
+    properties:
+      columns: []
+    type: DataGrid
     components:
-    - name: text_box_1
-      properties: {placeholder: Nome}
-      type: TextBox
-      layout_properties: {row: SQBKQO, width_xs: 3, col_xs: 0}
+    - name: repeating_panel_1
+      properties: {item_template: MonitorIntegracoes.RowTemplate2}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'CKGFTZ,XVURGZ'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
