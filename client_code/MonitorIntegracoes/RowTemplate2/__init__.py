@@ -12,8 +12,14 @@ class RowTemplate2(RowTemplate2Template):
   def __init__(self, **properties):
     self.init_components(**properties)
     if self.item['status'] == 'C':
-      self.card_1.background = "#7FFFD4"
+      self.card_1.background = "#C8E6C9"
     elif self.item['status'] == 'I':
-      self.card_1.background = "#FFFFE0"
+      self.card_1.background = "#FFF9C4"
     elif self.item['status'] == 'E':
-      self.card_1.background = "#FF6347"
+      self.card_1.background = "#FFCDD2"
+
+    self.label_3.width = 30
+    self.text_box_4.width = 10
+    self.label_4.width = 30
+    self.text_box_5.width = 10
+    
