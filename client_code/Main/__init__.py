@@ -7,6 +7,8 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..Monitor2 import Monitor2
+from ..Esbocos import Esbocos
 
 class Main(MainTemplate):
   def __init__(self, **properties):
@@ -14,26 +16,31 @@ class Main(MainTemplate):
     self.init_components(**properties)
     anvil.users.login_with_form()
     self.image_1.width = '205px'
-    
-  # Any code you write here will run before the form opens.
+
+  def switch_to_home(self, **event_args):
+      """Switch to the Gallery view."""
+      self.content_panel.clear()
+      self.headline_1.scroll_into_view()
+      self.home_link.role = 'selected'
+  
   def switch_to_monitor(self, **event_args):
     """Switch to the Gallery view."""
-    self.column_panel_body.clear()
-    self.column_panel_body.add_component(open_form('Monitor'))
-    self.headline_made_with_anvil.scroll_into_view()
+    self.content_panel.clear()
+    self.content_panel.add_component(Monitor2(), full_width_row=True)
+    self.headline_1.scroll_into_view()
     self.deselect_all_links()
-    self.link_gallery.role = 'selected'
+    self.monitor_link.role = 'selected'
+
+  def switch_to_esbocos(self, **event_args):
+    """Switch to the Gallery view."""
+    self.content_panel.clear()
+    self.content_panel.add_component(Esbocos(), full_width_row=True)
+    self.headline_1.scroll_into_view()
+    self.deselect_all_links()
+    self.esboco_link.role = 'selected'
 
   def deselect_all_links(self):
     """Reset all the roles on the navbar links."""
-    for link in self.home_link, self.monitor_link:
+    for link in self.home_link, self.monitor_link, self.esboco_link:
       link.role = ''
- 
 
-  # def monitor_link_click(self, **event_args):
-  #   """This method is called when the link is clicked"""
-  #   open_form('Monitor')
-
-  # def esboco_link_click(self, **event_args):
-  #   """This method is called when the link is clicked"""
-  #   open_form('Esbocos')

@@ -1,0 +1,42 @@
+container: {type: ColumnPanel}
+components:
+- name: content_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'NIPFUS,XJFWDV', full_width_row: true}
+  components:
+  - name: column_panel_2
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'HULWJF,XTTVYI'}
+    components:
+    - name: drop_down_unidade
+      properties:
+        items: ['', 1-Querencia, 2-Promissão, 3-Colorado, 4-São Carlos, 5-Curupai]
+      type: DropDown
+      layout_properties: {grid_position: 'USJKRV,ELOZYT'}
+    - name: text_box_nfe
+      properties: {placeholder: Número da NFe}
+      type: TextBox
+      layout_properties: {grid_position: 'USJKRV,EJBVIO'}
+    - name: button_1
+      properties: {text: Consultar}
+      type: Button
+      layout_properties: {grid_position: 'USJKRV,GPRQNU'}
+      event_bindings: {click: button_1_click}
+  - name: data_grid_1
+    properties:
+      columns:
+      - {id: JKSDUP, title: Data Doc, data_key: TaxDate, width: 100, expand: false}
+      - {id: VJQQOR, title: Nro NFe, data_key: Serial, width: 76, expand: false}
+      - {id: OJLQEN, title: Cod. PN, data_key: CardCode, width: 79, expand: false}
+      - {id: IQBSWB, data_key: CardName, title: Nome PN, expand: false, width: 519}
+      - {id: QGNGDX, data_key: VATRegNum, title: CNPJ Filial, width: 139, expand: false}
+      - {id: KNONTO, data_key: DocStatus, title: Status}
+    type: DataGrid
+    layout_properties: {grid_position: 'JMKAVE,QFGDNK'}
+    components:
+    - name: repeating_panel_1
+      properties: {item_template: Esbocos.RowTemplate3}
+      type: RepeatingPanel
+is_package: true
