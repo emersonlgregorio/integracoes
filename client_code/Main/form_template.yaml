@@ -22,7 +22,7 @@ components:
     layout_properties: {grid_position: 'YCADFV,ABLLQD'}
     event_bindings: {click: monitor_link_click}
   - name: esboco_link
-    properties: {text: Esboços}
+    properties: {text: Esboços, visible: false}
     type: Link
     layout_properties: {grid_position: 'KTMCBE,MJGEYE'}
     data_bindings: []

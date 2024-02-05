@@ -12,6 +12,7 @@ class Main(MainTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    anvil.users.login_with_form()
     self.image_1.width = '205px'
     
   # Any code you write here will run before the form opens.
