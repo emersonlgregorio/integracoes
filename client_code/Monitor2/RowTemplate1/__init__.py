@@ -28,9 +28,6 @@ class RowTemplate1(RowTemplate1Template):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    alert(content=f"Rota: {self.item['rota']}\nMensagem: {self.item['mensagem']}",
-         title='Dados da Integração',
-         large=True
-         )
+    open_form('Monitor2.ModalIntegracao')
     
 
