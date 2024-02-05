@@ -6,51 +6,22 @@ components:
   layout_properties: {grid_position: 'BINZAP,XMOOOJ', full_width_row: true}
   data_bindings: []
   components:
-  - name: column_panel_2
-    properties: {col_widths: '{"BCHBTU":10,"RJNXGZ":10,"JQVZIL":15,"DDFKVW":13,"SJYMNL":12}'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'ZXMAZE,IBZPZD'}
-    components:
-    - name: date_picker_data
-      properties: {}
-      type: DatePicker
-      layout_properties: {grid_position: 'NAFNCY,SFOHVI'}
-      data_bindings: []
-      event_bindings: {change: date_picker_data_change}
-    - name: button_error
-      properties: {role: raised, align: center, tooltip: Erros na Integração, foreground: 'theme:White',
-        text: Erros, spacing_above: medium, background: '#e01b24', bold: true, underline: false,
-        icon: 'fa:hand-stop-o'}
-      type: Button
-      layout_properties: {grid_position: 'NAFNCY,RJNXGZ', full_width_row: true}
-      event_bindings: {click: button_error_click}
-    - name: button_process
-      properties: {text: Em Proces., background: '#f9f06b', role: raised, icon: 'fa:warning'}
-      type: Button
-      layout_properties: {grid_position: 'NAFNCY,JQVZIL', full_width_row: true}
-      event_bindings: {click: button_process_click}
-    - name: button_success
-      properties: {text: Sucesso, background: '#33d17a', foreground: 'theme:White',
-        role: raised, icon: 'fa:check-circle'}
-      type: Button
-      layout_properties: {grid_position: 'NAFNCY,DDFKVW', full_width_row: true}
-      event_bindings: {click: button_success_click}
-    - name: button_all
-      properties: {text: Todos, bold: true, role: raised, background: 'theme:Gray
-          600', foreground: 'theme:Secondary 700', icon: 'fa:google-wallet'}
-      type: Button
-      layout_properties: {grid_position: 'NAFNCY,SJYMNL', full_width_row: true}
-      event_bindings: {click: button_all_click}
   - name: column_panel_1
     properties: {col_widths: '{"RWJDET":15,"HLEOMR":20,"UWBWGL":20,"TSRYFD":7}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'ACBWYR,LKEZQB', full_width_row: false}
     components:
     - name: text_box_search
-      properties: {placeholder: Digite a Seq_planilha, align: left}
+      properties: {placeholder: Digite a Seq_planilha, align: center}
       type: TextBox
       layout_properties: {grid_position: 'TXSXUU,RWJDET', full_width_row: true}
       event_bindings: {change: search}
+    - name: date_picker_data
+      properties: {placeholder: Escolha a data, align: center}
+      type: DatePicker
+      layout_properties: {grid_position: 'TXSXUU,MLZRLO'}
+      data_bindings: []
+      event_bindings: {change: search2}
     - name: drop_down_rota
       properties:
         items: [AlteraNumeracao, AlteraPesoRomEntrada, AplicacoesFarmbox, EntradaSementes,
@@ -58,20 +29,20 @@ components:
           RomaneioEntrada, RomSaidaGraosParceria, SaidaAbastecimento, SaidaTransferencia]
         placeholder: Escolha a rota
         include_placeholder: true
+        align: center
       type: DropDown
       layout_properties: {grid_position: 'TXSXUU,HLEOMR'}
+      event_bindings: {change: search2}
+      data_bindings: []
     - name: drop_down_status
       properties:
         placeholder: Escolha o Status
-        items: [Erro, Processando, Sucesso, Todos]
+        items: [C, E, I, O]
         include_placeholder: true
+        align: center
       type: DropDown
       layout_properties: {grid_position: 'TXSXUU,UWBWGL'}
-    - name: button_1
-      properties: {text: '', icon: 'fa:eraser', background: 'theme:Secondary 700',
-        foreground: 'theme:White'}
-      type: Button
-      layout_properties: {grid_position: 'TXSXUU,TSRYFD'}
+      event_bindings: {change: search2}
   - name: data_grid_1
     properties:
       columns:
