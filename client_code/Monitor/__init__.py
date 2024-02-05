@@ -1,4 +1,4 @@
-from ._anvil_designer import Form1Template
+from ._anvil_designer import MonitorTemplate
 from anvil import *
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
@@ -9,17 +9,16 @@ import anvil.users
 import anvil.server
 import datetime
 
-
-class Form1(Form1Template):
+class Monitor(MonitorTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.image_1.width = '200px'
     anvil.users.login_with_form()
     self.date_picker_2.format = "%d/%m/%Y"
     self.date_picker_2.date = datetime.date.today()
     self.repeating_panel_1.items = anvil.server.call('get_hoje')
     self.data_grid_1.border = "1px solid #888888"
-
     # Any code you write here will run before the form opens.
       
   def button_error_click(self, **event_args):
@@ -50,5 +49,13 @@ class Form1(Form1Template):
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('MonitorIntegracoes')
+
+  def main_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Main')
+
+  def esbocos_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('Esbocos')
 
 

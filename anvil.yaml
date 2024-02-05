@@ -9,12 +9,13 @@ services:
 - source: /runtime/services/google.yml
   client_config: {}
   server_config: {}
+startup: {type: form, module: Main}
 package_name: Integracoes
 allow_embedding: false
 name: Integracoes
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 metadata: {title: Integrações, description: Integrações Crestani, logo_img: 'asset:logoCrestani.jpeg'}
-startup_form: Form1
+startup_form: null
 db_schema:
   users:
     client: none
