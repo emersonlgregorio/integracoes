@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.users
 import anvil.server
+from ..ModalIntegracao import ModalIntegracao
 
 class RowTemplate1(RowTemplate1Template):
   def __init__(self, **properties):
@@ -28,6 +29,7 @@ class RowTemplate1(RowTemplate1Template):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Monitor2.ModalIntegracao')
+    modal = ModalIntegracao(item=self.item)
+    alert(modal, large=True, title="Dados da Integração", buttons=[])
     
 
