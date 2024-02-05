@@ -39,7 +39,7 @@ components:
     type: DataGrid
     components:
     - name: repeating_panel_1
-      properties: {item_template: Esbocos.RowTemplate3}
+      properties: {item_template: Esbocos2.RowTemplate3}
       type: RepeatingPanel
     layout_properties: {grid_position: 'JMKAVE,QFGDNK'}
 - type: FlowPanel

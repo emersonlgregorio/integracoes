@@ -13,4 +13,23 @@ class Esbocos2(Esbocos2Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if not self.drop_down_unidade.selected_value and not self.text_box_nfe.text:
+      alert("Preencha um filtro")
+    elif self.drop_down_unidade.selected_value and self.text_box_nfe.text:
+      filtro = f"""
+                WHERE o."BPLId" = {self.drop_down_unidade.selected_value}
+                and o."Serial" = {self.text_box_nfe.text}
+              """
+      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
+    elif not self.drop_down_unidade.selected_value and self.text_box_nfe.text:
+      filtro = f"""
+                WHERE o."Serial" = {self.text_box_nfe.text}
+              """
+      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
+    elif self.drop_down_unidade.selected_value and not self.text_box_nfe.text:
+      filtro = f"""
+                WHERE o."BPLId" = {self.drop_down_unidade.selected_value}
+              """
+      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
