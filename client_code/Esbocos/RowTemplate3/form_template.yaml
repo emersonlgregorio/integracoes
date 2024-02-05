@@ -1,3 +1,9 @@
 is_package: true
 container: {type: DataRowPanel}
-components: []
+components:
+- name: link_1
+  properties: {}
+  type: Link
+  layout_properties: {column: VJQQOR}
+  data_bindings:
+  - {property: text, code: 'self.item[''Serial'']', writeback: false}
