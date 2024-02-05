@@ -17,27 +17,6 @@ class Monitor2(Monitor2Template):
     self.date_picker_data.format = "%d/%m/%Y"
     self.date_picker_data.date = datetime.date.today()
     self.date_picker_data_change()
-    # self.contadores(self.repeating_panel_1.items)
-    # hoje = self.date_picker_2.date.strftime("%d/%m/%Y")
-    # self.repeating_panel_1.items = anvil.server.call('get_hoje',hoje)
-    # self.data_grid_1.border = "1px solid #888888"
-    # Any code you write here will run before the form opens.
-      
-  def button_error_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.repeating_panel_1.items = anvil.server.call('get_integracoes_erros')
-
-  def button_process_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.repeating_panel_1.items = anvil.server.call('get_integracoes_processamento')
-
-  def button_success_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.repeating_panel_1.items = anvil.server.call('get_integracoes_success')
-
-  def button_all_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.repeating_panel_1.items = anvil.server.call('get_integracoes_all')
 
   def search2(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
