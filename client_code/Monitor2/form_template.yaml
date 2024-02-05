@@ -51,8 +51,8 @@ components:
       - {id: OJLQEN, title: Op., data_key: operacao, width: 45, expand: false}
       - {id: ZJPWOX, data_key: tipoEntrada, title: T.E., width: 47, expand: false}
       - {id: VITNKK, data_key: criacao, title: Criação, width: '150', expand: false}
-      - {id: OALCCK, data_key: integracao, title: Integração, width: '150', expand: false}
-      - {id: WUFDHG, data_key: alteracao, title: Alteração, expand: false, width: '150'}
+      - {id: OALCCK, data_key: documento, title: Documento, width: '150', expand: false}
+      - {id: WUFDHG, data_key: filial, title: Filial, expand: false, width: '150'}
       - {id: MUMTIF, data_key: status, title: Status, width: '50', expand: false}
       - {id: IQELXQ, data_key: column_10, title: Ações, width: '60', expand: false}
       visible: true
