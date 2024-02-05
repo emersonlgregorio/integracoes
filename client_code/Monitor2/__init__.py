@@ -13,7 +13,6 @@ class Monitor2(Monitor2Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.width = '100%'
     anvil.users.login_with_form()
     self.date_picker_2.format = "%d/%m/%Y"
     self.date_picker_2.date = datetime.date.today()
