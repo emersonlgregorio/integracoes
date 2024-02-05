@@ -14,7 +14,11 @@ class RowTemplate1(RowTemplate1Template):
     self.init_components(**properties)
     if self.item['status'] == 'C':
       self.button_reprocessar.visible = False
-    
+      self.background = "#C8E6C9"
+    elif self.item['status'] == 'I':
+      self.background = "#FFF9C4"
+    elif self.item['status'] == 'E':
+      self.background = "#FFCDD2"
 
     # Any code you write here will run before the form opens.
 

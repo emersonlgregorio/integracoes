@@ -7,12 +7,19 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.users
 import anvil.server
+import datetime
+
 
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    anvil.users.login_with_form() 
+    anvil.users.login_with_form()
+    self.date_picker_2.format = "%d/%m/%Y"
+    self.date_picker_2.date = datetime.date.today()
+    self.repeating_panel_1.items = anvil.server.call('get_hoje')
+    self.data_grid_1.border = "1px solid #888888"
+
     # Any code you write here will run before the form opens.
       
   def button_error_click(self, **event_args):
@@ -31,7 +38,7 @@ class Form1(Form1Template):
     """This method is called when the button is clicked"""
     self.repeating_panel_1.items = anvil.server.call('get_integracoes_all')
 
-  def button_2_click(self, **event_args):
+  def button_hoje_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.repeating_panel_1.items = anvil.server.call('get_hoje')
     self.data_grid_1.border = "1px solid #888888"
