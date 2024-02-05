@@ -16,8 +16,11 @@ class Monitor2(Monitor2Template):
     anvil.users.login_with_form()
     self.date_picker_2.format = "%d/%m/%Y"
     self.date_picker_2.date = datetime.date.today()
-    self.repeating_panel_1.items = anvil.server.call('get_hoje')
-    self.data_grid_1.border = "1px solid #888888"
+    self.date_picker_2_change()
+    # self.contadores(self.repeating_panel_1.items)
+    # hoje = self.date_picker_2.date.strftime("%d/%m/%Y")
+    # self.repeating_panel_1.items = anvil.server.call('get_hoje',hoje)
+    # self.data_grid_1.border = "1px solid #888888"
     # Any code you write here will run before the form opens.
       
   def button_error_click(self, **event_args):
@@ -36,12 +39,29 @@ class Monitor2(Monitor2Template):
     """This method is called when the button is clicked"""
     self.repeating_panel_1.items = anvil.server.call('get_integracoes_all')
 
-  def button_hoje_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.repeating_panel_1.items = anvil.server.call('get_hoje')
-    self.data_grid_1.border = "1px solid #888888"
-
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     self.repeating_panel_1.items = anvil.server.call('get_seqPlanilha', self.text_box_search.text)
 
+  def date_picker_2_change(self, **event_args):
+    """This method is called when the selected date changes"""
+    hoje = self.date_picker_2.date.strftime("%d/%m/%Y")
+    self.repeating_panel_1.items = anvil.server.call('get_hoje',hoje)
+    self.data_grid_1.border = "1px solid #888888"
+    # self.contadores(self.repeating_panel_1.items)
+    
+    
+  # def contadores(self, items):
+  #   for i in items:
+  #     sucessos = 0
+  #     erros = 0
+  #     process = 0
+  #     if i['status'] == 'C':
+  #       sucesso += 1
+  #     elif i['status'] == 'E':
+  #       erro += 1
+  #     elif i['status'] == 'I':
+  #       process += 1
+  #   self.label_1.text = f'Sucesso: {sucesso}'
+  #   self.label_2.text = f'Erros: {erros}'
+  #   self.label_3.text = f'Processando: {process}'
