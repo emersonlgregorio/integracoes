@@ -107,19 +107,6 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
-- name: column_panel_5
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {slot: left-nav}
-  components:
-  - name: main_link
-    properties: {text: Home}
-    type: Link
-    layout_properties: {grid_position: 'HLPXKC,JFCPKC'}
-  - name: esbocos_link
-    properties: {text: Esboços, visible: false}
-    type: Link
-    layout_properties: {grid_position: 'AOKNVL,NBUKOS'}
 - name: image_1
   properties: {height: '48', source: _/theme/logoCrestani.jpeg}
   type: Image
