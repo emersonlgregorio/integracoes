@@ -41,9 +41,17 @@ class Monitor2(Monitor2Template):
 
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
+    f1 = self.date_picker_data
+    f2 = self.text_box_search
+    f3 = self.drop_down_rota
+    f4 = self.drop_down_status
+
+    if f1 and f2 and f3 and f4:
+      filtro = f"where "
+    
     self.repeating_panel_1.items = anvil.server.call('get_seqPlanilha', self.text_box_search.text)
 
-  def date_picker_2_change(self, **event_args):
+  def date_picker_data_change(self, **event_args):
     """This method is called when the selected date changes"""
     hoje = self.date_picker_2.date.strftime("%d/%m/%Y")
     self.repeating_panel_1.items = anvil.server.call('get_hoje',hoje)
