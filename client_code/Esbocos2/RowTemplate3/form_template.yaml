@@ -1,5 +1,8 @@
 is_package: true
-container: {type: DataRowPanel}
+container:
+  type: DataRowPanel
+  properties: {auto_display_data: true}
+  data_bindings: []
 components:
 - name: link_1
   properties: {}
