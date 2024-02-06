@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..ModalEsboco import ModalEsboco
 
 class RowTemplate3(RowTemplate3Template):
   def __init__(self, **properties):
@@ -14,3 +15,8 @@ class RowTemplate3(RowTemplate3Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    modal = ModalEsboco(item=self.item)
+    alert(modal, large=True, title="Dados da Integração", buttons=[])
