@@ -18,12 +18,7 @@ class Monitor2(Monitor2Template):
     self.date_picker_data.date = datetime.date.today()
     self.date_picker_data_change()
     self.set_event_handler('x-refresh', self.date_picker_data_change)
-    self.drop_down_status.items = [
-      ("Erros", "E"),
-      ("Novos", "O"),
-      ("Processando", "I"),
-      ("Sucessos", "C")
-    ]
+
     self.drop_down_unidade.items = [
       ("Colorado","3"),
       ("Curupai","5"),
