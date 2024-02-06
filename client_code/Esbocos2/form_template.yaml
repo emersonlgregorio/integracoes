@@ -15,15 +15,22 @@ components:
         items: ['', 1-Querencia, 2-Promissão, 3-Colorado, 4-São Carlos, 5-Curupai]
       type: DropDown
       layout_properties: {grid_position: 'USJKRV,ELOZYT'}
+      event_bindings: {change: search}
     - name: text_box_nfe
       properties: {placeholder: Número da NFe}
       type: TextBox
       layout_properties: {grid_position: 'USJKRV,EJBVIO'}
+      event_bindings: {pressed_enter: search}
+    - name: drop_down_status
+      properties: {placeholder: Status, include_placeholder: true, align: center}
+      type: DropDown
+      layout_properties: {grid_position: 'USJKRV,GVVZDH'}
+      event_bindings: {change: search}
     - name: button_1
       properties: {text: Consultar}
       type: Button
       layout_properties: {grid_position: 'USJKRV,GPRQNU'}
-      event_bindings: {click: button_1_click}
+      event_bindings: {click: search}
   - name: data_grid_1
     properties:
       columns:
@@ -33,6 +40,8 @@ components:
       - {id: IQBSWB, data_key: CardName, title: Nome PN, expand: false, width: 519}
       - {id: QGNGDX, data_key: VATRegNum, title: CNPJ Filial, width: 139, expand: false}
       - {id: KNONTO, data_key: DocStatus, title: Status}
+      rows_per_page: 10
+      show_page_controls: true
     type: DataGrid
     layout_properties: {grid_position: 'JMKAVE,QFGDNK'}
     components:
