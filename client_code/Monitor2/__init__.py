@@ -17,6 +17,7 @@ class Monitor2(Monitor2Template):
     self.date_picker_data.format = "%d/%m/%Y"
     self.date_picker_data.date = datetime.date.today()
     self.date_picker_data_change()
+    self.set_event_handler('x-refresh', self.date_picker_data_change)
 
   def search2(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
@@ -34,6 +35,7 @@ class Monitor2(Monitor2Template):
                     AND ROTA = '{f4}' AND STATUS = '{f5}'
                 """
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
+      self.contadores(self.repeating_panel_1.items)
     elif f1 and f4 and not f5:
       filtro = f"""
                   where DATA_CRIACAO >= TO_date('{f2}', 'DD-MM-YYYY HH24:MI:SS') 
@@ -41,12 +43,14 @@ class Monitor2(Monitor2Template):
                     AND ROTA = '{f4}'
                 """
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
+      self.contadores(self.repeating_panel_1.items)
     elif f1 and not f4 and not f5:
       filtro = f"""
                   where DATA_CRIACAO >= TO_date('{f2}', 'DD-MM-YYYY HH24:MI:SS') 
                     AND DATA_CRIACAO <= TO_date('{f3}', 'DD-MM-YYYY HH24:MI:SS')
                 """
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
+      self.contadores(self.repeating_panel_1.items)
     elif f1 and not f4 and f5:
       filtro = f"""
                   where DATA_CRIACAO >= TO_date('{f2}', 'DD-MM-YYYY HH24:MI:SS') 
@@ -54,17 +58,22 @@ class Monitor2(Monitor2Template):
                     AND STATUS = '{f5}'
                 """
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
+      self.contadores(self.repeating_panel_1.items)
     elif not f1 and not f4 and not f5:
       Notification('Informe pelo menos 1 filtro (data, rota ou status)')
+      self.contadores(self.repeating_panel_1.items)
     elif not f1 and f4 and not f5:
       filtro = f"""where rota = {f4}"""
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
+      self.contadores(self.repeating_panel_1.items)
     elif not f1 and not f4 and f5:
       filtro = f"""where status = {f5}"""
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
+      self.contadores(self.repeating_panel_1.items)
     elif not f1 and f4 and f5:
       filtro = f"""where status = {f5} and rota = {f4}"""
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
+      self.contadores(self.repeating_panel_1.items)
     
   def search(self, **event_args):
     self.repeating_panel_1.items = anvil.server.call('get_seqPlanilha', self.text_box_search.text)
@@ -74,20 +83,23 @@ class Monitor2(Monitor2Template):
     hoje = self.date_picker_data.date.strftime("%d/%m/%Y")
     self.repeating_panel_1.items = anvil.server.call('get_hoje',hoje)
     self.data_grid_1.border = "1px solid #888888"
-    # self.contadores(self.repeating_panel_1.items)
+    self.contadores(self.repeating_panel_1.items)
     
-    
-  # def contadores(self, items):
-  #   for i in items:
-  #     sucessos = 0
-  #     erros = 0
-  #     process = 0
-  #     if i['status'] == 'C':
-  #       sucesso += 1
-  #     elif i['status'] == 'E':
-  #       erro += 1
-  #     elif i['status'] == 'I':
-  #       process += 1
-  #   self.label_1.text = f'Sucesso: {sucesso}'
-  #   self.label_2.text = f'Erros: {erros}'
-  #   self.label_3.text = f'Processando: {process}'
+  def contadores(self, items):
+    sucessos = 0
+    erros = 0
+    process = 0
+    novos = 0
+    for i in items:
+      if i['status'] == 'C':
+        sucessos += 1
+      elif i['status'] == 'E':
+        erros += 1
+      elif i['status'] == 'I':
+        process += 1
+      else:
+        novos += 1
+    self.label_1.text = f'Sucessos: {sucessos}'
+    self.label_2.text = f'Erros: {erros}'
+    self.label_3.text = f'Processando: {process}'
+    self.label_4.text = f'Novos: {novos}'
