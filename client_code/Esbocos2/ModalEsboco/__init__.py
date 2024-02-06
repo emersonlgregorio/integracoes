@@ -12,12 +12,12 @@ class ModalEsboco(ModalEsbocoTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.getItems(self.item['DocEntry'], self.item['ObjType'])
-    # Any code you write here will run before the form opens.
+  #   self.getItems(self.item['DocEntry'], self.item['ObjType'])
+  #   # Any code you write here will run before the form opens.
 
-  def getItems(self,docentry, objtype):
-    filtro = f"""
-                where i."DocEntry" = {docentry}
-	              AND i."ObjType" = {objtype}
-              """
-    self.repeating_panel_1.items = anvil.server.call('get_drafts_items', filtro)
+  # def getItems(self,docentry, objtype):
+  #   filtro = f"""
+  #               where i."DocEntry" = {docentry}
+	 #              AND i."ObjType" = {objtype}
+  #             """
+  #   self.repeating_panel_1.items = anvil.server.call('get_drafts_items', filtro)
