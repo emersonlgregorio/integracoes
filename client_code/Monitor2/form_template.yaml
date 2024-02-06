@@ -26,6 +26,7 @@ components:
       properties: {placeholder: Unidade, include_placeholder: true}
       type: DropDown
       layout_properties: {grid_position: 'TXSXUU,ZDZDEG'}
+      event_bindings: {change: search2}
     - name: drop_down_rota
       properties:
         items: [AlteraNumeracao, AlteraPesoRomEntrada, AplicacoesFarmbox, EntradaSementes,
