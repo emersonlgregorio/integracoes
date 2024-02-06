@@ -18,25 +18,46 @@ class Monitor2(Monitor2Template):
     self.date_picker_data.date = datetime.date.today()
     self.date_picker_data_change()
     self.set_event_handler('x-refresh', self.date_picker_data_change)
+    self.drop_down_status.items = [
+      ("Erros", "E"),
+      ("Novos", "O"),
+      ("Processando", "I"),
+      ("Sucessos", "C")
+    ]
+    self.drop_down_unidade.items = [
+      ("Colorado","3"),
+      ("Curupai","5"),
+      ("Arm.Germ.BRA","11"),
+      ("Germ. Sementes","7"),
+      ("Arm.Germ.TGA","8"),
+      ("Querência","1"),
+      ("Que.Emp.TGA","9"),
+      ("Que.Emp.CJO","10"),
+      ("Promissão","2"),
+      ("São Carlos","4"),
+    ]
+    
+  
 
   def search2(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     self.text_box_search.text = ""  
     f1 = self.date_picker_data.date.strftime("%d/%m/%Y")
-    f2 = f1+" 00:00:00"
-    f3 = f1+" 23:59:59"
-    f4 = self.drop_down_rota.selected_value
-    f5 = self.drop_down_status.selected_value
+    dtInicial = f1+" 00:00:00"
+    dtFinal = f1+" 23:59:59"
+    rota = self.drop_down_rota.selected_value
+    status = self.drop_down_status.selected_value
+    unidade = self.drop_down_unidade.selected_value
 
-    if f1 and f4 and f5:
+    if f1 and f4 and f5 and f6:
       filtro = f"""
                   where DATA_CRIACAO >= TO_date('{f2}', 'DD-MM-YYYY HH24:MI:SS') 
                     AND DATA_CRIACAO <= TO_date('{f3}', 'DD-MM-YYYY HH24:MI:SS')
-                    AND ROTA = '{f4}' AND STATUS = '{f5}'
+                    AND ROTA = '{f4}' AND STATUS = '{f5}' AND m.filial = '{f6}'
                 """
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
-    elif f1 and f4 and not f5:
+    elif f1 and f4 and not f5 and not f6:
       filtro = f"""
                   where DATA_CRIACAO >= TO_date('{f2}', 'DD-MM-YYYY HH24:MI:SS') 
                     AND DATA_CRIACAO <= TO_date('{f3}', 'DD-MM-YYYY HH24:MI:SS')
@@ -44,7 +65,7 @@ class Monitor2(Monitor2Template):
                 """
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
-    elif f1 and not f4 and not f5:
+    elif f1 and not f4 and not f5 and not f6:
       filtro = f"""
                   where DATA_CRIACAO >= TO_date('{f2}', 'DD-MM-YYYY HH24:MI:SS') 
                     AND DATA_CRIACAO <= TO_date('{f3}', 'DD-MM-YYYY HH24:MI:SS')

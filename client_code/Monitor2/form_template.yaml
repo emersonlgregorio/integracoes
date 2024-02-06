@@ -7,7 +7,7 @@ components:
   data_bindings: []
   components:
   - name: column_panel_1
-    properties: {col_widths: '{"RWJDET":15,"HLEOMR":20,"UWBWGL":23,"MLZRLO":12,"NNXHUV":9}'}
+    properties: {col_widths: '{"RWJDET":15,"HLEOMR":20,"UWBWGL":15,"MLZRLO":12,"NNXHUV":9,"ZDZDEG":18}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'ACBWYR,LKEZQB', full_width_row: false}
     components:
@@ -22,12 +22,16 @@ components:
       layout_properties: {grid_position: 'TXSXUU,MLZRLO'}
       data_bindings: []
       event_bindings: {change: search2}
+    - name: drop_down_unidade
+      properties: {placeholder: Unidade, include_placeholder: true}
+      type: DropDown
+      layout_properties: {grid_position: 'TXSXUU,ZDZDEG'}
     - name: drop_down_rota
       properties:
         items: [AlteraNumeracao, AlteraPesoRomEntrada, AplicacoesFarmbox, EntradaSementes,
           NotaFiscalEntrada, NotaFiscalSaida, NotaTerceiro, RetornoNotaFiscal, RetornoTerceiro,
           RomaneioEntrada, RomSaidaGraosParceria, SaidaAbastecimento, SaidaTransferencia]
-        placeholder: Escolha a rota
+        placeholder: Rota
         include_placeholder: true
         align: full
       type: DropDown
@@ -36,7 +40,7 @@ components:
       data_bindings: []
     - name: drop_down_status
       properties:
-        placeholder: Escolha o Status
+        placeholder: Status
         items: [C, E, I, O]
         include_placeholder: true
         align: full
@@ -58,7 +62,7 @@ components:
       - {id: ZJPWOX, data_key: tipoEntrada, title: T.E., width: 47, expand: false}
       - {id: VITNKK, data_key: criacao, title: Criação, width: '150', expand: false}
       - {id: OALCCK, data_key: documento, title: Documento, width: '150', expand: false}
-      - {id: WUFDHG, data_key: filial, title: Filial, expand: false, width: '150'}
+      - {id: WUFDHG, data_key: filial, title: Unidade, expand: false, width: '150'}
       - {id: MUMTIF, data_key: status, title: Status, width: '50', expand: false}
       - {id: IQELXQ, data_key: column_10, title: Ações, width: '60', expand: false}
       visible: true
