@@ -19,4 +19,4 @@ class RowTemplate3(RowTemplate3Template):
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     modal = ModalEsboco(item=self.item)
-    alert(modal, large=True, title="Dados da Integração", buttons=[])
+    alert(modal, large=True, title="Dados do Esboço", buttons=[])
