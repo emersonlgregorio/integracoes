@@ -11,7 +11,7 @@ components:
     layout_properties: {grid_position: 'TZHFAH,NRPRBL'}
     components:
     - name: label_1
-      properties: {text: 'Parceiro:', role: text, align: right}
+      properties: {text: 'Parceiro:', role: null, align: right}
       type: Label
       layout_properties: {grid_position: 'LQIQXH,WXNFTW'}
     - name: text_box_1
@@ -28,7 +28,7 @@ components:
     - name: label_2
       properties: {text: 'Data lançamento:
 
-          ', align: right, role: text}
+          ', align: right, role: null}
       type: Label
       layout_properties: {grid_position: 'XEDFTV,MJKFLY'}
     - name: text_box_2
@@ -66,11 +66,7 @@ components:
     properties: {}
     type: ColumnPanel
     layout_properties: {grid_position: 'APRZRY,EHLLZG'}
-    components:
-    - name: input_label_1
-      properties: {}
-      type: form:InputLabel
-      layout_properties: {grid_position: 'DUJRYO,IRWNZO'}
+    components: []
 - name: column_panel_content
   properties: {role: card}
   type: ColumnPanel

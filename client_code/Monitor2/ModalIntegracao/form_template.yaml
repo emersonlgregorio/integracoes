@@ -32,6 +32,6 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''mensagem'']', writeback: false}
 is_package: true
-custom_component: true
+custom_component: false
 properties:
 - {name: item, type: object, important: true, default_binding_prop: true, description: Item Integracao}
