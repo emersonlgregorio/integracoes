@@ -66,6 +66,11 @@ components:
     properties: {}
     type: ColumnPanel
     layout_properties: {grid_position: 'APRZRY,EHLLZG'}
+    components:
+    - name: input_label_1
+      properties: {}
+      type: form:InputLabel
+      layout_properties: {grid_position: 'DUJRYO,IRWNZO'}
 - name: column_panel_content
   properties: {role: card}
   type: ColumnPanel
