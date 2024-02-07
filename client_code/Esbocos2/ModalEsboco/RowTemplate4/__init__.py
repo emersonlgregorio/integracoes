@@ -12,5 +12,8 @@ class RowTemplate4(RowTemplate4Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.spacing_above = 'none'
+    self.spacing_below = 'none'
+    self.row_spacing = '1px'
 
     # Any code you write here will run before the form opens.
