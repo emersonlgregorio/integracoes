@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: column_panel_header
-  properties: {}
+  properties: {role: card}
   type: ColumnPanel
   layout_properties: {grid_position: 'OKNOIN,OVIZJQ'}
   components:
@@ -67,7 +67,7 @@ components:
     type: ColumnPanel
     layout_properties: {grid_position: 'APRZRY,EHLLZG'}
 - name: column_panel_content
-  properties: {}
+  properties: {role: card}
   type: ColumnPanel
   layout_properties: {grid_position: 'HNFVXB,FPRFVH'}
   components:
@@ -89,7 +89,7 @@ components:
       layout_properties: {}
     layout_properties: {grid_position: 'UJQIPB,ENRQFI'}
 - name: column_panel_footer
-  properties: {}
+  properties: {role: card}
   type: ColumnPanel
   layout_properties: {grid_position: 'OMTUZC,NVBFSV'}
 is_package: true

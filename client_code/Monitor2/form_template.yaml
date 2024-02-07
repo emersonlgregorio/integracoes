@@ -3,7 +3,7 @@ components:
 - name: content_panel
   properties: {}
   type: ColumnPanel
-  layout_properties: {grid_position: 'BINZAP,XMOOOJ', full_width_row: true}
+  layout_properties: {grid_position: 'HXVKPL,PCXEDN'}
   data_bindings: []
   components:
   - name: column_panel_1
@@ -54,29 +54,33 @@ components:
       type: Button
       layout_properties: {grid_position: 'TXSXUU,NNXHUV'}
       event_bindings: {click: search2}
-  - name: data_grid_1
-    properties:
-      columns:
-      - {id: JKSDUP, title: Seq_Planilha, data_key: seqPlanilha, width: 111, expand: false}
-      - {id: VJQQOR, title: Rota, data_key: rota, expand: false, width: 187}
-      - {id: OJLQEN, title: Op., data_key: operacao, width: 45, expand: false}
-      - {id: ZJPWOX, data_key: tipoEntrada, title: T.E., width: 47, expand: false}
-      - {id: VITNKK, data_key: criacao, title: Criação, width: '150', expand: false}
-      - {id: OALCCK, data_key: documento, title: Documento, width: '150', expand: false}
-      - {id: WUFDHG, data_key: filial, title: Unidade, expand: false, width: '150'}
-      - {id: MUMTIF, data_key: status, title: Status, width: '50', expand: false}
-      - {id: IQELXQ, data_key: column_10, title: Ações, width: '60', expand: false}
-      visible: true
-      spacing_below: small
-      spacing_above: small
-      rows_per_page: 12
-    type: DataGrid
-    layout_properties: {grid_position: 'RXPVIT,NFPKKC', full_width_row: false}
+  - name: card_1
+    properties: {role: card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'KVPEDE,CIVGHE'}
     components:
-    - name: repeating_panel_1
-      properties: {item_template: Monitor2.RowTemplate1}
-      type: RepeatingPanel
-      layout_properties: {pinned: false}
+    - name: data_grid_1
+      properties:
+        columns:
+        - {id: JKSDUP, title: Seq_Planilha, data_key: seqPlanilha, width: 111, expand: false}
+        - {id: VJQQOR, title: Rota, data_key: rota, expand: true, width: 187}
+        - {id: OJLQEN, title: Op., data_key: operacao, width: 47, expand: false}
+        - {id: ZJPWOX, data_key: tipoEntrada, title: T.E., width: 47, expand: false}
+        - {id: VITNKK, data_key: criacao, title: Criação, width: '150', expand: false}
+        - {id: OALCCK, data_key: documento, title: Documento, width: 104, expand: false}
+        - {id: WUFDHG, data_key: filial, title: Unidade, expand: false, width: 78}
+        - {id: MUMTIF, data_key: status, title: Status, width: 64, expand: false}
+        - {id: IQELXQ, data_key: column_10, title: Ações, width: '60', expand: false}
+        visible: true
+        spacing_below: small
+        spacing_above: small
+        rows_per_page: 12
+      type: DataGrid
+      layout_properties: {grid_position: 'YWFZYJ,JIBWQA'}
+      components:
+      - name: repeating_panel_1
+        properties: {item_template: Monitor2.RowTemplate1}
+        type: RepeatingPanel
   - name: label_1
     properties: {text: ''}
     type: Label
