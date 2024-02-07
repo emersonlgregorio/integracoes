@@ -23,11 +23,10 @@ class ModalEsboco(ModalEsbocoTemplate):
                 where i."DocEntry" = {docentry}
 	              AND i."ObjType" = '{objtype}'
               """
-    print(filtro)
     dados = anvil.server.call('get_drafts_items', filtro)
     i = 0
     for d in dados:
-      dados[i]['LineTotal'] = f"{int(d['LineTotal']):.2f}"
+      dados[i]['Quantity'] = f"{int(d['Quantity']):.4f}"
+      dados[i]['LineTotal'] = f"{int(d['LineTotal']):.6f}"
       i += 1
-    print(json.dumps(dados,indent=4))
     self.repeating_panel_1.items = dados
