@@ -1,3 +1,24 @@
+/* CUSTOM CSS */
+
+
+.anvil-role-wide-dg .data-grid-child-panel {
+  overflow-x: auto;
+}
+
+.anvil-role-wide-dg .anvil-data-row-panel {
+  flex-wrap: nowrap;
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+
+
+.anvil-role-wide-dg .anvil-panel-section-gutter {
+  flex-wrap: wrap;
+  min-width: -moz-min-content;
+  min-width: min-content;
+}
+
+
 /**
  This CSS implements the Material Design look and feel for Anvil apps.
  **/

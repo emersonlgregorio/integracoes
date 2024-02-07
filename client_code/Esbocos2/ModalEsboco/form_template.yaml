@@ -74,20 +74,25 @@ components:
   - name: data_grid_1
     properties:
       columns:
-      - {id: JKSDUP, title: Código, data_key: ItemCode, width: 105, expand: false}
-      - {id: VJQQOR, title: Nome, data_key: Dscription}
-      - {id: OJLQEN, title: Qtde, data_key: Quantity}
-      - {id: QEWALB, data_key: Um, title: UM}
-      - {id: PPXOXR, data_key: Currency, title: Moeda}
-      - {id: KDNKTO, data_key: LineTotal, title: Total}
+      - {id: JKSDUP, title: Código, data_key: ItemCode, width: '90', expand: false}
+      - {id: VJQQOR, title: Nome, data_key: Dscription, width: '500', expand: false}
+      - {id: OJLQEN, title: Qtde, data_key: Quantity, width: '100', expand: false}
+      - {id: QEWALB, data_key: Um, title: UM, width: '40', expand: false}
+      - {id: PPXOXR, data_key: Currency, title: Moeda, width: '60', expand: false}
+      - {id: KDNKTO, data_key: LineTotal, title: Total, width: '100', expand: false}
+      - {id: BRFWPU, data_key: WhsCode, title: Depósito, width: '80'}
+      - {id: RYVMSW, data_key: AcctCode, title: Conta Contabíl, width: 143, expand: false}
+      - {id: XUUGQI, data_key: TaxCode, title: Cód. Imposto, width: '110'}
+      - {id: VOXANR, data_key: Usage, title: Utilização, width: '100'}
+      role: wide-dg
     type: DataGrid
     components:
     - name: repeating_panel_1
       properties: {item_template: Esbocos2.ModalEsboco.RowTemplate4, spacing_below: none,
-        spacing_above: none}
+        spacing_above: none, role: null}
       type: RepeatingPanel
       layout_properties: {}
-    layout_properties: {grid_position: 'UJQIPB,ENRQFI'}
+    layout_properties: {grid_position: 'SITBVB,KCPGLH'}
 - name: column_panel_footer
   properties: {role: card}
   type: ColumnPanel

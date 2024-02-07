@@ -12,6 +12,7 @@ class ModalEsboco(ModalEsbocoTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.width = '80%'
     self.getItems(self.item['DocEntry'], self.item['ObjType'])
     
     # Any code you write here will run before the form opens.
