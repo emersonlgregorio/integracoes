@@ -1,18 +1,18 @@
 container: {type: ColumnPanel}
 components:
-- name: flow_panel_1
+- name: grid_panel_1
   properties: {}
-  type: FlowPanel
-  layout_properties: {grid_position: 'EBDAVQ,YBXXGP'}
+  type: GridPanel
+  layout_properties: {grid_position: 'YNHYEC,PRQXCB'}
   components:
   - name: label_1
     properties: {text: 'Parceiro:', role: null, align: right, spacing_below: none}
     type: Label
-    layout_properties: {}
+    layout_properties: {row: YZTURR, width_xs: 1, col_xs: 0}
   - name: text_box_1
     properties: {border: 1px, role: dense, spacing_below: none}
     type: TextBox
-    layout_properties: {width: 571}
+    layout_properties: {row: YZTURR, width_xs: 6, col_xs: 1}
     data_bindings:
     - {property: text, code: 'self.item[''CardName'']', writeback: false}
   - name: label_2
@@ -20,11 +20,16 @@ components:
 
         ', align: right, role: null, spacing_below: none}
     type: Label
-    layout_properties: {}
+    layout_properties: {row: YZTURR, width_xs: 2, col_xs: 8}
   - name: text_box_2
     properties: {spacing_below: none}
     type: TextBox
-    layout_properties: {width: 120}
+    layout_properties: {row: YZTURR, width_xs: 2, col_xs: 10}
+- name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'EBDAVQ,YBXXGP'}
+  components:
   - name: label_3
     properties: {text: 'Nfe nro:
 
