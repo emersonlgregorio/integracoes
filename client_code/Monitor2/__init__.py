@@ -42,7 +42,7 @@ class Monitor2(Monitor2Template):
     status = self.drop_down_status.selected_value
     status = status if status != None else ''
     unidade = self.drop_down_unidade.selected_value
-    unidada = unidade if unidade != None else ''
+    unidade = unidade if unidade != None else ''
     seqPlanilha = self.text_box_search.text
     seqPlanilha = seqPlanilha if seqPlanilha != None else ''
     
@@ -57,9 +57,9 @@ class Monitor2(Monitor2Template):
                     AND (rota = '{rota}' or '{rota}' is null or '{rota}' = '')
                     AND (status = '{status}' or '{status}' is null or '{status}' = '')
                     AND (m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
-                    AND (m.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '')
+                    AND (ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '')
                 """
-      print(filtro)
+      # print(filtro)
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
     else:

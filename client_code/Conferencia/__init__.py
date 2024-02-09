@@ -25,13 +25,15 @@ class Conferencia(ConferenciaTemplate):
     deposito = self.drop_down_deposito.selected_value
     deposito = deposito if deposito != None else ''
     filtro = f"""
-        where (DATA_MOV_ORIGEM = to_date('{data}','YYYY/MM/DD HH24:MI:SS') 
+        where (data_mov_origem = to_date('{data}','YYYY/MM/DD HH24:MI:SS') 
           or to_date('{data}','YYYY/MM/DD HH24:MI:SS') is null 
           or to_date('{data}','YYYY/MM/DD HH24:MI:SS') = '')
           and
-          (DEPOSITO_ORIGEM = '{deposito}' or '{deposito}' is null or '{deposito}' = '')
+          (deposito_origem = '{deposito}' or '{deposito}' is null or '{deposito}' = '')
     """
-    print(filtro)
-    self.repeating_panel_1.items = anvil.server.call('movimentacoes', filtro)
+    retorno = anvil.server.call('movimentos', filtro)
+    print(retorno)
+    self.repeating_panel_1.items = retorno
+    self.flow_panel_2.visible = True
   
   

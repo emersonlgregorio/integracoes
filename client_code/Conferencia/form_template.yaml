@@ -23,9 +23,13 @@ components:
   - name: data_grid_1
     properties:
       columns:
-      - {id: JKSDUP, title: Column 1, data_key: column_1}
-      - {id: VJQQOR, title: Column 2, data_key: column_2}
-      - {id: OJLQEN, title: Column 3, data_key: column_3}
+      - {id: JKSDUP, title: SeqPlanilha, data_key: id_origem}
+      - {id: VJQQOR, title: Status, data_key: status_origem}
+      - {id: OJLQEN, title: Modulo Origem, data_key: modulo_origem}
+      - {id: KCUTIF, data_key: qtde_origem, title: Qtde Origem}
+      - {id: WVEQXX, data_key: deposito_origem, title: Dep Origem}
+      - {id: LEJMKM, data_key: deposito_destino, title: Dep Destino}
+      - {id: RRUSMC, data_key: qtde_destino, title: Qtde Destino}
     type: DataGrid
     components:
     - name: repeating_panel_1
