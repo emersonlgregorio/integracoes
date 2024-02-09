@@ -1,59 +1,58 @@
 container: {type: ColumnPanel}
 components:
+- name: flow_panel_1
+  properties: {align: center, background: 'theme:Gray 300'}
+  type: FlowPanel
+  layout_properties: {grid_position: 'GCQKSQ,YWCQUU'}
+  components:
+  - name: text_box_search
+    properties: {placeholder: Digite a Seq_planilha, align: center}
+    type: TextBox
+    layout_properties: {width: 127}
+    event_bindings: {pressed_enter: search}
+  - name: date_picker_data
+    properties: {placeholder: Escolha a data, align: center}
+    type: DatePicker
+    layout_properties: {width: 124}
+    data_bindings: []
+    event_bindings: {change: search}
+  - name: drop_down_unidade
+    properties: {placeholder: Unidade, include_placeholder: true}
+    type: DropDown
+    layout_properties: {width: 155.61669999999998}
+    event_bindings: {change: search}
+  - name: drop_down_rota
+    properties:
+      items: [AlteraNumeracao, AlteraPesoRomEntrada, AplicacoesFarmbox, EntradaSementes,
+        NotaFiscalEntrada, NotaFiscalSaida, NotaTerceiro, RetornoNotaFiscal, RetornoTerceiro,
+        RomaneioEntrada, RomSaidaGraosParceria, SaidaAbastecimento, SaidaTransferencia]
+      placeholder: Rota
+      include_placeholder: true
+      align: full
+    type: DropDown
+    layout_properties: {width: 202.883}
+    event_bindings: {change: search}
+    data_bindings: []
+  - name: drop_down_status
+    properties:
+      placeholder: Status
+      items: [C, E, I, O]
+      include_placeholder: true
+      align: full
+    type: DropDown
+    layout_properties: {width: 108.3833}
+    event_bindings: {change: search}
+  - name: button_1
+    properties: {text: '', icon: 'fa:refresh', tooltip: Atualiza dados, role: primary-color,
+      background: 'theme:Secondary 700'}
+    type: Button
+    event_bindings: {click: search}
 - name: content_panel
   properties: {}
   type: ColumnPanel
   layout_properties: {grid_position: 'HXVKPL,PCXEDN'}
   data_bindings: []
   components:
-  - name: column_panel_1
-    properties: {col_widths: '{"RWJDET":15,"HLEOMR":20,"UWBWGL":15,"MLZRLO":12,"NNXHUV":9,"ZDZDEG":18}'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'ACBWYR,LKEZQB', full_width_row: false}
-    components:
-    - name: text_box_search
-      properties: {placeholder: Digite a Seq_planilha, align: center}
-      type: TextBox
-      layout_properties: {grid_position: 'TXSXUU,RWJDET', full_width_row: true}
-      event_bindings: {pressed_enter: search}
-    - name: date_picker_data
-      properties: {placeholder: Escolha a data, align: center}
-      type: DatePicker
-      layout_properties: {grid_position: 'TXSXUU,MLZRLO'}
-      data_bindings: []
-      event_bindings: {change: search2}
-    - name: drop_down_unidade
-      properties: {placeholder: Unidade, include_placeholder: true}
-      type: DropDown
-      layout_properties: {grid_position: 'TXSXUU,ZDZDEG'}
-      event_bindings: {change: search2}
-    - name: drop_down_rota
-      properties:
-        items: [AlteraNumeracao, AlteraPesoRomEntrada, AplicacoesFarmbox, EntradaSementes,
-          NotaFiscalEntrada, NotaFiscalSaida, NotaTerceiro, RetornoNotaFiscal, RetornoTerceiro,
-          RomaneioEntrada, RomSaidaGraosParceria, SaidaAbastecimento, SaidaTransferencia]
-        placeholder: Rota
-        include_placeholder: true
-        align: full
-      type: DropDown
-      layout_properties: {grid_position: 'TXSXUU,HLEOMR'}
-      event_bindings: {change: search2}
-      data_bindings: []
-    - name: drop_down_status
-      properties:
-        placeholder: Status
-        items: [C, E, I, O]
-        include_placeholder: true
-        align: full
-      type: DropDown
-      layout_properties: {grid_position: 'TXSXUU,UWBWGL'}
-      event_bindings: {change: search2}
-    - name: button_1
-      properties: {text: '', icon: 'fa:refresh', tooltip: Atualiza dados, role: primary-color,
-        background: 'theme:Secondary 700'}
-      type: Button
-      layout_properties: {grid_position: 'TXSXUU,NNXHUV'}
-      event_bindings: {click: search2}
   - name: card_1
     properties: {role: card}
     type: ColumnPanel

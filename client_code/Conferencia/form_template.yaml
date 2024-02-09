@@ -9,10 +9,12 @@ components:
     properties: {}
     type: DatePicker
     layout_properties: {width: 124}
+    event_bindings: {change: search}
   - name: drop_down_deposito
     properties: {placeholder: Deposito, include_placeholder: true}
     type: DropDown
     layout_properties: {width: 102}
+    event_bindings: {change: search}
 - name: flow_panel_2
   properties: {background: 'theme:Gray 200'}
   type: FlowPanel
