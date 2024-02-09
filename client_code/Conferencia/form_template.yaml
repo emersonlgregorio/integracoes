@@ -1,20 +1,20 @@
 container: {type: ColumnPanel}
 components:
 - name: flow_panel_1
-  properties: {}
+  properties: {background: 'theme:Gray 300', align: center}
   type: FlowPanel
   layout_properties: {grid_position: 'LSMIDM,JXIWSX'}
   components:
-  - name: date_picker_1
+  - name: date_picker_data
     properties: {}
     type: DatePicker
-    layout_properties: {width: 131}
+    layout_properties: {width: 124}
   - name: drop_down_deposito
-    properties: {}
+    properties: {placeholder: Deposito, include_placeholder: true}
     type: DropDown
-    layout_properties: {width: 130}
+    layout_properties: {width: 102}
 - name: flow_panel_2
-  properties: {}
+  properties: {background: 'theme:Gray 200'}
   type: FlowPanel
   layout_properties: {grid_position: 'HNECHJ,IKBQXZ'}
   components:
