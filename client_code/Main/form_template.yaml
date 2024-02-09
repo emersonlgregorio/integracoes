@@ -38,6 +38,10 @@ components:
     layout_properties: {grid_position: 'KTMCBE,MJGEYE'}
     data_bindings: []
     event_bindings: {click: switch_to_esbocos}
+  - name: link_1
+    properties: {text: Conferência}
+    type: Link
+    layout_properties: {grid_position: 'TIEWET,YBRGXI'}
 - name: headline_main
   properties: {role: subheading, text: CRESTANI}
   type: Label
