@@ -17,6 +17,7 @@ class Conferencia(ConferenciaTemplate):
     # self.date_picker_data.date = datetime.date.today()
     if not self.date_picker_data.date and not self.drop_down_deposito.selected_value:
       self.flow_panel_2.visible = False
+      self.xy_panel_1.visible = False
 
     # Any code you write here will run before the form opens.
   def search(self, **event_args):
@@ -32,8 +33,9 @@ class Conferencia(ConferenciaTemplate):
           (deposito_origem = '{deposito}' or '{deposito}' is null or '{deposito}' = '')
     """
     retorno = anvil.server.call('movimentos', filtro)
-    print(retorno)
+    # print(retorno)
     self.repeating_panel_1.items = retorno
     self.flow_panel_2.visible = True
+    self.xy_panel_1.visible = True
   
   
