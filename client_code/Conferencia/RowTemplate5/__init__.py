@@ -7,6 +7,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..ModalConf import ModalConf
 
 class RowTemplate5(RowTemplate5Template):
   def __init__(self, **properties):
@@ -31,3 +32,9 @@ class RowTemplate5(RowTemplate5Template):
       else:
         self.label_dep_origem.background = "#FFF9C4"
         self.label_dep_destino.background = "#FFF9C4"
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    modal = ModalConf(item=self.item)
+    # alert(modal, large=True, title="Dados da Integração", buttons=[])
+    open_form(modal)

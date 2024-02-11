@@ -45,3 +45,4 @@ components:
   layout_properties: {column: JKSDUP}
   data_bindings:
   - {property: text, code: 'self.item[''id_origem'']', writeback: false}
+  event_bindings: {click: link_1_click}
