@@ -11,16 +11,21 @@ components:
     type: Label
     layout_properties: {}
   - name: text_box_1
-    properties: {}
+    properties: {enabled: true}
     type: TextBox
+    data_bindings:
+    - {property: text, code: 'self.item[''Origem'']', writeback: false}
+    layout_properties: {}
   - name: label_2
     properties: {text: 'Data:'}
     type: Label
     layout_properties: {}
   - name: date_picker_1
-    properties: {}
+    properties: {enabled: true}
     type: DatePicker
     layout_properties: {width: 118}
+    data_bindings:
+    - {property: date, code: '', writeback: false}
   - name: label_3
     properties: {text: 'DocNum:'}
     type: Label
@@ -29,6 +34,8 @@ components:
     properties: {}
     type: TextBox
     layout_properties: {width: 87}
+    data_bindings:
+    - {property: text, code: 'self.item[''DocNum'']', writeback: false}
   - name: label_4
     properties: {text: 'Serial:'}
     type: Label
