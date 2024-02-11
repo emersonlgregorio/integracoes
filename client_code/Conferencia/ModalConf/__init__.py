@@ -14,3 +14,11 @@ class ModalConf(ModalConfTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def getItemsSap(self, **properties):
+    seq_planilha
+    filtro = f"""
+                where i."DocEntry" = {docentry}
+	              AND i."ObjType" = '{objtype}'
+              """
+    dados = anvil.server.call('get_drafts_items', filtro)

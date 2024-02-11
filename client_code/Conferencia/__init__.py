@@ -9,6 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
 
+
 class Conferencia(ConferenciaTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
