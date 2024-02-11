@@ -13,17 +13,24 @@ class ModalConf(ModalConfTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     seqPlanilha = self.item['id_origem']
-    print(seqPlanilha)
     self.getItemsSap(seqPlanilha)
+    self.getItemIntegracao(seqPlanilha)
 
     # Any code you write here will run before the form opens.
 
   def getItemsSap(self, seqPlanilha, **properties):
-    print(seqPlanilha)
     filtro = f"""
                 AND am."U_RSD_IDUnisystem" = '{seqPlanilha}'
               """
     print(filtro)
     dados = anvil.server.call('movimentosSap', filtro)
-    print(dados)
+    self.headline_sap.text = self.headline_sap.text+f' - Documentos econtratos {len(dados)}'
     self.repeating_panel_sap.items = dados
+
+  def getItemIntegracao(self, seqPlanilha, **properties):
+    filtro = f"""
+        WHERE SEQ_PLANILHA = '{seqPlanilha}' 
+    """
+    dados = anvil.server.call('integracoes', filtro)
+    self.headline_3.text = self.headline_3.text + f' - Documentos econtratos {len(dados)}'
+    self.repeating_panel_integracoes.items = dados
