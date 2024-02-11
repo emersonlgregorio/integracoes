@@ -9,3 +9,18 @@ components:
   - name: label_1
     properties: {}
     type: Label
+  - name: text_box_1
+    properties: {}
+    type: TextBox
+  - name: label_2
+    properties: {}
+    type: Label
+  - name: text_box_2
+    properties: {}
+    type: TextBox
+  - name: label_3
+    properties: {}
+    type: Label
+  - name: text_box_3
+    properties: {}
+    type: TextBox
