@@ -51,3 +51,18 @@ class ModalConf(ModalConfTemplate):
     self.text_box_qtde.text = origem['qtde']
     self.text_box_deposito.text = origem['deposito']
     self.text_box_destino.text = origem['destino']
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    querySap = f"""
+        
+    """
+    user = anvil.users.get_user
+    print(user.get_id())
+    # queryUni = f"""
+    #     update ac_conf_movimentos
+    #     set 
+    #       data_conferencia = sysdate,
+    #       usuario_conferencia = '{anvil.users.get_user()}'
+    #       obs_conferencia = '{self.text_area_obs.text}'
+    # """
