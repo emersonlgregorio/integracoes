@@ -58,10 +58,13 @@ class ModalConf(ModalConfTemplate):
         
     """
 
+    user = anvil.users.get_user()
+    
     queryUni = f"""
         update ac_conf_movimentos
         set 
           data_conferencia = sysdate,
           usuario_conferencia = '{user['email']}'
           obs_conferencia = '{self.text_area_obs.text}'
+        where id = '{self.item['id']}'
     """
