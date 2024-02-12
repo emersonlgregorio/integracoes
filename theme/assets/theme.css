@@ -1,6 +1,12 @@
 /* CUSTOM CSS */
 
+/*Tamanho do modal*/
+.anvil-role-wide-alert-20vw {
+      width: 60vw;
+  }
 
+
+/*Barra de rolagem*/
 .anvil-role-wide-dg .data-grid-child-panel {
   overflow-x: auto;
 }

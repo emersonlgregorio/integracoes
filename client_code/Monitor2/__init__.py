@@ -31,94 +31,40 @@ class Monitor2(Monitor2Template):
       ("Promissão","2"),
       ("São Carlos","4"),
     ]
-    
-  
-
-  def search2(self, **event_args):
-    """This method is called when the user presses Enter in this text box"""
-    self.text_box_search.text = ""  
-    data = self.date_picker_data.date.strftime("%d/%m/%Y")
-    dtInicial = data+" 00:00:00"
-    dtFinal = data+" 23:59:59"
-    rota = self.drop_down_rota.selected_value
-    status = self.drop_down_status.selected_value
-    unidade = self.drop_down_unidade.selected_value
-
-    if data and rota and status and unidade: #Verifica se todos os filtros estão selecionados
-      filtro = f"""
-                  where DATA_CRIACAO >= TO_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') 
-                    AND DATA_CRIACAO <= TO_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
-                    AND ROTA = '{rota}' AND STATUS = '{status}' AND m.filial = '{unidade}'
-                """
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif data and rota and not status and not unidade: #verifica se DATA e ROTA estão selecionados
-      filtro = f"""
-                  where DATA_CRIACAO >= TO_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') 
-                    AND DATA_CRIACAO <= TO_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
-                    AND ROTA = '{rota}'
-                """
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif data and not rota and not status and not unidade: #verifica se só Data está selecionada
-      filtro = f"""
-                  where DATA_CRIACAO >= TO_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') 
-                    AND DATA_CRIACAO <= TO_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
-                """
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif data and not rota and status and not unidade: #verifica se DATA  e STATUS estão selecionados.
-      filtro = f"""
-                  where DATA_CRIACAO >= TO_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') 
-                    AND DATA_CRIACAO <= TO_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
-                    AND STATUS = '{status}'
-                """
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif data and not rota and not status and unidade: #verifica se DATA  e UNIDADE estão selecionados.
-      filtro = f"""
-                  where DATA_CRIACAO >= TO_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') 
-                    AND DATA_CRIACAO <= TO_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
-                    AND filial = '{unidade}'
-                """
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif not data and not rota and not status and not unidade:
-      Notification('Informe pelo menos 1 filtro (data, rota ou status)')
-      self.contadores(self.repeating_panel_1.items)
-    elif not data and rota and not status and not unidade:
-      filtro = f"""where rota = {rota}"""
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif not data and not rota and status and not unidade:
-      filtro = f"""where status = {status}"""
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif not data and not rota and not status and unidade:
-      filtro = f"""where filial = {unidade}"""
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif not data and rota and status and not unidade:
-      filtro = f"""where status = {status} and rota = {rota}"""
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif not data and rota and not status and unidade:
-      filtro = f"""where filial = {unidade} and rota = {rota}"""
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif not data and not rota and status and unidade:
-      filtro = f"""where status = {status} and filial = {unidade}"""
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-    elif not data and rota and status and unidade:
-      filtro = f"""where status = {status} and filial = {unidade} and rota = {rota}"""
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
-
   
   def search(self, **event_args):
-    self.repeating_panel_1.items = anvil.server.call('get_seqPlanilha', self.text_box_search.text)
-
+    """This method is called when the user presses Enter in this text box"""
+    data = self.date_picker_data.date.strftime("%d/%m/%Y")
+    dtInicial = data+" 00:00:00" if data != None else ''
+    dtFinal = data+" 23:59:59" if data != None else ''
+    rota = self.drop_down_rota.selected_value
+    rota = rota if rota != None else ''
+    status = self.drop_down_status.selected_value
+    status = status if status != None else ''
+    unidade = self.drop_down_unidade.selected_value
+    unidade = unidade if unidade != None else ''
+    seqPlanilha = self.text_box_search.text
+    seqPlanilha = seqPlanilha if seqPlanilha != None else ''
+    
+    if data or rota or status or unidade or seqPlanilha: #Verifica se todos os filtros estão selecionados
+      filtro = f"""
+                  where (DATA_CRIACAO >= to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS')
+                        or to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') is null 
+                        or to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') = '')
+                    AND (DATA_CRIACAO <= to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
+                        or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') is null
+                        or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') = '')
+                    AND (rota = '{rota}' or '{rota}' is null or '{rota}' = '')
+                    AND (status = '{status}' or '{status}' is null or '{status}' = '')
+                    AND (m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
+                    AND (ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '')
+                """
+      # print(filtro)
+      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
+      self.contadores(self.repeating_panel_1.items)
+    else:
+      alert("Informar pelo menos 1 filtro")
+      
   def date_picker_data_change(self, **event_args):
     """This method is called when the selected date changes"""
     hoje = self.date_picker_data.date.strftime("%d/%m/%Y")

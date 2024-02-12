@@ -9,6 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..Monitor2 import Monitor2
 from ..Esbocos2 import Esbocos2
+from ..Conferencia import Conferencia
 
 class Main(MainTemplate):
   def __init__(self, **properties):
@@ -41,6 +42,15 @@ class Main(MainTemplate):
     self.headline_main.text = 'CRESTANI | Documentos em Esboço no SAP'
     self.deselect_all_links()
     self.esboco_link.role = 'selected'
+
+  def switch_to_conferencia(self, **event_args):
+    """Switch to the Gallery view."""
+    self.content_panel.clear()
+    self.content_panel.add_component(Conferencia(), full_width_row=True)
+    self.headline_1.scroll_into_view()
+    self.headline_main.text = 'CRESTANI | Conferência'
+    self.deselect_all_links()
+    self.conferencia_link.role = 'selected'
 
   def deselect_all_links(self):
     """Reset all the roles on the navbar links."""
