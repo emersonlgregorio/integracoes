@@ -57,12 +57,11 @@ class ModalConf(ModalConfTemplate):
     querySap = f"""
         
     """
-    user = anvil.users.get_user
-    print(user.get_id())
-    # queryUni = f"""
-    #     update ac_conf_movimentos
-    #     set 
-    #       data_conferencia = sysdate,
-    #       usuario_conferencia = '{anvil.users.get_user()}'
-    #       obs_conferencia = '{self.text_area_obs.text}'
-    # """
+
+    queryUni = f"""
+        update ac_conf_movimentos
+        set 
+          data_conferencia = sysdate,
+          usuario_conferencia = '{user['email']}'
+          obs_conferencia = '{self.text_area_obs.text}'
+    """
