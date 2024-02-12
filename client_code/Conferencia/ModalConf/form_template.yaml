@@ -19,7 +19,7 @@ components:
       type: Label
       layout_properties: {}
     - name: text_box_seqPlanilha
-      properties: {}
+      properties: {enabled: false}
       type: TextBox
       layout_properties: {width: 123}
       data_bindings: []
@@ -28,7 +28,7 @@ components:
       type: Label
       layout_properties: {}
     - name: text_box_nrDocumento
-      properties: {}
+      properties: {enabled: false}
       type: TextBox
       layout_properties: {width: 59}
       data_bindings: []
@@ -37,15 +37,16 @@ components:
       type: Label
       layout_properties: {}
     - name: text_box_tipo
-      properties: {}
+      properties: {enabled: false}
       type: TextBox
       data_bindings: []
+      layout_properties: {}
     - name: label_4
       properties: {text: 'Data:'}
       type: Label
       layout_properties: {}
     - name: date_picker_data
-      properties: {date: null}
+      properties: {date: null, enabled: false}
       type: DatePicker
       layout_properties: {width: 132}
       data_bindings: []
@@ -59,7 +60,7 @@ components:
       type: Label
       layout_properties: {}
     - name: text_box_item
-      properties: {}
+      properties: {enabled: false}
       type: TextBox
       layout_properties: {width: 325}
     - name: label_6
@@ -67,7 +68,7 @@ components:
       type: Label
       layout_properties: {}
     - name: text_box_qtde
-      properties: {}
+      properties: {enabled: false}
       type: TextBox
       layout_properties: {width: 119}
     - name: label_7
@@ -75,7 +76,7 @@ components:
       type: Label
       layout_properties: {}
     - name: text_box_deposito
-      properties: {}
+      properties: {enabled: false}
       type: TextBox
       layout_properties: {width: 92}
     - name: label_8
@@ -83,7 +84,7 @@ components:
       type: Label
       layout_properties: {}
     - name: text_box_destino
-      properties: {}
+      properties: {enabled: false}
       type: TextBox
       layout_properties: {width: 89}
 - name: column_panel_2
@@ -164,9 +165,9 @@ components:
     layout_properties: {grid_position: 'WCSTUD,UDWYOT'}
     components:
     - name: date_picker_data_conf
-      properties: {pick_time: true}
+      properties: {pick_time: true, format: '%d/%m/%Y %H:%M:%S', enabled: false}
       type: DatePicker
-      layout_properties: {width: 153}
+      layout_properties: {width: 230}
       data_bindings:
       - {property: date, code: 'self.item[''data_conferencia'']', writeback: false}
     - name: label_10
@@ -174,7 +175,7 @@ components:
       type: Label
       layout_properties: {}
     - name: text_box_1
-      properties: {}
+      properties: {enabled: false}
       type: TextBox
       data_bindings:
       - {property: text, code: 'self.item[''usuario_conferencia'']', writeback: false}
@@ -191,7 +192,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'SXIOJQ,LKEUXL'}
     - name: text_area_obs
-      properties: {height: 144}
+      properties: {height: 144, enabled: false}
       type: TextArea
       layout_properties: {grid_position: 'VLOKVJ,OIASQI'}
       data_bindings:
@@ -201,14 +202,9 @@ components:
     type: FlowPanel
     layout_properties: {grid_position: 'ZXKWWF,ZZAFLB'}
     components:
-    - name: button_1
+    - name: button_conf
       properties: {text: Confirmar, align: right, role: primary-color, bold: true}
       type: Button
       layout_properties: {}
-      event_bindings: {click: button_1_click}
-    - name: button_2
-      properties: {text: Cancelar, role: primary-color, background: '#f80b0b', foreground: 'theme:White',
-        bold: true, border: ''}
-      type: Button
-      layout_properties: {}
+      event_bindings: {click: button_conf_click}
 is_package: true

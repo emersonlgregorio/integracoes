@@ -36,4 +36,4 @@ class RowTemplate5(RowTemplate5Template):
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     modal = ModalConf(item=self.item)
-    alert(modal, large=True, role= 'wide-alert-20vw',title="Dados da Integração", buttons=[("OK","ok"),("CANCEL", 'cancel')] )
+    alert(modal, large=True, role= 'wide-alert-20vw',title="Dados da Integração", buttons=[("OK","ok")] )

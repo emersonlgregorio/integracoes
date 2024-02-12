@@ -16,6 +16,12 @@ class ModalConf(ModalConfTemplate):
     self.getItemsSap(seqPlanilha)
     self.getItemIntegracao(seqPlanilha)
     self.getItemOrigem(seqPlanilha)
+    if self.item['data_conferencia'] == None:
+      self.button_conf.visible = True
+      self.text_area_obs.enabled = True
+    else:
+      self.button_conf.visible = False
+      self.item['data_conferencia'].strftime("%d/%m/%Y")
 
     # Any code you write here will run before the form opens.
 
@@ -52,7 +58,7 @@ class ModalConf(ModalConfTemplate):
     self.text_box_deposito.text = origem['deposito']
     self.text_box_destino.text = origem['destino']
 
-  def button_1_click(self, **event_args):
+  def button_conf_click(self, **event_args):
     """This method is called when the button is clicked"""
     querySap = f"""
         
