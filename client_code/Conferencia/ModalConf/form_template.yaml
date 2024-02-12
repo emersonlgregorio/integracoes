@@ -1,6 +1,6 @@
 container: {type: ColumnPanel}
 components:
-- name: column_panel_1
+- name: column_panel_origem
   properties: {}
   type: ColumnPanel
   layout_properties: {grid_position: 'XRLNQT,FBNJON'}
@@ -19,46 +19,37 @@ components:
       properties: {text: Seq_Planilha}
       type: Label
       layout_properties: {}
-    - name: text_box_1
+    - name: text_box_seqPlanilha
       properties: {}
       type: TextBox
       layout_properties: {width: 123}
+      data_bindings: []
     - name: label_2
       properties: {text: Nro Documento}
       type: Label
       layout_properties: {}
-    - name: text_box_2
+    - name: text_box_nrDocumento
       properties: {}
       type: TextBox
       layout_properties: {width: 59}
+      data_bindings: []
     - name: label_3
       properties: {text: 'Tipo:'}
       type: Label
       layout_properties: {}
-    - name: text_box_3
+    - name: text_box_tipo
       properties: {}
       type: TextBox
+      data_bindings: []
     - name: label_4
       properties: {text: 'Data:'}
       type: Label
       layout_properties: {}
-    - name: date_picker_1
-      properties: {}
+    - name: date_picker_data
+      properties: {date: null}
       type: DatePicker
       layout_properties: {width: 132}
-  - name: flow_panel_3
-    properties: {}
-    type: FlowPanel
-    layout_properties: {grid_position: 'ZJMZBT,GAYURW'}
-    components:
-    - name: label_9
-      properties: {text: 'Empresa:'}
-      type: Label
-      layout_properties: {}
-    - name: text_box_8
-      properties: {}
-      type: TextBox
-      layout_properties: {width: 532}
+      data_bindings: []
   - name: flow_panel_2
     properties: {}
     type: FlowPanel
@@ -68,30 +59,31 @@ components:
       properties: {text: 'Item:'}
       type: Label
       layout_properties: {}
-    - name: text_box_4
+    - name: text_box_item
       properties: {}
       type: TextBox
+      layout_properties: {width: 325}
     - name: label_6
       properties: {text: 'Qtde:'}
       type: Label
       layout_properties: {}
-    - name: text_box_5
+    - name: text_box_qtde
       properties: {}
       type: TextBox
       layout_properties: {width: 119}
     - name: label_7
-      properties: {text: 'Armazem:'}
+      properties: {text: 'Depósito:'}
       type: Label
       layout_properties: {}
-    - name: text_box_6
+    - name: text_box_deposito
       properties: {}
       type: TextBox
-      layout_properties: {width: 193}
+      layout_properties: {width: 92}
     - name: label_8
-      properties: {text: 'DePara Deposito:'}
+      properties: {text: 'Destino:'}
       type: Label
       layout_properties: {}
-    - name: text_box_7
+    - name: text_box_destino
       properties: {}
       type: TextBox
       layout_properties: {width: 89}
@@ -109,10 +101,26 @@ components:
     type: FlowPanel
     layout_properties: {grid_position: 'ZIDSKV,XFNRDK'}
     components:
-    - name: repeating_panel_sap
-      properties: {item_template: Conferencia.ModalConf.ItemTemplate2}
-      type: RepeatingPanel
-      layout_properties: {width: 962}
+    - name: data_grid_2
+      properties:
+        columns:
+        - {id: JKSDUP, title: Data, data_key: DocDate, width: 106, expand: false}
+        - {id: VJQQOR, title: Transação, data_key: Origem, width: 188, expand: false}
+        - {id: OJLQEN, title: DocNum, data_key: DocNum, width: 79, expand: false}
+        - {id: HMPRRO, data_key: Serial, title: Serial, width: 65, expand: false}
+        - {id: BCTIDF, data_key: Canceled, title: Status, width: 57, expand: false}
+        - {id: SJHTCW, data_key: ItemName, title: Item, width: 259, expand: false}
+        - {id: IRIKGP, data_key: Quantity, title: Qtde, width: 128, expand: false}
+        - {id: PFHNWV, data_key: WhsCode, title: Depósito, width: 83, expand: false}
+        role: wide-dg
+        background: theme:Gray 200
+      type: DataGrid
+      components:
+      - name: repeating_panel_sap
+        properties: {item_template: Conferencia.ModalConf.RowTemplate8, visible: true}
+        type: RepeatingPanel
+        layout_properties: {}
+      layout_properties: {width: 966}
 - name: column_panel_3
   properties: {}
   type: ColumnPanel
@@ -136,10 +144,13 @@ components:
       - {id: UYBUUG, data_key: status, title: Status, width: 61, expand: false}
       - {id: MEYTNJ, data_key: Tipo Entrada, title: T.E., width: 40, expand: false}
       - {id: MFXRLA, data_key: outros_dados, title: Mensagem}
+      background: theme:Gray 200
+      role: wide-dg
     type: DataGrid
     components:
     - name: repeating_panel_integracoes
-      properties: {item_template: Conferencia.ModalConf.RowTemplate6}
+      properties: {item_template: Conferencia.ModalConf.RowTemplate6, role: wide-dg}
       type: RepeatingPanel
+      layout_properties: {}
     layout_properties: {width: 965.567}
 is_package: true
