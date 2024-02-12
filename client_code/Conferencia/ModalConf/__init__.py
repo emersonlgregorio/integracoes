@@ -64,7 +64,8 @@ class ModalConf(ModalConfTemplate):
         update ac_conf_movimentos
         set 
           data_conferencia = sysdate,
-          usuario_conferencia = '{user['email']}'
+          usuario_conferencia = '{user['email']}',
           obs_conferencia = '{self.text_area_obs.text}'
         where id = '{self.item['id']}'
     """
+    anvil.server.call('executeOracle', queryUni)
