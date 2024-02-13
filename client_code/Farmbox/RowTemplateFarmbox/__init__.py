@@ -1,4 +1,5 @@
-from ._anvil_designer import RowTemplate_Farmbox
+from ._anvil_designer import RowTemplateFarmboxTemplate
+from ._anvil_designer import RowTemplateFarmbox
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -9,7 +10,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..ModalConf import ModalConf
 
-class RowTemplate_Farmbox(RowTemplateFarmbox()):
+class RowTemplateFarmbox(RowTemplateFarmbox):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -20,12 +21,12 @@ class RowTemplate_Farmbox(RowTemplateFarmbox()):
     #   self.background = "#C8E6C9"
     # else:
     #   if self.item['qtde_origem'] == self.item['qtde_destino']:
-    #     self.label_qtde_origem.background = "#C8E6C9" 
-    #     self.label_qtde_destino.background = "#C8E6C9" 
-    #   else: 
-    #     self.label_qtde_origem.background = "#FFF9C4" 
-    #     self.label_qtde_destino.background = "#FFF9C4" 
-        
+    #     self.label_qtde_origem.background = "#C8E6C9"
+    #     self.label_qtde_destino.background = "#C8E6C9"
+    #   else:
+    #     self.label_qtde_origem.background = "#FFF9C4"
+    #     self.label_qtde_destino.background = "#FFF9C4"
+
     #   if self.item['deposito_origem'] == self.item['deposito_destino']:
     #     self.label_dep_origem.background = "#C8E6C9"
     #     self.label_dep_destino.background = "#C8E6C9"

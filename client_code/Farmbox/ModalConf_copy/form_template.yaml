@@ -1,0 +1,210 @@
+container: {type: ColumnPanel}
+components:
+- name: column_panel_origem
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'XRLNQT,FBNJON'}
+  components:
+  - name: headline_1
+    properties: {role: subheading, text: Sistema Origem - Unisystem, bold: true, background: '#67d5c3'}
+    type: Label
+    layout_properties: {grid_position: 'WWZEGZ,CVKEOH'}
+  - name: flow_panel_1
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'OEIFSH,LRYTEL'}
+    components:
+    - name: label_1
+      properties: {text: Seq_Planilha}
+      type: Label
+      layout_properties: {}
+    - name: text_box_seqPlanilha
+      properties: {enabled: false}
+      type: TextBox
+      layout_properties: {width: 123}
+      data_bindings: []
+    - name: label_2
+      properties: {text: Nro Documento}
+      type: Label
+      layout_properties: {}
+    - name: text_box_nrDocumento
+      properties: {enabled: false}
+      type: TextBox
+      layout_properties: {width: 59}
+      data_bindings: []
+    - name: label_3
+      properties: {text: 'Tipo:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_tipo
+      properties: {enabled: false}
+      type: TextBox
+      data_bindings: []
+      layout_properties: {}
+    - name: label_4
+      properties: {text: 'Data:'}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_data
+      properties: {date: null, enabled: false}
+      type: DatePicker
+      layout_properties: {width: 132}
+      data_bindings: []
+  - name: flow_panel_2
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'IYOCKV,OZAVBJ'}
+    components:
+    - name: label_5
+      properties: {text: 'Item:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_item
+      properties: {enabled: false}
+      type: TextBox
+      layout_properties: {width: 325}
+    - name: label_6
+      properties: {text: 'Qtde:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_qtde
+      properties: {enabled: false}
+      type: TextBox
+      layout_properties: {width: 119}
+    - name: label_7
+      properties: {text: 'Depósito:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_deposito
+      properties: {enabled: false}
+      type: TextBox
+      layout_properties: {width: 92}
+    - name: label_8
+      properties: {text: 'Destino:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_destino
+      properties: {enabled: false}
+      type: TextBox
+      layout_properties: {width: 89}
+- name: column_panel_2
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'FACKMS,RBZOPR'}
+  components:
+  - name: headline_sap
+    properties: {role: subheading, text: Sistema Destino - SAP, bold: true, background: '#67D5C3'}
+    type: Label
+    layout_properties: {grid_position: 'NQAZSR,QXUNCM'}
+  - name: flow_panel_4
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'ZIDSKV,XFNRDK'}
+    components:
+    - name: data_grid_2
+      properties:
+        columns:
+        - {id: JKSDUP, title: Data, data_key: DocDate, width: 106, expand: false}
+        - {id: VJQQOR, title: Transação, data_key: Origem, width: 188, expand: false}
+        - {id: OJLQEN, title: DocNum, data_key: DocNum, width: 79, expand: false}
+        - {id: HMPRRO, data_key: Serial, title: Serial, width: 65, expand: false}
+        - {id: BCTIDF, data_key: Canceled, title: Status, width: 57, expand: false}
+        - {id: SJHTCW, data_key: ItemName, title: Item, width: 259, expand: false}
+        - {id: IRIKGP, data_key: Quantity, title: Qtde, width: 128, expand: false}
+        - {id: PFHNWV, data_key: WhsCode, title: Depósito, width: 83, expand: false}
+        role: wide-dg
+        background: theme:Gray 200
+      type: DataGrid
+      components:
+      - name: repeating_panel_sap
+        properties: {item_template: Conferencia.ModalConf.RowTemplate8, visible: true}
+        type: RepeatingPanel
+        layout_properties: {}
+      layout_properties: {width: 966}
+- name: column_panel_3
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'ATADBJ,FUGCZY'}
+  components:
+  - name: headline_3
+    properties: {role: subheading, text: Integrações, bold: true, background: '#67D5C3'}
+    type: Label
+    layout_properties: {grid_position: 'OVLYUT,ROGZJW'}
+  - name: data_grid_1
+    properties:
+      columns:
+      - {id: JKSDUP, title: Data, data_key: data_criacao, width: 190, expand: false}
+      - {id: OJLQEN, title: Rota, data_key: rota, width: 202, expand: false}
+      - {id: CLCAOD, data_key: operacao, title: Op., width: 44, expand: false}
+      - {id: UYBUUG, data_key: status, title: Status, width: 61, expand: false}
+      - {id: MEYTNJ, data_key: Tipo Entrada, title: T.E., width: 40, expand: false}
+      - {id: MFXRLA, data_key: outros_dados, title: Mensagem}
+      background: theme:Gray 200
+      role: wide-dg
+    type: DataGrid
+    components:
+    - name: repeating_panel_integracoes
+      properties: {item_template: Conferencia.ModalConf.RowTemplate6, role: wide-dg}
+      type: RepeatingPanel
+      layout_properties: {}
+    layout_properties: {grid_position: 'SBYMMX,CCQZYN'}
+- name: column_panel_conf
+  properties: {background: ''}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'DYRHXO,BEDBED'}
+  components:
+  - name: headline_2
+    properties: {role: subheading, text: 'Conferência
+
+        ', bold: true, background: '#67D5C3'}
+    type: Label
+    layout_properties: {grid_position: 'RMRCIZ,MUKORK'}
+  - name: flow_panel_3
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'WCSTUD,UDWYOT'}
+    components:
+    - name: date_picker_data_conf
+      properties: {pick_time: true, format: '%d/%m/%Y %H:%M:%S', enabled: false}
+      type: DatePicker
+      layout_properties: {width: 230}
+      data_bindings:
+      - {property: date, code: 'self.item[''data_conferencia'']', writeback: false}
+    - name: label_10
+      properties: {text: 'Usuário que fez a conferência:', bold: true}
+      type: Label
+      layout_properties: {}
+    - name: text_box_1
+      properties: {enabled: false}
+      type: TextBox
+      data_bindings:
+      - {property: text, code: 'self.item[''usuario_conferencia'']', writeback: false}
+      layout_properties: {width: 424}
+  - name: column_panel_4
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'ITSPDP,EFXXBX'}
+    components:
+    - name: label_9
+      properties: {text: 'Descrição da solução:
+
+          ', spacing_below: none, spacing_above: none}
+      type: Label
+      layout_properties: {grid_position: 'SXIOJQ,LKEUXL'}
+    - name: text_area_obs
+      properties: {height: 144, enabled: false}
+      type: TextArea
+      layout_properties: {grid_position: 'VLOKVJ,OIASQI'}
+      data_bindings:
+      - {property: text, code: 'self.item[''obs_conferencia'']', writeback: false}
+  - name: flow_panel_5
+    properties: {align: right}
+    type: FlowPanel
+    layout_properties: {grid_position: 'ZXKWWF,ZZAFLB'}
+    components:
+    - name: button_conf
+      properties: {text: Confirmar, align: right, role: primary-color, bold: true}
+      type: Button
+      layout_properties: {}
+      event_bindings: {click: button_conf_click}
+is_package: true
