@@ -52,6 +52,15 @@ class Main(MainTemplate):
     self.deselect_all_links()
     self.conferencia_link.role = 'selected'
 
+  def switch_to_confFarmbox(self, **event_args):
+    """Switch to the Gallery view."""
+    self.content_panel.clear()
+    self.content_panel.add_component(Conferencia(), full_width_row=True)
+    self.headline_1.scroll_into_view()
+    self.headline_main.text = 'CRESTANI | Conferência Farmbox'
+    self.deselect_all_links()
+    self.conferencia_link.role = 'selected'
+    
   def deselect_all_links(self):
     """Reset all the roles on the navbar links."""
     for link in self.home_link, self.monitor_link, self.esboco_link:

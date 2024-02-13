@@ -33,7 +33,7 @@ class Farmbox(FarmboxTemplate):
           and
           (deposito_origem = '{deposito}' or '{deposito}' is null or '{deposito}' = '')
     """
-    retorno = anvil.server.call('movimentos', filtro)
+    retorno = anvil.server.call('movFarmbox', filtro)
     # print(retorno)
     self.repeating_panel_1.items = retorno
     self.flow_panel_2.visible = True
