@@ -4,45 +4,46 @@ container:
   properties: {align: center}
 components:
 - name: label_2
-  properties: {align: center, border: 2px}
+  properties: {align: left, border: 2px}
   type: Label
   layout_properties: {column: VJQQOR}
   data_bindings:
-  - {property: text, code: 'self.item[''status_origem'']', writeback: false}
+  - {property: text, code: 'self.item[''status'']', writeback: false}
 - name: label_3
-  properties: {align: center}
+  properties: {align: left}
   type: Label
   layout_properties: {column: OJLQEN}
   data_bindings:
-  - {property: text, code: 'self.item[''modulo_origem'']', writeback: false}
-- name: label_qtde_origem
-  properties: {align: right}
-  type: Label
-  layout_properties: {column: KCUTIF}
-  data_bindings:
-  - {property: text, code: 'self.item[''qtde_origem'']', writeback: false}
-- name: label_dep_origem
-  properties: {align: center}
-  type: Label
-  layout_properties: {column: WVEQXX}
-  data_bindings:
-  - {property: text, code: 'self.item[''deposito_origem'']', writeback: false}
-- name: label_dep_destino
-  properties: {visible: true, align: center}
-  type: Label
-  layout_properties: {column: LEJMKM}
-  data_bindings:
-  - {property: text, code: 'self.item[''deposito_destino'']', writeback: false}
+  - {property: text, code: 'self.item[''numero'']', writeback: false}
 - name: label_qtde_destino
-  properties: {align: right}
+  properties: {align: left}
   type: Label
   layout_properties: {column: RRUSMC}
   data_bindings:
-  - {property: text, code: 'self.item[''qtde_destino'']', writeback: false}
+  - {property: text, code: 'self.item[''id_sap'']', writeback: false}
 - name: link_1
-  properties: {align: center}
+  properties: {align: left}
   type: Link
   layout_properties: {column: JKSDUP}
   data_bindings:
-  - {property: text, code: 'self.item[''id_origem'']', writeback: false}
+  - {property: text, code: 'self.item[''id_farmbox'']', writeback: false}
   event_bindings: {click: link_1_click}
+- name: date_picker_1
+  properties: {date: null, format: '%d/%m/%y %H:%M:%S', pick_time: true, align: left,
+    enabled: false}
+  type: DatePicker
+  layout_properties: {column: KCUTIF}
+  data_bindings:
+  - {property: date, code: 'self.item[''data_criacao'']', writeback: false}
+- name: date_picker_2
+  properties: {align: left, format: '%d/%m/%y %H:%M:%S', pick_time: true, enabled: false}
+  type: DatePicker
+  layout_properties: {column: WVEQXX}
+  data_bindings:
+  - {property: date, code: 'self.item[''data_encerramento'']', writeback: false}
+- name: date_picker_3
+  properties: {align: left, format: '%d/%m/%y %H:%M:%S', pick_time: true, enabled: false}
+  type: DatePicker
+  layout_properties: {column: LEJMKM}
+  data_bindings:
+  - {property: date, code: 'self.item[''ultima_alteracao'']', writeback: false}

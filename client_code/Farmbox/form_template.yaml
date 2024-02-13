@@ -10,50 +10,20 @@ components:
     type: DatePicker
     layout_properties: {width: 124}
     event_bindings: {change: search}
-  - name: drop_down_deposito
-    properties: {placeholder: Deposito, include_placeholder: true}
+  - name: text_box_ap
+    properties: {placeholder: digite a ap, align: center}
+    type: TextBox
+    layout_properties: {}
+    event_bindings: {change: search, pressed_enter: search}
+  - name: drop_down_status
+    properties:
+      placeholder: status
+      items: [finalized, destroyed]
+      include_placeholder: true
+      align: center
     type: DropDown
-    layout_properties: {width: 102}
+    layout_properties: {width: 139}
     event_bindings: {change: search}
-- name: xy_panel_1
-  properties: {height: 33, background: 'theme:Gray 200', spacing_below: none}
-  type: XYPanel
-  layout_properties: {grid_position: 'JIBAYV,EYISEN'}
-  components:
-  - name: label_1
-    properties: {text: Seq_Planilha, align: center, bold: true}
-    type: Label
-    layout_properties: {x: 4, y: 0, width: 85.5}
-  - name: label_2
-    properties: {text: Status, align: center, bold: true}
-    type: Label
-    layout_properties: {x: 99.5, y: 0, width: 56}
-  - name: label_3
-    properties: {text: Mod. Origem, align: center, bold: true}
-    type: Label
-    layout_properties: {x: 219.5, y: 0, width: 108}
-  - name: label_4
-    properties: {text: 'Qtde Origem
-
-        ', align: right, bold: true}
-    type: Label
-    layout_properties: {x: 421.5, y: 0, width: 147}
-  - name: label_5
-    properties: {text: Dep Origem, align: center, bold: true}
-    type: Label
-    layout_properties: {x: 586.5, y: 0, width: 89}
-  - name: label_6
-    properties: {text: 'Dep Destino
-
-        ', align: center, bold: true}
-    type: Label
-    layout_properties: {x: 685.5, y: 0, width: 87}
-  - name: label_7
-    properties: {align: right, text: 'Qtde Destino
-
-        ', bold: true}
-    type: Label
-    layout_properties: {x: 780, y: 0, width: 187}
 - name: flow_panel_2
   properties: {background: 'theme:Gray 200', spacing_below: none, spacing_above: none}
   type: FlowPanel
@@ -62,14 +32,16 @@ components:
   - name: data_grid_1
     properties:
       columns:
-      - {id: JKSDUP, title: SeqPlanilha, data_key: id_origem, width: 97, expand: false}
+      - {id: JKSDUP, title: ID, data_key: id_origem, width: 97, expand: false}
       - {id: VJQQOR, title: Status, data_key: status_origem, width: 63, expand: false}
-      - {id: OJLQEN, title: Modulo Origem, data_key: modulo_origem, width: 220, expand: false}
-      - {id: KCUTIF, data_key: qtde_origem, title: Qtde Origem, width: 194, expand: false}
-      - {id: WVEQXX, data_key: deposito_origem, title: Dep Origem, width: 104, expand: false}
-      - {id: LEJMKM, data_key: deposito_destino, title: Dep Destino, width: 104, expand: false}
-      - {id: RRUSMC, data_key: qtde_destino, title: Qtde Destino}
-      auto_header: false
+      - {id: OJLQEN, title: Nro AP, data_key: modulo_origem, width: 102, expand: false}
+      - {id: KCUTIF, data_key: qtde_origem, title: Data Criação, width: 201, expand: false}
+      - {id: WVEQXX, data_key: deposito_origem, title: Data Fechamento, width: 195,
+        expand: false}
+      - {id: LEJMKM, data_key: deposito_destino, title: Ultima Atualização, width: 192,
+        expand: false}
+      - {id: RRUSMC, data_key: qtde_destino, title: Id SAP}
+      auto_header: true
       rows_per_page: 10
       show_page_controls: true
       spacing_below: none

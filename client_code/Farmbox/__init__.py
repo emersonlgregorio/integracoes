@@ -16,23 +16,41 @@ class Farmbox(FarmboxTemplate):
     self.init_components(**properties)
     self.date_picker_data.format = "%d/%m/%Y"
     # self.date_picker_data.date = datetime.date.today()
-    if not self.date_picker_data.date and not self.drop_down_deposito.selected_value:
-      self.flow_panel_2.visible = False
-      self.xy_panel_1.visible = False
+    # if not self.date_picker_data.date and not self.drop_down_deposito.selected_value:
+    #   self.flow_panel_2.visible = False
+    #   self.xy_panel_1.visible = False
 
     # Any code you write here will run before the form opens.
   def search(self, **event_args):
-    data = self.date_picker_data.date
-    data = data if data != None else ''
-    deposito = self.drop_down_deposito.selected_value
-    deposito = deposito if deposito != None else ''
+    data = str(self.date_picker_data.date)
+    status = self.drop_down_status.selected_value
+    status = status if status != None else ''
+    
+    if data == 'None':
+      dataInicial = ''
+      dataFinal = ''
+    else:
+      dataInicial = data+' 00:00:00'
+      dataFinal = data+' 23:59:59'
+      
+      
+    ap = self.text_box_ap.text
+    ap = ap if ap != None else ''
+    
     filtro = f"""
-        where (data_mov_origem = to_date('{data}','YYYY/MM/DD HH24:MI:SS')
-          or to_date('{data}','YYYY/MM/DD HH24:MI:SS') is null
-          or to_date('{data}','YYYY/MM/DD HH24:MI:SS') = '')
+        where (ultima_alteracao >= to_date('{dataInicial}','YYYY/MM/DD HH24:MI:SS')
+          or to_date('{dataInicial}','YYYY/MM/DD HH24:MI:SS') is null
+          or to_date('{dataInicial}','YYYY/MM/DD HH24:MI:SS') = '')
           and
-          (deposito_origem = '{deposito}' or '{deposito}' is null or '{deposito}' = '')
+          (ultima_alteracao <= to_date('{dataFinal}','YYYY/MM/DD HH24:MI:SS')
+          or to_date('{dataFinal}','YYYY/MM/DD HH24:MI:SS') is null
+          or to_date('{dataFinal}','YYYY/MM/DD HH24:MI:SS') = '')
+          and
+          (numero = '{ap}' or '{ap}' is null or '{ap}' = '')
+          and 
+          (status = '{status}' or '{status}' is null or '{status}' = '')
     """
+    print(filtro)
     retorno = anvil.server.call('movFarmbox', filtro)
     # print(retorno)
     self.repeating_panel_1.items = retorno
