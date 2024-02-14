@@ -25,11 +25,25 @@ class RowTemplate1(RowTemplate1Template):
 
   def button_reprocessar_click(self, **event_args):
     """This method is called when the button is clicked"""
-    anvil.server.call('reprocessar', self.item['id_integracao'])
+    if self.item['rota'] == 'AplicacoesFarmbox':
+      self.reprocessarFarmbox(self.item['seqPlanilha'])
+    else:
+      anvil.server.call('reprocessar', self.item['id_integracao'])
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     modal = ModalIntegracao(item=self.item)
     alert(modal, large=True, title="Dados da Integração", buttons=[])
     
+  def reprocessarFarmbox(self,idFarmbox, **event_args):
+    url = "https://crestani.api.integrasky.cloud/GJ9fZFjNbe"
+    payload = json.dumps({
+      "id": {idFarmbox}
+    })
+    headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic Zmxvdy1HSjlmWkZqTmJlQGNyZXN0YW5pOlNlbmhhQDIwMjMj'
+    }
+    response = requests.request("POST", url, headers=headers, data=payload)
 
+  

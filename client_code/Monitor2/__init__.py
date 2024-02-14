@@ -59,7 +59,7 @@ class Monitor2(Monitor2Template):
                     AND (m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
                     AND (ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '')
                 """
-      # print(filtro)
+      print(filtro)
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
     else:
