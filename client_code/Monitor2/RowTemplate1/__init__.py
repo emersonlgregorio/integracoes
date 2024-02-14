@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.users
 import anvil.server
+import json
 from ..ModalIntegracao import ModalIntegracao
 
 class RowTemplate1(RowTemplate1Template):
@@ -37,13 +38,17 @@ class RowTemplate1(RowTemplate1Template):
     
   def reprocessarFarmbox(self,idFarmbox, **event_args):
     url = "https://crestani.api.integrasky.cloud/GJ9fZFjNbe"
-    payload = json.dumps({
+    payload = {
       "id": {idFarmbox}
-    })
+    }
     headers = {
       'Content-Type': 'application/json',
       'Authorization': 'Basic Zmxvdy1HSjlmWkZqTmJlQGNyZXN0YW5pOlNlbmhhQDIwMjMj'
     }
-    response = requests.request("POST", url, headers=headers, data=payload)
+    try:
+      anvil.http.request(url=url, method="POST", data=payload,
+                         headers=headers)
+    except anvil.http.HttpError as e:
+      print(f"Error {e.status}")
 
   
