@@ -16,3 +16,9 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''seqPlanilha'']', writeback: false}
   event_bindings: {click: link_1_click}
+- name: date_picker_1
+  properties: {pick_time: true, format: '%d/%m/%y %H:%M:%S', enabled: false}
+  type: DatePicker
+  layout_properties: {column: VITNKK}
+  data_bindings:
+  - {property: date, code: 'self.item[''criacao'']', writeback: false}

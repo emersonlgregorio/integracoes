@@ -65,7 +65,7 @@ components:
         - {id: VJQQOR, title: Rota, data_key: rota, expand: true, width: 187}
         - {id: OJLQEN, title: Op., data_key: operacao, width: 47, expand: false}
         - {id: ZJPWOX, data_key: tipoEntrada, title: T.E., width: 47, expand: false}
-        - {id: VITNKK, data_key: criacao, title: Criação, width: '150', expand: false}
+        - {id: VITNKK, data_key: criacao, title: Criação, width: 200, expand: false}
         - {id: OALCCK, data_key: documento, title: Documento, width: 104, expand: false}
         - {id: WUFDHG, data_key: filial, title: Unidade, expand: false, width: 78}
         - {id: MUMTIF, data_key: status, title: Status, width: 64, expand: false}
