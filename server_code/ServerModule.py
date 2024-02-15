@@ -21,15 +21,16 @@ import anvil.server
 #   return 42
 #
 
-# @anvil.server.callable
-# def reprocessarFarmbox(idFarmbox):
-#   url = "https://crestani.api.integrasky.cloud/GJ9fZFjNbe"
-#   payload = {
-#     "id": {idFarmbox}
-#   }
-#   headers = {
-#     'Content-Type': 'application/json',
-#     'Authorization': 'Basic Zmxvdy1HSjlmWkZqTmJlQGNyZXN0YW5pOlNlbmhhQDIwMjMj'
-#   }
+@anvil.server.callable
+def repFarmbox(idFarmbox, operacao):
+  url = "https://crestani.api.integrasky.cloud/GJ9fZFjNbe"
+  payload = {
+    "id": {idFarmbox},
+    "op": {operacao}
+  }
+  headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Basic Zmxvdy1HSjlmWkZqTmJlQGNyZXN0YW5pOlNlbmhhQDIwMjMj'
+  }
   
-#   anvil.http.request(url=url, method="POST", data=payload, headers=headers)
+  anvil.http.request(url=url, method="POST", data=payload, headers=headers)
