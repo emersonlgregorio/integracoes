@@ -33,4 +33,5 @@ def repFarmbox(idFarmbox, operacao):
     'Authorization': 'Basic Zmxvdy1HSjlmWkZqTmJlQGNyZXN0YW5pOlNlbmhhQDIwMjMj'
   }
   
-  anvil.http.request(url=url, method="POST", data=payload, headers=headers)
+  response = anvil.http.request(url=url, method="POST", data=payload, headers=headers)
+  return response
