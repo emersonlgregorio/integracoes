@@ -39,12 +39,12 @@ components:
     data_bindings: []
     event_bindings: {click: switch_to_esbocos}
   - name: conferencia_link
-    properties: {text: Conferência Unisystem}
+    properties: {text: Conferência Unisystem, visible: false}
     type: Link
     layout_properties: {grid_position: 'TIEWET,YBRGXI'}
     event_bindings: {click: switch_to_conferencia}
   - name: link_1
-    properties: {text: Conferência FarmBox}
+    properties: {text: Conferência FarmBox, visible: false}
     type: Link
     layout_properties: {grid_position: 'IRJQUW,MWLEYN'}
 - name: headline_main
