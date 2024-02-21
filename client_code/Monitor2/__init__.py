@@ -41,10 +41,12 @@ class Monitor2(Monitor2Template):
       data = data.strftime("%d/%m/%Y")
       dtInicial = data+" 00:00:00" if data != None else ''
       dtFinal = data+" 23:59:59" if data != None else ''
+      orderby = "order by data_criacao desc"
     else:
       data = ''
       dtInicial = ''
       dtFinal = ''
+      orderby = "order by nr_documento"
       
     rota = self.drop_down_rota.selected_value
     rota = rota if rota != None else ''
@@ -71,6 +73,7 @@ class Monitor2(Monitor2Template):
                     AND (m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
                     AND ((ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '') or
                          (ai.nr_documento = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = ''))
+                    {orderby}
                 """
       # print(filtro)
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
