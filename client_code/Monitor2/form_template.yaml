@@ -11,7 +11,7 @@ components:
     layout_properties: {width: 127}
     event_bindings: {pressed_enter: search}
   - name: date_picker_data
-    properties: {placeholder: Escolha a data, align: center}
+    properties: {placeholder: Escolha a data, align: center, format: '%d/%m/%Y'}
     type: DatePicker
     layout_properties: {width: 124}
     data_bindings: []

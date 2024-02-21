@@ -35,15 +35,16 @@ class Monitor2(Monitor2Template):
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     data = self.date_picker_data.date 
-    print('primeira', data)
     data = data if data != None else ''
-    print(data)
-    if data != 'None':
+    
+    if data != '':
       data = data.strftime("%d/%m/%Y")
       dtInicial = data+" 00:00:00" if data != None else ''
       dtFinal = data+" 23:59:59" if data != None else ''
     else:
       data = ''
+      dtInicial = ''
+      dtFinal = ''
       
     rota = self.drop_down_rota.selected_value
     rota = rota if rota != None else ''
@@ -68,7 +69,8 @@ class Monitor2(Monitor2Template):
                     AND (rota = '{rota}' or '{rota}' is null or '{rota}' = '')
                     AND (status = '{status}' or '{status}' is null or '{status}' = '')
                     AND (m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
-                    AND (ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '')
+                    AND ((ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '') or
+                         (ai.nr_documento = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = ''))
                 """
       # print(filtro)
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
