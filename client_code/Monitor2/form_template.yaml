@@ -25,7 +25,7 @@ components:
     properties:
       items: [AlteraNumeracao, AlteraPesoRomEntrada, AplicacoesFarmbox, EntradaSementes,
         NotaFiscalEntrada, NotaFiscalSaida, NotaTerceiro, RetornoNotaFiscal, RetornoTerceiro,
-        RomaneioEntrada, RomSaidaGraosParceria, SaidaAbastecimento, SaidaTransferencia]
+        RomaneioEntrada, RomSaida, RomSaidaGraosParceria, SaidaAbastecimento, SaidaTransferencia]
       placeholder: Rota
       include_placeholder: true
       align: full

@@ -46,7 +46,7 @@ class Monitor2(Monitor2Template):
       data = ''
       dtInicial = ''
       dtFinal = ''
-      orderby = "order by nr_documento"
+      orderby = "order by seq_planilha"
       
     rota = self.drop_down_rota.selected_value
     rota = rota if rota != None else ''
