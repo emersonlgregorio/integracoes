@@ -14,10 +14,10 @@ class Monitor2(Monitor2Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     anvil.users.login_with_form()
-    self.date_picker_data.format = "%d/%m/%Y"
-    self.date_picker_data.date = datetime.date.today()
-    self.date_picker_data_change()
-    self.set_event_handler('x-refresh', self.date_picker_data_change)
+    # self.date_picker_data.format = "%d/%m/%Y"
+    # self.date_picker_data.date = datetime.date.today()
+    # self.date_picker_data_change()
+    # self.set_event_handler('x-refresh', self.date_picker_data_change)
 
     self.drop_down_unidade.items = [
       ("Colorado","3"),
@@ -34,15 +34,26 @@ class Monitor2(Monitor2Template):
   
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
-    data = self.date_picker_data.date.strftime("%d/%m/%Y")
-    dtInicial = data+" 00:00:00" if data != None else ''
-    dtFinal = data+" 23:59:59" if data != None else ''
+    data = self.date_picker_data.date 
+    print('primeira', data)
+    data = data if data != None else ''
+    print(data)
+    if data != 'None':
+      data = data.strftime("%d/%m/%Y")
+      dtInicial = data+" 00:00:00" if data != None else ''
+      dtFinal = data+" 23:59:59" if data != None else ''
+    else:
+      data = ''
+      
     rota = self.drop_down_rota.selected_value
     rota = rota if rota != None else ''
+    
     status = self.drop_down_status.selected_value
     status = status if status != None else ''
+    
     unidade = self.drop_down_unidade.selected_value
     unidade = unidade if unidade != None else ''
+    
     seqPlanilha = self.text_box_search.text
     seqPlanilha = seqPlanilha if seqPlanilha != None else ''
     
