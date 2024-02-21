@@ -18,35 +18,48 @@ components:
   type: ColumnPanel
   layout_properties: {slot: left-nav}
   components:
-  - name: headline_1
-    properties: {role: subheading, text: Menu}
-    type: Label
-    layout_properties: {grid_position: 'XBFLET,IWVPKE'}
-  - name: home_link
-    properties: {text: Home, icon: ''}
-    type: Link
-    layout_properties: {grid_position: 'ZZECIV,VUNCMK'}
-    event_bindings: {click: switch_to_home}
-  - name: monitor_link
-    properties: {text: Monitor, icon: ''}
-    type: Link
-    layout_properties: {grid_position: 'PMRTRZ,MIAGDM'}
-    event_bindings: {click: switch_to_monitor}
-  - name: esboco_link
-    properties: {text: Esboços, visible: true}
-    type: Link
-    layout_properties: {grid_position: 'KTMCBE,MJGEYE'}
-    data_bindings: []
-    event_bindings: {click: switch_to_esbocos}
-  - name: conferencia_link
-    properties: {text: Conferência Unisystem, visible: false}
-    type: Link
-    layout_properties: {grid_position: 'TIEWET,YBRGXI'}
-    event_bindings: {click: switch_to_conferencia}
-  - name: link_1
-    properties: {text: Conferência FarmBox, visible: false}
-    type: Link
-    layout_properties: {grid_position: 'IRJQUW,MWLEYN'}
+  - name: card_1
+    properties: {role: card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'IUQQBC,RPZILW'}
+    components:
+    - name: link_home
+      properties: {}
+      type: Link
+      layout_properties: {grid_position: 'AIZIDX,XSNWUA'}
+      components:
+      - name: image_1
+        properties: {height: '68', source: _/theme/logoCrestani.jpeg, display_mode: shrink_to_fit}
+        type: Image
+        layout_properties: {grid_position: 'HVJUKM,TLMIOR', full_width_row: true}
+      event_bindings: {click: switch_to_home}
+  - name: column_panel_2
+    properties: {role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'KLXRCI,LDHUFW'}
+    components:
+    - name: monitor_link
+      properties: {text: Monitor, icon: ''}
+      type: Link
+      layout_properties: {grid_position: 'ODNPVL,ICAWPJ'}
+      event_bindings: {click: switch_to_monitor}
+      components: []
+    - name: esboco_link
+      properties: {text: Esboços, visible: true}
+      type: Link
+      layout_properties: {grid_position: 'LFBYKK,OMXUNL'}
+      data_bindings: []
+      event_bindings: {click: switch_to_esbocos}
+      components: []
+    - name: conferencia_link
+      properties: {text: Conferência Unisystem, visible: false}
+      type: Link
+      layout_properties: {grid_position: 'BGQHXD,WHYKQI'}
+      event_bindings: {click: switch_to_conferencia}
+    - name: link_1
+      properties: {text: Conferência FarmBox, visible: false}
+      type: Link
+      layout_properties: {grid_position: 'KWIXXS,BAXAKM'}
 - name: headline_main
   properties: {role: subheading, text: CRESTANI}
   type: Label
