@@ -8,7 +8,7 @@ components:
   - name: text_box_search
     properties: {placeholder: Planilha ou Documento, align: center}
     type: TextBox
-    layout_properties: {width: 127}
+    layout_properties: {width: 217}
     event_bindings: {pressed_enter: search}
   - name: date_picker_data
     properties: {placeholder: Escolha a data, align: center, format: '%d/%m/%Y'}

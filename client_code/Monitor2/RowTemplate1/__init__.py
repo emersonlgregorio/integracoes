@@ -26,7 +26,8 @@ class RowTemplate1(RowTemplate1Template):
 
   def button_reprocessar_click(self, **event_args):
     """This method is called when the button is clicked"""
-    if self.item['rota'] == 'AplicacoesFarmbox':
+    print(self.item['nome_form'])
+    if self.item['nome_form'] == 'FARMBOX':
       response = anvil.server.call('repFarmbox',self.item['seqPlanilha'], self.item['operacao'])
     else:
       anvil.server.call('reprocessar', self.item['id_integracao'])
