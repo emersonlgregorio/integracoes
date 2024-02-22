@@ -3,34 +3,107 @@ container:
   data_bindings:
   - {property: tag, code: self.item, writeback: false}
 components:
-- name: column_panel_1
+- name: headline_1
+  properties: {role: subheading, text: Dados da Integração, bold: true, background: 'theme:Primary
+      700', foreground: 'theme:Gray 100', align: center}
+  type: Label
+  layout_properties: {grid_position: 'LIUVTY,YLURGT'}
+- name: flow_panel_1
   properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'HRLHZD,KEUPRI'}
+  type: FlowPanel
+  layout_properties: {grid_position: 'DIAURK,MWMUNO'}
   components:
-  - name: text_box_1
-    properties: {text: '', enabled: false}
-    type: TextBox
-    layout_properties: {grid_position: 'XLVFOY,KQMNJN'}
+  - name: label_1
+    properties: {text: Criação}
+    type: Label
+    layout_properties: {}
+  - name: date_picker_1
+    properties: {format: '%d/%m/%y %H:%M:%S', pick_time: true}
+    type: DatePicker
+    layout_properties: {width: 200, expand: true}
     data_bindings:
-    - {property: text, code: 'self.item[''rota'']', writeback: false}
-  - name: text_box_2
-    properties: {enabled: false}
+    - {property: date, code: 'self.item[''criacao'']', writeback: false}
+  - name: label_2
+    properties: {text: Integração}
+    type: Label
+    layout_properties: {}
+  - name: date_picker_2
+    properties: {format: '%d/%m/%y %H:%M:%S', pick_time: true}
+    type: DatePicker
+    layout_properties: {width: 200, expand: true}
+    data_bindings:
+    - {property: date, code: 'self.item[''integracao'']', writeback: false}
+  - name: label_3
+    properties: {text: Ultima Atualização}
+    type: Label
+    layout_properties: {}
+  - name: date_picker_3
+    properties: {format: '%d/%m/%y %H:%M:%S', pick_time: true}
+    type: DatePicker
+    layout_properties: {width: 200, expand: true}
+    data_bindings:
+    - {property: date, code: 'self.item[''alteracao'']', writeback: false}
+- name: flow_panel_4
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'UFJBEC,RIULGS'}
+  components:
+  - name: label_5
+    properties: {text: Planilha}
+    type: Label
+    layout_properties: {}
+  - name: text_box_1
+    properties: {}
     type: TextBox
-    layout_properties: {grid_position: 'ICKOGF,XPOCAN'}
+    layout_properties: {width: 120, expand: true}
+    data_bindings:
+    - {property: text, code: 'self.item[''seqPlanilha'']', writeback: false}
+  - name: label_6
+    properties: {text: Documento}
+    type: Label
+    layout_properties: {}
+  - name: text_box_2
+    properties: {}
+    type: TextBox
+    layout_properties: {width: 134, expand: true}
     data_bindings:
     - {property: text, code: 'self.item[''documento'']', writeback: false}
-- name: column_panel_2
+  - name: label_7
+    properties: {text: Nome_Form}
+    type: Label
+    layout_properties: {}
+  - name: text_box_3
+    properties: {}
+    type: TextBox
+    layout_properties: {width: 118, expand: true}
+    data_bindings:
+    - {property: text, code: 'self.item[''nome_form'']', writeback: false}
+- name: flow_panel_3
   properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'HRLHZD,TIEVJW'}
+  type: FlowPanel
+  layout_properties: {grid_position: 'IMYAMX,AFPZOO'}
   components:
+  - name: label_4
+    properties: {text: 'Mensagem:'}
+    type: Label
+    layout_properties: {}
   - name: text_area_1
-    properties: {enabled: false}
+    properties: {height: 70, auto_expand: true}
     type: TextArea
-    layout_properties: {grid_position: 'UVSGSA,ZTETMC'}
+    layout_properties: {width: 872, expand: true}
     data_bindings:
     - {property: text, code: 'self.item[''mensagem'']', writeback: false}
+- name: headline_2
+  properties: {role: subheading, text: 'Dados origem
+
+      ', background: 'theme:Primary 700', foreground: 'theme:Gray 100', align: center,
+    bold: true}
+  type: Label
+  layout_properties: {grid_position: 'TENUVX,OQALPF'}
+- name: flow_panel_2
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'ADGVMC,SSGZGG'}
 is_package: true
 custom_component: false
 properties:
