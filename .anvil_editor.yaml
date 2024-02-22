@@ -19,9 +19,10 @@ unique_ids:
     Esbocos2: '1707141878658996951737228.4546'
     Conferencia.RowTemplate5: '1707504129187405193076411.0515'
     Esbocos2.ModalEsboco.RowTemplate4: '1707239112809465655958373.7247'
-  modules:
-    Monitor2.Integracoes: '1708638517543568829290409.5316'
-  server_modules: {}
+  modules: {}
+  server_modules:
+    Integracoes: '1708639267455262926729840.1481'
+    ServerModule: '1708638652551845470930278.4292'
   assets:
     logoCrestani.jpeg: '1706274231008168724777938.65894'
     standard-page.html: CUUYZIYK4NU7ZX2XYWS3NWOQUPBAFKD5

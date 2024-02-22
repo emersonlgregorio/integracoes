@@ -1,18 +1,13 @@
-import anvil.server
-import anvil.google.auth, anvil.google.drive
+import anvil.email
+import anvil.secrets
+import anvil.google.auth, anvil.google.drive, anvil.google.mail
 from anvil.google.drive import app_files
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from my_calsses import Oracle
-# This is a module.
-# You can define variables and functions here, and use them from any form. For example, in a top-level form:
-#
-#    from .Monitor2 import Module1
-#
-#    Module1.say_hello()
-#
+import anvil.server
+from my_classes import Oracle
 
 oracle = Oracle()
 
