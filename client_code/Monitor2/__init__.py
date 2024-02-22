@@ -34,6 +34,7 @@ class Monitor2(Monitor2Template):
   
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
+    print('Local Certo')
     data = self.date_picker_data.date 
     data = data if data != None else ''
     
