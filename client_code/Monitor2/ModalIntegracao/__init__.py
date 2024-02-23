@@ -12,5 +12,14 @@ class ModalIntegracao(ModalIntegracaoTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    for p in properties:
+      print(p)
 
     # Any code you write here will run before the form opens.
+    self.origem = [
+      {
+        "id": 1,
+        "descricao": 'DDR5 32Gb 4800Mhz'
+      }
+    ]
+    print(self.origem)
