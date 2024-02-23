@@ -12,21 +12,21 @@ class ModalIntegracao(ModalIntegracaoTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    # for p in properties:
-    #   print(p)
+
+    for p in properties:
+      print(p)
     # Any code you write here will run before the form opens.
     
     dados = anvil.server.call('dadosOrigem', self.item)
-    origem = dados[0]['origem'][0]
-    self.repeating_panel_origem.items = origem
-    destino = dados[0]['destino'][0]
+    self.dados_origem = dados[0]['origem']
+  #   print(self.origem)
+  #   self.destino = dados[0]['destino']
+  #   print(self.destino)
+    
+  @property
+  def origem(self):
+    return self._origem
 
-    
-
-    # print(dados['origem'])
-    
-    
-    
-  # def origem(self, planilha):
-  #   dadosOrigem = anvil.server.call('dadosOrigem', planilha)
-  #   self.repeating_panel_origem.items = dadosOrigem
+  @origem.setter
+  def origem(self):
+    self._origem = self.dados_origem

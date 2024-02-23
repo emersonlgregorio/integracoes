@@ -100,10 +100,24 @@ components:
     bold: false}
   type: Label
   layout_properties: {grid_position: 'TENUVX,OQALPF'}
+- name: flow_panel_5
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'GINXVX,KTMCKF'}
+  components:
+  - name: label_9
+    properties: {text: 'Planilha:'}
+    type: Label
+    layout_properties: {}
+  - name: label_8
+    properties: {}
+    type: Label
+    data_bindings:
+    - {property: text, code: 'self.origem[''seq_planilha'']', writeback: false}
 - name: repeating_panel_origem
   properties: {item_template: Monitor2.ModalIntegracao.ItemTemplate3}
   type: RepeatingPanel
-  layout_properties: {grid_position: 'PWSPEQ,GFJYVJ BZSSZC,BSKXXD'}
+  layout_properties: {grid_position: 'PWSPEQ,GFJYVJ OLDJTR,EUXUZI'}
 - name: headline_3
   properties: {role: subheading, text: Dados Destino, align: center, background: 'theme:Secondary
       500', foreground: 'theme:Gray 100', icon: ''}
@@ -113,13 +127,13 @@ components:
   properties: {}
   type: FlowPanel
   layout_properties: {grid_position: 'YXMDCG,ZVLEGL'}
-  components:
-  - name: label_8
-    properties: {}
-    type: Label
-    data_bindings:
-    - {property: text, code: 'self.item['''']', writeback: false}
+  components: []
+  data_bindings:
+  - {property: tag, code: '', writeback: false}
 is_package: true
-custom_component: false
+custom_component: true
 properties:
-- {name: item, type: object, important: true, default_binding_prop: true, description: Item Integracao}
+- {name: origem, type: object, important: true, default_binding_prop: true}
+- {name: origem_items, type: object, important: true}
+- {name: destino, type: object, important: true}
+- {name: destino_items, type: object, important: true}
