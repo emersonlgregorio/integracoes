@@ -34,23 +34,7 @@ def get_integracoes(filtro = "where status = 'O'"):
     #print(query)
     items = anvil.server.call('oracleSelect',query)
     #print(items)
-    return [
-        {
-            "seqPlanilha": item[0],
-            "rota": item[1],
-            "operacao": item[2],
-            "tipoEntrada": item[3],
-            "mensagem": item[4],
-            "criacao": item[5],
-            "integracao": item[6],
-            "alteracao": item[7],
-            "status": item[8],
-            "id_integracao": item[9],
-            "filial": item[10],
-            "documento": item[11],
-            "nome_form": item[12]
-        } for item in items
-    ]
+    return items
 
 @anvil.server.callable
 def reprocessar(id_integracao):

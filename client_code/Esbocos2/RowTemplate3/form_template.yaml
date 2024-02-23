@@ -5,21 +5,46 @@ container:
   data_bindings: []
 components:
 - name: link_1
-  properties: {}
+  properties: {spacing_below: none, spacing_above: none}
   type: Link
   layout_properties: {column: VJQQOR}
   data_bindings:
   - {property: text, code: 'self.item[''serial'']', writeback: false}
   event_bindings: {click: link_1_click}
 - name: date_picker_1
-  properties: {date: null, format: '%d/%m/%Y', pick_time: true, font_size: null}
+  properties: {date: null, format: '%d/%m/%Y', pick_time: true, font_size: null, spacing_below: none,
+    spacing_above: none}
   type: DatePicker
   layout_properties: {column: JKSDUP}
   data_bindings:
   - {property: date, code: 'self.item[''taxdate'']', writeback: false}
 - name: label_1
-  properties: {}
+  properties: {align: center, spacing_below: none, spacing_above: none}
   type: Label
   layout_properties: {column: KNONTO}
   data_bindings:
   - {property: text, code: 'self.item[''docstatus'']', writeback: false}
+- name: label_2
+  properties: {align: center, spacing_below: none, spacing_above: none}
+  type: Label
+  layout_properties: {column: LQOMIQ}
+  data_bindings:
+  - {property: text, code: 'self.item[''objtype'']', writeback: false}
+- name: label_3
+  properties: {spacing_below: none, spacing_above: none}
+  type: Label
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: text, code: 'self.item[''cardcode'']', writeback: false}
+- name: label_4
+  properties: {spacing_below: none, spacing_above: none}
+  type: Label
+  layout_properties: {column: IQBSWB}
+  data_bindings:
+  - {property: text, code: 'self.item[''cardname'']', writeback: false}
+- name: label_5
+  properties: {spacing_below: none, spacing_above: none}
+  type: Label
+  layout_properties: {column: QGNGDX}
+  data_bindings:
+  - {property: text, code: 'self.item[''vatregnum'']', writeback: false}
