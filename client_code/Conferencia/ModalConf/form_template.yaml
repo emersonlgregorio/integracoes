@@ -208,3 +208,4 @@ components:
       layout_properties: {}
       event_bindings: {click: button_conf_click}
 is_package: true
+custom_component: false

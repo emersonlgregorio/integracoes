@@ -14,11 +14,11 @@ components:
   type: Link
   layout_properties: {column: JKSDUP}
   data_bindings:
-  - {property: text, code: 'self.item[''seqPlanilha'']', writeback: false}
+  - {property: text, code: 'self.item[''seq_planilha'']', writeback: false}
   event_bindings: {click: link_1_click}
 - name: date_picker_1
   properties: {pick_time: true, format: '%d/%m/%y %H:%M:%S', enabled: false}
   type: DatePicker
   layout_properties: {column: VITNKK}
   data_bindings:
-  - {property: date, code: 'self.item[''criacao'']', writeback: false}
+  - {property: date, code: 'self.item[''data_criacao'']', writeback: false}
