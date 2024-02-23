@@ -34,13 +34,13 @@ components:
   - name: data_grid_1
     properties:
       columns:
-      - {id: JKSDUP, title: Data Doc, data_key: taxdate, width: 100, expand: false}
+      - {id: JKSDUP, title: Data Doc, data_key: taxdate, width: 136, expand: false}
       - {id: VJQQOR, title: Nro NFe, data_key: Serial, width: 76, expand: false}
       - {id: OJLQEN, title: Cod. PN, data_key: cardcode, width: 79, expand: false}
-      - {id: IQBSWB, data_key: cardname, title: Nome PN, expand: false, width: 386}
-      - {id: QGNGDX, data_key: vatregnum, title: CNPJ Filial, width: 139, expand: false}
-      - {id: KNONTO, data_key: docstatus, title: Status}
-      - {id: LQOMIQ, data_key: objtype, title: ObjType}
+      - {id: IQBSWB, data_key: cardname, title: Nome PN, expand: false, width: 411}
+      - {id: QGNGDX, data_key: vatregnum, title: CNPJ Filial, width: 134, expand: false}
+      - {id: KNONTO, data_key: docstatus, title: Status, width: 60, expand: false}
+      - {id: LQOMIQ, data_key: objtype, title: ObjType, width: 69, expand: false}
       rows_per_page: 10
       show_page_controls: true
     type: DataGrid
