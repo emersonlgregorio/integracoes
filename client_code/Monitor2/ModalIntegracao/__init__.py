@@ -17,12 +17,14 @@ class ModalIntegracao(ModalIntegracaoTemplate):
     # Any code you write here will run before the form opens.
     
     dados = anvil.server.call('dadosOrigem', self.item)
-    print('item')
-    print(self.item)
-    print('Origem')
-    print(dados[0]['origem'])
+    origem = dados[0]['origem'][0]
+    self.repeating_panel_origem.items = origem
+    destino = dados[0]['destino'][0]
+
+    
+
     # print(dados['origem'])
-    self.repeating_panel_origem.items = dados[0]['origem']
+    
     
     
   # def origem(self, planilha):
