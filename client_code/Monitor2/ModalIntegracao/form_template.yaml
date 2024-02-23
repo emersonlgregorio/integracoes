@@ -1,7 +1,6 @@
 container:
   type: ColumnPanel
-  data_bindings:
-  - {property: tag, code: self.item, writeback: false}
+  data_bindings: []
 components:
 - name: headline_1
   properties: {role: subheading, text: Dados da Integração, bold: false, background: 'theme:Secondary
@@ -108,9 +107,8 @@ components:
   - name: label_8
     properties: {}
     type: Label
-    data_bindings:
-    - {property: text, code: 'self.origem[''seq_planilha'']', writeback: false}
-    - {property: tag, code: self.origem, writeback: false}
+    data_bindings: []
+  data_bindings: []
 is_package: true
 custom_component: true
 properties:
