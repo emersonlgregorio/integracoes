@@ -30,16 +30,14 @@ def get_integracoes(filtro = "where status = 'O'"):
                 FROM  AC_INTEGRACOES ai 
                 LEFT JOIN AC_VW_PROD_MOVIMENTOS m ON ai.SEQ_PLANILHA = m.SEQ_PLANILHA   
                 {filtro} 
-            """
-    #print(query)
+          """
     items = anvil.server.call('oracleSelect',query)
-    #print(items)
     return items
 
 @anvil.server.callable
 def reprocessar(id_integracao):
-    query = f"""
-            UPDATE AC_INTEGRACOES SET DATAHORA_INTEGRACAO = SYSDATE, status = 'O' 
-            WHERE ID_INTEGRACAO = '{id_integracao}'
-    """
-    anvil.server.call('oracleExecute',query)
+  query = f"""
+          UPDATE AC_INTEGRACOES SET DATAHORA_INTEGRACAO = SYSDATE, status = 'O' 
+          WHERE ID_INTEGRACAO = '{id_integracao}'
+      """
+  anvil.server.call('oracleExecute',query)

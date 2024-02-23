@@ -4,8 +4,8 @@ container:
   - {property: tag, code: self.item, writeback: false}
 components:
 - name: headline_1
-  properties: {role: subheading, text: Dados da Integração, bold: true, background: 'theme:Primary
-      700', foreground: 'theme:Gray 100', align: center}
+  properties: {role: subheading, text: Dados da Integração, bold: false, background: 'theme:Secondary
+      500', foreground: 'theme:Gray 100', align: center}
   type: Label
   layout_properties: {grid_position: 'LIUVTY,YLURGT'}
 - name: flow_panel_1
@@ -22,7 +22,7 @@ components:
     type: DatePicker
     layout_properties: {width: 200, expand: true}
     data_bindings:
-    - {property: date, code: 'self.item[''criacao'']', writeback: false}
+    - {property: date, code: 'self.item[''data_criacao'']', writeback: false}
   - name: label_2
     properties: {text: Integração}
     type: Label
@@ -32,7 +32,7 @@ components:
     type: DatePicker
     layout_properties: {width: 200, expand: true}
     data_bindings:
-    - {property: date, code: 'self.item[''integracao'']', writeback: false}
+    - {property: date, code: 'self.item[''datahora_integracao'']', writeback: false}
   - name: label_3
     properties: {text: Ultima Atualização}
     type: Label
@@ -42,7 +42,7 @@ components:
     type: DatePicker
     layout_properties: {width: 200, expand: true}
     data_bindings:
-    - {property: date, code: 'self.item[''alteracao'']', writeback: false}
+    - {property: date, code: 'self.item[''ultima_alteracao'']', writeback: false}
 - name: flow_panel_4
   properties: {}
   type: FlowPanel
@@ -57,7 +57,7 @@ components:
     type: TextBox
     layout_properties: {width: 120, expand: true}
     data_bindings:
-    - {property: text, code: 'self.item[''seqPlanilha'']', writeback: false}
+    - {property: text, code: 'self.item[''seq_planilha'']', writeback: false}
   - name: label_6
     properties: {text: Documento}
     type: Label
@@ -67,7 +67,7 @@ components:
     type: TextBox
     layout_properties: {width: 134, expand: true}
     data_bindings:
-    - {property: text, code: 'self.item[''documento'']', writeback: false}
+    - {property: text, code: 'self.item[''nr_documento'']', writeback: false}
   - name: label_7
     properties: {text: Nome_Form}
     type: Label
@@ -92,12 +92,12 @@ components:
     type: TextArea
     layout_properties: {width: 872, expand: true}
     data_bindings:
-    - {property: text, code: 'self.item[''mensagem'']', writeback: false}
+    - {property: text, code: 'self.item[''outros_dados'']', writeback: false}
 - name: headline_2
   properties: {role: subheading, text: 'Dados origem
 
-      ', background: 'theme:Primary 700', foreground: 'theme:Gray 100', align: center,
-    bold: true}
+      ', background: 'theme:Secondary 500', foreground: 'theme:Gray 100', align: center,
+    bold: false}
   type: Label
   layout_properties: {grid_position: 'TENUVX,OQALPF'}
 - name: flow_panel_2
@@ -105,6 +105,7 @@ components:
   type: FlowPanel
   layout_properties: {grid_position: 'ADGVMC,SSGZGG'}
 is_package: true
-custom_component: false
+custom_component: true
 properties:
-- {name: item, type: object, important: true, default_binding_prop: true, description: Item Integracao}
+- {name: origem, type: object, important: true, default_binding_prop: true, description: Dados de Origem}
+- {name: destino, type: object, important: true, description: Dados de destino}
