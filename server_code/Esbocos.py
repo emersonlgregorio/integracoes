@@ -22,9 +22,24 @@ def get_drafts(filtro="""where o."DocStatus" = 'O'"""):
                             """
   
   items = anvil.server.call('hanaSelect', query)
-  print(items)
-
   return items
+
+  # return [
+  #       {
+  #           "DocDate": item[0].strftime("%d/%m/%Y"),
+  #           "TaxDate": item[1].strftime("%d/%m/%Y"),
+  #           "Serial": item[2],
+  #           "CardCode": item[3],
+  #           "CardName": item[4],
+  #           "BPLid": item[5],
+  #           "BPLName": item[6],
+  #           "VATRegNum": item[7],
+  #           "DocStatus": item[8],
+  #           "DocEntry": item[9],
+  #           "DocType": item[10],
+  #           "ObjType": item[11]
+  #       } for item in items
+  #   ]
 
 
 @anvil.server.callable

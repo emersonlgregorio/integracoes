@@ -9,5 +9,17 @@ components:
   type: Link
   layout_properties: {column: VJQQOR}
   data_bindings:
-  - {property: text, code: 'self.item[''Serial'']', writeback: false}
+  - {property: text, code: 'self.item[''serial'']', writeback: false}
   event_bindings: {click: link_1_click}
+- name: date_picker_1
+  properties: {date: null, format: '%d/%m/%Y', pick_time: true, font_size: null}
+  type: DatePicker
+  layout_properties: {column: JKSDUP}
+  data_bindings:
+  - {property: date, code: 'self.item[''taxdate'']', writeback: false}
+- name: label_1
+  properties: {}
+  type: Label
+  layout_properties: {column: KNONTO}
+  data_bindings:
+  - {property: text, code: 'self.item[''docstatus'']', writeback: false}
