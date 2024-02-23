@@ -109,9 +109,10 @@ components:
     properties: {}
     type: Label
     data_bindings:
-    - {property: text, code: 'self.origem[''id'']', writeback: false}
+    - {property: text, code: 'self.origem[''seq_planilha'']', writeback: false}
+    - {property: tag, code: self.origem, writeback: false}
 is_package: true
 custom_component: true
 properties:
-- {name: origem, type: object, important: true, default_binding_prop: true, description: Dados de Origem}
-- {name: destino, type: object, important: true, description: Dados de destino}
+- {name: origem, type: object, important: true, description: Dados de Origem}
+- {name: destino, type: object, important: true, description: Dados de destino, default_binding_prop: true}

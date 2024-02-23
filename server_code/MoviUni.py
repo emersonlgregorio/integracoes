@@ -9,7 +9,8 @@ from anvil.tables import app_tables
 import anvil.server
 
 @anvil.server.callable
-def dadosOrigem(filtro):
+def dadosOrigem(item):
+  filtro = item['seq_planilha']
   query = f"""
       SELECT
           m.SEQ_PLANILHA,
@@ -23,22 +24,10 @@ def dadosOrigem(filtro):
           m.DESTINO
       FROM AC_VW_PROD_MOVIMENTOS m 
       INNER JOIN produtos p ON m.SEQ_PLA_PRODUTO = p.SEQ_PLA_PRODUTO  
-      {filtro}
+      WHERE m.seq_planilha = '{filtro}'
   """
 
-  items = anvil.server.call('oracleSelect',query)
+  origem = anvil.server.call('oracleSelect',query)
 
-  return [
-      {
-          "seq_planilha": item[0],
-          "nr_documento": item[1],
-          "modulo": item[2],
-          "data_mvto": item[3].strftime("%d/%m/%Y %H:%M"),
-          "item": item[4],
-          "descricao_item": item[5],
-          "qtde": item[6],
-          "deposito": item[7],
-          "destino": item[8]
-      } for item in items
-  ]
+  return origem
 
