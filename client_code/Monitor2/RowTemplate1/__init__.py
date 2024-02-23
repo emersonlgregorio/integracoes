@@ -28,7 +28,7 @@ class RowTemplate1(RowTemplate1Template):
     """This method is called when the button is clicked"""
     print(self.item['nome_form'])
     if self.item['nome_form'] == 'FARMBOX':
-      response = anvil.server.call('repFarmbox',self.item['seqPlanilha'], self.item['operacao'])
+      response = anvil.server.call('repFarmbox',self.item['seq_planilha'], self.item['operacao'])
     else:
       anvil.server.call('reprocessar', self.item['id_integracao'])
 

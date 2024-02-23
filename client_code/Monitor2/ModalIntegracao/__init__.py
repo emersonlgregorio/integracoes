@@ -13,13 +13,5 @@ class ModalIntegracao(ModalIntegracaoTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # self.origem = anvil.server.call('dadosOrigem',self.item)
-    print(self.origem)
-    
-  @property
-  def origem(self):
-    return self.origem
-  
-  @origem.setter
-  def origem(self):
-    self.origem = anvil.server.call('dadosOrigem',self.item)
+
     
