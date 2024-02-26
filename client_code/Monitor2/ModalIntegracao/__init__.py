@@ -11,7 +11,10 @@ from anvil.tables import app_tables
 class ModalIntegracao(ModalIntegracaoTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    self.init_components(**properties)
+    self.origem = {"id": "teste01"}
+    self.init_components(self.origem,**properties)
+    # self.init_components()
     # self.origem = anvil.server.call('dadosOrigem',self.item)
-
+    for p in properties:
+      print(p)
     
