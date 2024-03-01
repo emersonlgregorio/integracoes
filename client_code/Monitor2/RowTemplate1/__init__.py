@@ -17,7 +17,7 @@ class RowTemplate1(RowTemplate1Template):
     if self.item['status'] == 'C':
       self.button_reprocessar.visible = False
       self.background = "#C8E6C9"
-    elif self.item['status'] == 'I':
+    elif self.item['status'] == 'I' or self.item['status'] == 'A':
       self.background = "#FFF9C4"
     elif self.item['status'] == 'E':
       self.background = "#FFCDD2"
