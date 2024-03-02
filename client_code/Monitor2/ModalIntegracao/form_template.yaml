@@ -259,11 +259,11 @@ components:
       properties:
         columns:
         - {id: JKSDUP, title: Codigo, data_key: input_id, width: 94, expand: false}
-        - {id: VJQQOR, title: Descrição, data_key: nomeItem}
-        - {id: OJLQEN, title: Um, data_key: unit, width: 49, expand: false}
-        - {id: XZPSDW, data_key: kind, title: operação, width: 90, expand: false}
+        - {id: VJQQOR, title: Descrição, data_key: nomeItem, width: 308, expand: false}
+        - {id: OJLQEN, title: Quantidade, data_key: value, width: 90, expand: false}
+        - {id: XZPSDW, data_key: unit, title: Um, width: 90, expand: false}
         - {id: CFWLBT, data_key: nomeDeposito, title: Deposito}
-        - {id: KIQWGD, data_key: column_2, title: Column 2}
+        - {id: KIQWGD, data_key: kind, title: Operação}
       type: DataGrid
       components:
       - name: repeating_panel_detalhe

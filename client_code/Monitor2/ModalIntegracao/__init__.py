@@ -17,6 +17,7 @@ class ModalIntegracao(ModalIntegracaoTemplate):
         origem = properties['origem'][0]
       elif p == 'detalhe':
         detalhe = properties['detalhe']
+        print(detalhe)
       
     if self.item['rota'] != 'AplicacoesFarmbox':
       self.origemUnisystem(origem)
