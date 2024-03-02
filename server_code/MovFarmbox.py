@@ -33,7 +33,6 @@ def dadosOrigemFarmbox(filtro):
     "updated_at": f['updated_at'],
     "reopened_reference_id": f['reopened_reference_id']
   }
-  print(mestre)
   movi = []
   movimentations = f['input_movimentations']
   for m in movimentations:
@@ -44,7 +43,6 @@ def dadosOrigemFarmbox(filtro):
   linhas = {
     "input_movimentations": movi
   }
-  print(linhas)
   return mestre, linhas
 
 

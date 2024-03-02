@@ -12,12 +12,13 @@ class ModalIntegracao(ModalIntegracaoTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    # self.origem = anvil.server.call('dadosOrigem',self.item
-    self.preencheOrigem()
-    # print("/n")
-    # print("origem", self.origem[0])
     
-  def preencheOrigem(self):
+  
+  # self.preencheOrigem()
+    
+  def preencheOrigem(self, **properties):
+    self.origem = properties['origem'][0]
+    print(self.origem)
     if self.item['rota'] != 'AplicacoesFarmbox': 
       self.headline_origem.text = 'Origem: UNISYSTEM'
       self.date_picker_data_mvto.date = self.origem['data_mvto']
@@ -30,6 +31,9 @@ class ModalIntegracao(ModalIntegracaoTemplate):
       self.text_box_quantidade.text = self.origem['quantidade']
       self.text_box_modulo.text = self.origem['modulo']
     else:
+      self.origem = properties['origem'][0]
+      self.detalhe = properties['detalhe'][0]
+      print(self.detalhe)
       self.headline_origem.text = 'Origem: FARMBOX'
       self.column_panel_unisystem.visible = False
       self.date_picker_created_at.date = self.origem['created_at']
