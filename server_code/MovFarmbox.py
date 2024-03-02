@@ -22,17 +22,19 @@ def dadosOrigemFarmbox(filtro):
   response = requests.request("GET", url, headers=headers, data=payload)
   f = json.loads(response.text)
 
-  mestre = {
-    "id": f['id'],
-    "code": f['code'],
-    "date": f['date'],
-    "end_date": f['end_date'],
-    "status": f['status'],
-    "closed_date": f['closed_date'],
-    "created_at": f['created_at'],
-    "updated_at": f['updated_at'],
-    "reopened_reference_id": f['reopened_reference_id']
-  }
+  mestre = [
+    { 
+      "id": f['id'],
+      "code": f['code'],
+      "date": f['date'],
+      "end_date": f['end_date'],
+      "status": f['status'],
+      "closed_date": f['closed_date'],
+      "created_at": f['created_at'],
+      "updated_at": f['updated_at'],
+      "reopened_reference_id": f['reopened_reference_id']
+    }
+  ]
   movi = []
   movimentations = f['input_movimentations']
   for m in movimentations:

@@ -14,17 +14,13 @@ class ModalIntegracao(ModalIntegracaoTemplate):
     self.init_components(**properties)
     for i, p in enumerate(properties):
       if p == 'origem':
-        
+        origem = properties['origem'][0]
+      elif p == 'detalhe':
+        detalhe = properties['detalhe']
       
     if self.item['rota'] != 'AplicacoesFarmbox':
-      origem = properties['origem'][0]
       self.origemUnisystem(origem)
     else:
-      origem = properties['origem'][0]
-      print(origem)
-      print('separa')
-      detalhe = properties['detalhe'][0]
-      print(detalhe)
       self.origemFarmbox(origem, detalhe)
 
   
@@ -41,11 +37,16 @@ class ModalIntegracao(ModalIntegracaoTemplate):
     self.text_box_quantidade.text = origem['quantidade']
     self.text_box_modulo.text = origem['modulo']
     
-  def origemFarmbox(origem, detalhe):
+  def origemFarmbox(self,origem, detalhe):
     self.headline_origem.text = 'Origem: FARMBOX'
     self.column_panel_unisystem.visible = False
     self.date_picker_created_at.date = origem['created_at']
     self.date_picker_closed_date.date = origem['closed_date']
+    self.date_picker_updated_at.date = origem['updated_at']
+    self.text_box_code.text = origem['code']
+    self.text_box_id.text = origem['id']
+    self.text_box_status.text = origem['status']
+    self.repeating_panel_detalhe.items = detalhe['input_movimentations']
 
  
 

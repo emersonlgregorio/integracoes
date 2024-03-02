@@ -216,7 +216,7 @@ components:
       properties: {text: Ul. Atualiz.}
       type: Label
       layout_properties: {}
-    - name: date_picker_6
+    - name: date_picker_updated_at
       properties: {format: '%d/%m/%y %H:%M:%S'}
       type: DatePicker
       layout_properties: {expand: true}
@@ -258,13 +258,15 @@ components:
     - name: data_grid_1
       properties:
         columns:
-        - {id: JKSDUP, title: Column 1, data_key: column_1}
-        - {id: VJQQOR, title: Column 2, data_key: column_2}
-        - {id: OJLQEN, title: Column 3, data_key: column_3}
-        - {id: XZPSDW, data_key: column_4, title: Column 4}
+        - {id: JKSDUP, title: Codigo, data_key: input_id, width: 94, expand: false}
+        - {id: VJQQOR, title: Descrição, data_key: nomeItem}
+        - {id: OJLQEN, title: Um, data_key: unit, width: 49, expand: false}
+        - {id: XZPSDW, data_key: kind, title: operação, width: 90, expand: false}
+        - {id: CFWLBT, data_key: nomeDeposito, title: Deposito}
+        - {id: KIQWGD, data_key: column_2, title: Column 2}
       type: DataGrid
       components:
-      - name: repeating_panel_1
+      - name: repeating_panel_detalhe
         properties: {item_template: Monitor2.ModalIntegracao.RowTemplate10}
         type: RepeatingPanel
       layout_properties: {width: 963.567}
