@@ -92,24 +92,100 @@ components:
     layout_properties: {width: 872, expand: true}
     data_bindings:
     - {property: text, code: 'self.item[''outros_dados'']', writeback: false}
-- name: headline_2
-  properties: {role: subheading, text: 'Dados origem
+- name: headline_origem
+  properties: {role: subheading, text: 'Dados Origem
 
       ', background: 'theme:Secondary 500', foreground: 'theme:Gray 100', align: center,
     bold: false}
   type: Label
   layout_properties: {grid_position: 'TENUVX,OQALPF'}
-- name: flow_panel_2
+- name: column_panel_unisystem
   properties: {}
-  type: FlowPanel
-  layout_properties: {grid_position: 'ADGVMC,SSGZGG'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'BEDUGR,UKGGON'}
   components:
-  - name: button_1
-    properties: {text: Teste}
-    type: Button
-    layout_properties: {}
-    event_bindings: {click: button_1_click}
-  data_bindings: []
+  - name: flow_panel_2
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'KNKFUT,NBDTCU'}
+    components:
+    - name: label_8
+      properties: {text: 'Data Movimento:'}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_data_mvto
+      properties: {date: null, pick_time: true, format: '%d/%m/%y %H:%M:%S'}
+      type: DatePicker
+      layout_properties: {width: 188}
+      data_bindings: []
+    - name: label_9
+      properties: {text: 'Depósito:
+
+          '}
+      type: Label
+      layout_properties: {}
+    - name: text_box_deposito
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 80}
+      data_bindings: []
+    - name: label_10
+      properties: {text: 'Destino:
+
+          '}
+      type: Label
+      layout_properties: {}
+    - name: text_box_destino
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 101}
+      data_bindings: []
+    - name: label_11
+      properties: {text: 'Documento:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_nr_documento
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 119}
+    data_bindings: []
+  - name: flow_panel_5
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'FUTLDM,ABIUCA'}
+    components:
+    - name: label_12
+      properties: {text: 'item:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_item
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 74}
+    - name: text_box_desc_item
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 293}
+    - name: label_13
+      properties: {text: 'Qtde:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_quantidade
+      properties: {type: text}
+      type: TextBox
+      layout_properties: {width: 105}
+      data_bindings: []
+    - name: label_14
+      properties: {text: 'Modulo:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_modulo
+      properties: {}
+      type: TextBox
+  - name: flow_panel_6
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'NWNGLY,WCEEWI'}
 is_package: true
 custom_component: true
 properties: []
