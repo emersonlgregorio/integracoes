@@ -12,6 +12,13 @@ class ModalIntegracao(ModalIntegracaoTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    # self.origem = anvil.server.call('dadosOrigem',self.item)
-
+    # self.origem = anvil.server.call('dadosOrigem',self.item
+    self.origem = properties['origem']
+    print("Item", self.item)
+    print("origem", self.origem)
     
+  
+
+ 
+
+  

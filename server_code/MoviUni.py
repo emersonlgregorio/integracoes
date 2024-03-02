@@ -9,8 +9,8 @@ from anvil.tables import app_tables
 import anvil.server
 
 @anvil.server.callable
-def dadosOrigem(item):
-  filtro = item['seq_planilha']
+def dadosOrigem(filtro):
+  
   query = f"""
       SELECT
           m.SEQ_PLANILHA,

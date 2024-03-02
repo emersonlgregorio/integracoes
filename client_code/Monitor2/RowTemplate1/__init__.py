@@ -34,7 +34,8 @@ class RowTemplate1(RowTemplate1Template):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    modal = ModalIntegracao(item=self.item)
+    self.origem = anvil.server.call('dadosOrigem', self.item['seq_planilha'])
+    modal = ModalIntegracao(item=self.item, origem=self.origem)
     alert(modal, large=True, role="wide-alert-20vw" ,title="Dados da Integração", buttons=[])
     
   
