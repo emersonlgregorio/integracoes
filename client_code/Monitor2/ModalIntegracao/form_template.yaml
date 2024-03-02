@@ -186,6 +186,88 @@ components:
     properties: {}
     type: FlowPanel
     layout_properties: {grid_position: 'NWNGLY,WCEEWI'}
+- name: column_panel_farmbox
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'CWGPGM,TRGGFX'}
+  components:
+  - name: flow_panel_7
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'NDYMBA,MRXYCH'}
+    components:
+    - name: label_15
+      properties: {text: 'Criação:'}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_created_at
+      properties: {pick_time: true, format: '%d/%m/%y %H:%M:%S'}
+      type: DatePicker
+      layout_properties: {expand: true}
+    - name: label_16
+      properties: {text: 'Fechamento:'}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_closed_date
+      properties: {format: '%d/%m/%y %H:%M:%S'}
+      type: DatePicker
+      layout_properties: {expand: true}
+    - name: label_17
+      properties: {text: Ul. Atualiz.}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_6
+      properties: {format: '%d/%m/%y %H:%M:%S'}
+      type: DatePicker
+      layout_properties: {expand: true}
+  - name: flow_panel_8
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'VHYTGU,JGYYZC'}
+    components:
+    - name: label_18
+      properties: {text: 'Id:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_id
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 100}
+    - name: label_19
+      properties: {text: 'Código:
+
+          '}
+      type: Label
+      layout_properties: {}
+    - name: text_box_code
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 98}
+    - name: label_20
+      properties: {text: 'Status:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_status
+      properties: {}
+      type: TextBox
+  - name: flow_panel_9
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'DVQWUC,MEIBWC'}
+    components:
+    - name: data_grid_1
+      properties:
+        columns:
+        - {id: JKSDUP, title: Column 1, data_key: column_1}
+        - {id: VJQQOR, title: Column 2, data_key: column_2}
+        - {id: OJLQEN, title: Column 3, data_key: column_3}
+        - {id: XZPSDW, data_key: column_4, title: Column 4}
+      type: DataGrid
+      components:
+      - name: repeating_panel_1
+        properties: {item_template: Monitor2.ModalIntegracao.RowTemplate10}
+        type: RepeatingPanel
+      layout_properties: {width: 963.567}
 is_package: true
 custom_component: true
 properties: []

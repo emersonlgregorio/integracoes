@@ -31,7 +31,9 @@ class ModalIntegracao(ModalIntegracaoTemplate):
       self.text_box_modulo.text = self.origem['modulo']
     else:
       self.headline_origem.text = 'Origem: FARMBOX'
-      self.column_panel_unisystem.
+      self.column_panel_unisystem.visible = False
+      self.date_picker_created_at.date = self.origem['created_at']
+      self.date_picker_closed_date.date = self.origem['closed_date']
 
  
 

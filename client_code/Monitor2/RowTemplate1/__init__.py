@@ -38,8 +38,8 @@ class RowTemplate1(RowTemplate1Template):
     if self.item['rota'] != 'AplicacoesFarmbox':
       self.origem = anvil.server.call('dadosOrigem', idOrigem)
     else:
-      self.origem = anvil.server.call('dadosOrigemFarmbox', idOrigem)
-    modal = ModalIntegracao(item=self.item, origem=self.origem)
+      self.origem, self.detalhe = anvil.server.call('dadosOrigemFarmbox', idOrigem)
+    modal = ModalIntegracao(item=self.item, origem=self.origem, detalhe=self.detalhe)
     alert(modal, large=True, role="wide-alert-20vw" ,title="Dados da Integração", buttons=[])
     
   
