@@ -1,0 +1,7 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: check_box_1
+  properties: {text: ''}
+  type: CheckBox
+  layout_properties: {column: JKSDUP}
