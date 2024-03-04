@@ -92,21 +92,211 @@ components:
     layout_properties: {width: 872, expand: true}
     data_bindings:
     - {property: text, code: 'self.item[''outros_dados'']', writeback: false}
-- name: headline_2
-  properties: {role: subheading, text: 'Dados origem
+- name: headline_origem
+  properties: {role: subheading, text: 'Dados Origem
 
       ', background: 'theme:Secondary 500', foreground: 'theme:Gray 100', align: center,
     bold: false}
   type: Label
   layout_properties: {grid_position: 'TENUVX,OQALPF'}
-- name: flow_panel_2
+- name: column_panel_unisystem
   properties: {}
-  type: FlowPanel
-  layout_properties: {grid_position: 'ADGVMC,SSGZGG'}
-  components: []
-  data_bindings: []
+  type: ColumnPanel
+  layout_properties: {grid_position: 'BEDUGR,UKGGON'}
+  components:
+  - name: flow_panel_2
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'KNKFUT,NBDTCU'}
+    components:
+    - name: label_8
+      properties: {text: 'Data Movimento:'}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_data_mvto
+      properties: {date: null, pick_time: true, format: '%d/%m/%y %H:%M:%S'}
+      type: DatePicker
+      layout_properties: {width: 188}
+      data_bindings: []
+    - name: label_9
+      properties: {text: 'Depósito:
+
+          '}
+      type: Label
+      layout_properties: {}
+    - name: text_box_deposito
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 80}
+      data_bindings: []
+    - name: label_10
+      properties: {text: 'Destino:
+
+          '}
+      type: Label
+      layout_properties: {}
+    - name: text_box_destino
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 101}
+      data_bindings: []
+    - name: label_11
+      properties: {text: 'Documento:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_nr_documento
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 119}
+    data_bindings: []
+  - name: flow_panel_5
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'FUTLDM,ABIUCA'}
+    components:
+    - name: label_12
+      properties: {text: 'item:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_item
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 74}
+    - name: text_box_desc_item
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 293}
+    - name: label_13
+      properties: {text: 'Qtde:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_quantidade
+      properties: {type: text}
+      type: TextBox
+      layout_properties: {width: 105}
+      data_bindings: []
+    - name: label_14
+      properties: {text: 'Modulo:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_modulo
+      properties: {}
+      type: TextBox
+  - name: flow_panel_6
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'NWNGLY,WCEEWI'}
+- name: column_panel_farmbox
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'CWGPGM,TRGGFX'}
+  components:
+  - name: flow_panel_7
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'NDYMBA,MRXYCH'}
+    components:
+    - name: label_15
+      properties: {text: 'Criação:'}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_created_at
+      properties: {pick_time: true, format: '%d/%m/%y %H:%M:%S'}
+      type: DatePicker
+      layout_properties: {expand: true}
+    - name: label_16
+      properties: {text: 'Fechamento:'}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_closed_date
+      properties: {format: '%d/%m/%y %H:%M:%S'}
+      type: DatePicker
+      layout_properties: {expand: true}
+    - name: label_17
+      properties: {text: Ul. Atualiz.}
+      type: Label
+      layout_properties: {}
+    - name: date_picker_updated_at
+      properties: {format: '%d/%m/%y %H:%M:%S'}
+      type: DatePicker
+      layout_properties: {expand: true}
+  - name: flow_panel_8
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'VHYTGU,JGYYZC'}
+    components:
+    - name: label_18
+      properties: {text: 'Id:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_id
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 100}
+    - name: label_19
+      properties: {text: 'Código:
+
+          '}
+      type: Label
+      layout_properties: {}
+    - name: text_box_code
+      properties: {}
+      type: TextBox
+      layout_properties: {width: 98}
+    - name: label_20
+      properties: {text: 'Status:'}
+      type: Label
+      layout_properties: {}
+    - name: text_box_status
+      properties: {}
+      type: TextBox
+  - name: flow_panel_9
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'DVQWUC,MEIBWC'}
+    components:
+    - name: data_grid_1
+      properties:
+        columns:
+        - {id: JKSDUP, title: Codigo, data_key: input_id, width: 94, expand: false}
+        - {id: VJQQOR, title: Descrição, data_key: nomeItem, width: 308, expand: false}
+        - {id: OJLQEN, title: Quantidade, data_key: value, width: 90, expand: false}
+        - {id: XZPSDW, data_key: unit, title: Um, width: 90, expand: false}
+        - {id: CFWLBT, data_key: nomeDeposito, title: Deposito}
+        - {id: KIQWGD, data_key: kind, title: Operação}
+      type: DataGrid
+      components:
+      - name: repeating_panel_detalhe
+        properties: {item_template: Monitor2.ModalIntegracao.RowTemplate10}
+        type: RepeatingPanel
+      layout_properties: {width: 963.567}
+- name: column_panel_1
+  properties: {visible: false}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'BXNESW,EUHFAT'}
+  components:
+  - name: headline_2
+    properties: {role: subheading, text: Destino SAP, background: 'theme:Secondary
+        500', foreground: 'theme:Gray 100', align: center}
+    type: Label
+    layout_properties: {grid_position: 'HENOXU,SOEHMA'}
+  - name: flow_panel_10
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'CUBESE,YVCHWO'}
+    components:
+    - name: data_grid_2
+      properties:
+        columns:
+        - {id: JKSDUP, title: Sel., data_key: column_1, width: 38, expand: false}
+        - {id: VJQQOR, title: Column 2, data_key: column_2, width: 136, expand: false}
+        - {id: OJLQEN, title: Column 3, data_key: column_3}
+      type: DataGrid
+      components:
+      - name: repeating_panel_1
+        properties: {item_template: Monitor2.ModalIntegracao.RowTemplate11}
+        type: RepeatingPanel
+      layout_properties: {width: 965.567}
 is_package: true
-custom_component: true
-properties:
-- {name: origem, type: object, important: true, description: Dados de Origem}
-- {name: destino, type: object, important: true, description: Dados de destino, default_binding_prop: true}
+custom_component: false
+properties: []
