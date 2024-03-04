@@ -116,7 +116,7 @@ components:
     - name: date_picker_data_mvto
       properties: {date: null, pick_time: true, format: '%d/%m/%y %H:%M:%S'}
       type: DatePicker
-      layout_properties: {width: 188}
+      layout_properties: {width: 188, expand: true}
       data_bindings: []
     - name: label_9
       properties: {text: 'Depósito:
@@ -127,7 +127,7 @@ components:
     - name: text_box_deposito
       properties: {}
       type: TextBox
-      layout_properties: {width: 80}
+      layout_properties: {width: 80, expand: true}
       data_bindings: []
     - name: label_10
       properties: {text: 'Destino:
@@ -138,7 +138,7 @@ components:
     - name: text_box_destino
       properties: {}
       type: TextBox
-      layout_properties: {width: 101}
+      layout_properties: {width: 101, expand: true}
       data_bindings: []
     - name: label_11
       properties: {text: 'Documento:'}
@@ -147,7 +147,7 @@ components:
     - name: text_box_nr_documento
       properties: {}
       type: TextBox
-      layout_properties: {width: 119}
+      layout_properties: {width: 119, expand: true}
     data_bindings: []
   - name: flow_panel_5
     properties: {}
@@ -161,11 +161,11 @@ components:
     - name: text_box_item
       properties: {}
       type: TextBox
-      layout_properties: {width: 74}
+      layout_properties: {width: 74, expand: false}
     - name: text_box_desc_item
       properties: {}
       type: TextBox
-      layout_properties: {width: 293}
+      layout_properties: {width: 293, expand: true}
     - name: label_13
       properties: {text: 'Qtde:'}
       type: Label
@@ -173,7 +173,7 @@ components:
     - name: text_box_quantidade
       properties: {type: text}
       type: TextBox
-      layout_properties: {width: 105}
+      layout_properties: {width: 105, expand: false}
       data_bindings: []
     - name: label_14
       properties: {text: 'Modulo:'}
