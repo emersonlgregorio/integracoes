@@ -116,7 +116,7 @@ components:
     - name: date_picker_data_mvto
       properties: {date: null, pick_time: true, format: '%d/%m/%y %H:%M:%S'}
       type: DatePicker
-      layout_properties: {width: 188, expand: true}
+      layout_properties: {width: 188, expand: false}
       data_bindings: []
     - name: label_9
       properties: {text: 'Depósito:
