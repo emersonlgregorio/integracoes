@@ -11,20 +11,20 @@ import datetime
 from tabulator.Tabulator import Tabulator
 from tabulator.Tabulator import row_selection_column
 
-Tabulator.modules.remove("FrozenColumns")
-Tabulator.default_options["selectable"] = True
-Tabulator.theme = "midnight"
-Tabulator.theme = "standard"
-Tabulator.theme = "simple"
-Tabulator.theme = "modern"
-Tabulator.theme = "bootstrap3"
+# Tabulator.modules.remove("FrozenColumns")
+# Tabulator.default_options["selectable"] = True
+# Tabulator.theme = "midnight"
+# Tabulator.theme = "standard"
+# Tabulator.theme = "simple"
+# Tabulator.theme = "modern"
+# Tabulator.theme = "bootstrap3"
 
 class Monitor2(Monitor2Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     anvil.users.login_with_form()
-  
+ 
     self.card_1.visible = False
     self.drop_down_unidade.items = [
       ("Colorado","3"),
@@ -38,7 +38,21 @@ class Monitor2(Monitor2Template):
       ("Promissão","2"),
       ("São Carlos","4"),
     ]
+    
+    self.tabulator.options = {
+      "selectable": "highlight", 
+      "pagination_size_selector": [10, 25, 50, 100],
+      "css_class": "table-striped" # add table striped layout
+      }
   
+  def send_link_formatter(self, cell, **params):
+    status = cell.get_data().status
+    if status != 'C':
+      l = Link(icon="fa:send", spacing_above="none", spacing_below="None")
+    else:
+      l = ''
+    return l
+
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
     dtInicial = self.date_picker_data.date.strftime("%d/%m/%Y") 
@@ -59,10 +73,37 @@ class Monitor2(Monitor2Template):
                         or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') = '')
                     {orderby}
                 """
-      self.tabulator.data = anvil.server.call('get_integracoes', filtro)
-      self.tabulator. = True
+      data = anvil.server.call('get_integracoes', filtro)
+      self.tabulator.data = data
+      self.tabulator.columns = [
+        # row_selection_column,
+        {"title": "SeqPlanilha", "field": "seqplanilha", "formatter": "link"},
+        {"title": "Rota", "field": "rota", "sorter": "string"},
+        {"title": "Op.", "field": "operacao", "sorter": "string"},
+        {"title": "T.E.", "field": "tp", "sorter": "string"},
+        {
+          "title": "Criação", 
+          "field": "datacriacao", 
+          "editor": "date",
+          "sorter": "date",
+          "formatter": "date",
+          "formatter_params": {"format": "%d/%m/%Y"},
+          "editor_params": {"format": "%d/%m/%Y"}
+        },
+        {"title": "Documento", "field": "nrdocumento", "sorter": "string"},
+        {"title": "Unidade", "field": "filial", "sorter": "string"},
+        {"title": "Status", "field": "status", "sorter": "string"},
+        {
+          "field": "Reprocessar", 
+          "formatter": self.send_link_formatter,
+          "width": 40,
+          "headerSort": False},
+      ]
       # self.contadores(self.repeating_panel_1.items)
+
+    
       self.card_1.visible = True
+      
 
   def date_picker_data_change(self, **event_args):
     """This method is called when the selected date changes"""
