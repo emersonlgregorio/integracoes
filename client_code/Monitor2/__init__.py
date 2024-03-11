@@ -34,33 +34,15 @@ class Monitor2(Monitor2Template):
   
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
-    data = self.date_picker_data.date 
-    data = data if data != None else ''
+    dtInicial = self.date_picker_data.date.strftime("%d/%m/%Y") 
+    dtFinal = self.date_picker_final.date.strftime("%d/%m/%Y")
     
-    if data != '':
-      data = data.strftime("%d/%m/%Y")
-      dtInicial = data+" 00:00:00" if data != None else ''
-      dtFinal = data+" 23:59:59" if data != None else ''
-      orderby = "order by data_criacao desc"
+    if not dtInicial or not dtInicial:
+      alert("O período é obrigatório!! Por favor, selecione a Data Inicial e Data Final.")
     else:
-      data = ''
-      dtInicial = ''
-      dtFinal = ''
-      orderby = "order by seq_planilha"
-      
-    rota = self.drop_down_rota.selected_value
-    rota = rota if rota != None else ''
-    
-    status = self.drop_down_status.selected_value
-    status = status if status != None else ''
-    
-    unidade = self.drop_down_unidade.selected_value
-    unidade = unidade if unidade != None else ''
-    
-    seqPlanilha = self.text_box_search.text
-    seqPlanilha = seqPlanilha if seqPlanilha != None else ''
-    
-    if data or rota or status or unidade or seqPlanilha: #Verifica se todos os filtros estão selecionados
+      dtInicial = dtInicial+" 00:00:00" 
+      dtFinal = dtFinal+" 23:59:59" 
+      orderby = "order by data_criacao desc"
       filtro = f"""
                   where (ai.DATA_CRIACAO >= to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS')
                         or to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') is null 
@@ -68,20 +50,12 @@ class Monitor2(Monitor2Template):
                     and (ai.DATA_CRIACAO <= to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
                         or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') is null 
                         or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') = '')
-                    AND (rota = '{rota}' or '{rota}' is null or '{rota}' = '')
-                    AND (status = '{status}' or '{status}' is null or '{status}' = '')
-                    AND (m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
-                    AND ((ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '') or
-                         (ai.nr_documento = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = ''))
                     {orderby}
                 """
-      # print(filtro)
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
       self.card_1.visible = True
-    else:
-      alert("Informar pelo menos 1 filtro")
-      
+
   def date_picker_data_change(self, **event_args):
     """This method is called when the selected date changes"""
     hoje = self.date_picker_data.date.strftime("%d/%m/%Y")
