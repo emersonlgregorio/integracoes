@@ -1,3 +1,7 @@
+dependencies:
+- dep_id: dep_mrq00i3z00wbaq
+  version: {dev: false}
+  resolution_hints: {app_id: TGQCF3WT6FVL2EM2, name: Tabulator, package_name: tabulator}
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
