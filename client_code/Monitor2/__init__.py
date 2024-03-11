@@ -8,16 +8,23 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
+from tabulator.Tabulator import Tabulator
+from tabulator.Tabulator import row_selection_column
+
+Tabulator.modules.remove("FrozenColumns")
+Tabulator.default_options["selectable"] = True
+Tabulator.theme = "midnight"
+Tabulator.theme = "standard"
+Tabulator.theme = "simple"
+Tabulator.theme = "modern"
+Tabulator.theme = "bootstrap3"
 
 class Monitor2(Monitor2Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     anvil.users.login_with_form()
-    # self.date_picker_data.format = "%d/%m/%Y"
-    # self.date_picker_data.date = datetime.date.today()
-    # self.date_picker_data_change()
-    # self.set_event_handler('x-refresh', self.date_picker_data_change)
+  
     self.card_1.visible = False
     self.drop_down_unidade.items = [
       ("Colorado","3"),
@@ -52,8 +59,9 @@ class Monitor2(Monitor2Template):
                         or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') = '')
                     {orderby}
                 """
-      self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
-      self.contadores(self.repeating_panel_1.items)
+      self.tabulator.data = anvil.server.call('get_integracoes', filtro)
+      self.tabulator. = True
+      # self.contadores(self.repeating_panel_1.items)
       self.card_1.visible = True
 
   def date_picker_data_change(self, **event_args):
