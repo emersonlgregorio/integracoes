@@ -18,7 +18,7 @@ class Monitor2(Monitor2Template):
     # self.date_picker_data.date = datetime.date.today()
     # self.date_picker_data_change()
     # self.set_event_handler('x-refresh', self.date_picker_data_change)
-
+    self.card_1.visible = False
     self.drop_down_unidade.items = [
       ("Colorado","3"),
       ("Curupai","5"),
@@ -78,6 +78,7 @@ class Monitor2(Monitor2Template):
       # print(filtro)
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
+      self.card_1.visible = True
     else:
       alert("Informar pelo menos 1 filtro")
       
