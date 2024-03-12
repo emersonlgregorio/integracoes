@@ -12,18 +12,13 @@ from tabulator.Tabulator import Tabulator
 from tabulator.Tabulator import row_selection_column
 
 Tabulator.modules.remove("FrozenColumns")
-Tabulator.modules.add("Filter")
-Tabulator.modules.add("Menu")
-Tabulator.modules.add("Format")
+# Tabulator.modules.add("Filter")
+# Tabulator.modules.add("Menu")
+# Tabulator.modules.add("Format")
 Tabulator.default_options["selectable"] = True
 Tabulator.default_options['layout'] = 'fitDataStretch'
 # Tabulator.theme = "midnight"
 Tabulator.theme = "standard"
-# Tabulator.theme = "simple"
-# Tabulator.theme = "modern"
-# Tabulator.theme = "bootstrap3"
-# Tabulator.theme = "bootstrap4"
-# Tabulator.theme = "materialize"
 
 class Monitor2(Monitor2Template):
   def __init__(self, **properties):
@@ -98,9 +93,9 @@ class Monitor2(Monitor2Template):
           "field": "datacriacao", 
           "editor": "date",
           "sorter": "date",
-          "formatter": "date",
-          "formatter_params": {"format": "%d/%m/%YY"},
-          "editor_params": {"format": "%d/%m/%YY"},
+          "formatter": "datetime",
+          "formatter_params": {"format": "%d/%m/%Y"},
+          "editor_params": {"format": "%d/%m/%Y"},
           "hoz_align": "center",
         },
         {"title": "Documento", "field": "nrdocumento", "sorter": "string"},
