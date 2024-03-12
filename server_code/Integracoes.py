@@ -19,7 +19,7 @@ def get_integracoes(filtro = "where status = 'O'"):
                 	ai.TIPO_ENTRADA "TP",
                 	ai.OUTROS_DADOS "Mensagem",
                 	--to_date(TO_CHAR(ai.DATA_CRIACAO, "DD-MM-YYYY HH24:MI:SS"), "DD-MM-YYYY HH24:MI:SS") data_criacao,
-                	to_date(to_char(ai.data_criacao,'DD-MM-YYYY HH24:MI:SS'),'DD-MM-YYYY HH24:MI:SS') "DataCriacao",
+                	to_char(to_date(to_char(ai.data_criacao,'DD-MM-YYYY HH24:MI:SS'),'DD/MM/YYYY HH24:MI:SS')) "DataCriacao",
                 	to_date(to_char(ai.DATAHORA_INTEGRACAO,'DD-MM-YYYY HH24:MI:SS'),'DD-MM-YYYY HH24:MI:SS') "DataHoraIntegracao",
                 	to_date(to_char(ai.ULTIMA_ALTERACAO,'DD-MM-YYYY HH24:MI:SS'),'DD-MM-YYYY HH24:MI:SS') "UltimaAlteracao",
                 	ai.status "Status",
