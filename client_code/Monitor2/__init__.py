@@ -12,12 +12,16 @@ from tabulator.Tabulator import Tabulator
 from tabulator.Tabulator import row_selection_column
 
 # Tabulator.modules.remove("FrozenColumns")
-# Tabulator.default_options["selectable"] = True
+Tabulator.modules.add("Filter")
+Tabulator.modules.add("Menu")
+Tabulator.default_options["selectable"] = True
 # Tabulator.theme = "midnight"
-# Tabulator.theme = "standard"
+Tabulator.theme = "standard"
 # Tabulator.theme = "simple"
 # Tabulator.theme = "modern"
 # Tabulator.theme = "bootstrap3"
+# Tabulator.theme = "bootstrap4"
+# Tabulator.theme = "materialize"
 
 class Monitor2(Monitor2Template):
   def __init__(self, **properties):
@@ -42,7 +46,7 @@ class Monitor2(Monitor2Template):
     self.tabulator.options = {
       "selectable": "highlight", 
       "pagination_size_selector": [10, 25, 50, 100],
-      "css_class": "table-striped" # add table striped layout
+      "css_class": ["table-striped", "table-bordered"] # add table striped layout
       }
   
   def send_link_formatter(self, cell, **params):
@@ -88,11 +92,18 @@ class Monitor2(Monitor2Template):
           "sorter": "date",
           "formatter": "date",
           "formatter_params": {"format": "%d/%m/%Y"},
-          "editor_params": {"format": "%d/%m/%Y"}
+          "editor_params": {"format": "%d/%m/%Y"},
+          "hoz_align": "center",
         },
         {"title": "Documento", "field": "nrdocumento", "sorter": "string"},
         {"title": "Unidade", "field": "filial", "sorter": "string"},
-        {"title": "Status", "field": "status", "sorter": "string"},
+        {
+          "title": "Status", 
+          "field": "status", 
+          "sorter": "string", 
+          "hoz_align": "center",
+          "header_hoz_align": "center"
+        },
         {
           "field": "Reprocessar", 
           "formatter": self.send_link_formatter,
