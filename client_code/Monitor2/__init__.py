@@ -11,10 +11,12 @@ import datetime
 from tabulator.Tabulator import Tabulator
 from tabulator.Tabulator import row_selection_column
 
-# Tabulator.modules.remove("FrozenColumns")
+Tabulator.modules.remove("FrozenColumns")
 Tabulator.modules.add("Filter")
 Tabulator.modules.add("Menu")
+Tabulator.modules.add("Format")
 Tabulator.default_options["selectable"] = True
+Tabulator.default_options['layout'] = 'fitDataStretch'
 # Tabulator.theme = "midnight"
 Tabulator.theme = "standard"
 # Tabulator.theme = "simple"
@@ -43,11 +45,17 @@ class Monitor2(Monitor2Template):
       ("São Carlos","4"),
     ]
     
-    self.tabulator.options = {
-      "selectable": "highlight", 
-      "pagination_size_selector": [10, 25, 50, 100],
-      "css_class": ["table-striped", "table-bordered"] # add table striped layout
-      }
+    self.tabulator.options.update(
+      selectable= "highlight",
+      pagination_size_selector= [10, 25, 50, 100],
+      css_class= ["table-striped", "table-bordered"],
+    ) 
+    # {
+    #   "selectable": "highlight", 
+    #   "pagination_size_selector": [10, 25, 50, 100],
+    #   "css_class": ["table-striped", "table-bordered"],
+    #   # add table striped layout
+    #   }
   
   def send_link_formatter(self, cell, **params):
     status = cell.get_data().status
@@ -91,8 +99,8 @@ class Monitor2(Monitor2Template):
           "editor": "date",
           "sorter": "date",
           "formatter": "date",
-          "formatter_params": {"format": "%d/%m/%Y"},
-          "editor_params": {"format": "%d/%m/%Y"},
+          "formatter_params": {"format": "%d/%m/%YY"},
+          "editor_params": {"format": "%d/%m/%YY"},
           "hoz_align": "center",
         },
         {"title": "Documento", "field": "nrdocumento", "sorter": "string"},
