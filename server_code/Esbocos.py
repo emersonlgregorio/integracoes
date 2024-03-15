@@ -20,27 +20,9 @@ def get_drafts(filtro="""where o."DocStatus" = 'O'"""):
             {filtro}
             order by o."TaxDate" desc
                             """
-  
+  print(query)
   items = anvil.server.call('hanaSelect', query)
   return items
-
-  # return [
-  #       {
-  #           "DocDate": item[0].strftime("%d/%m/%Y"),
-  #           "TaxDate": item[1].strftime("%d/%m/%Y"),
-  #           "Serial": item[2],
-  #           "CardCode": item[3],
-  #           "CardName": item[4],
-  #           "BPLid": item[5],
-  #           "BPLName": item[6],
-  #           "VATRegNum": item[7],
-  #           "DocStatus": item[8],
-  #           "DocEntry": item[9],
-  #           "DocType": item[10],
-  #           "ObjType": item[11]
-  #       } for item in items
-  #   ]
-
 
 @anvil.server.callable
 def get_drafts_items(filtro = 'WHERE i."DocEntry" = 2028 AND i."ObjType" = 18'):
@@ -60,10 +42,12 @@ def get_drafts_items(filtro = 'WHERE i."DocEntry" = 2028 AND i."ObjType" = 18'):
                 ,i."OcrCode"
                 ,i."OcrCode2"
                 ,i."OcrCode3"
+                ,i."DocEntry"
             FROM SBO_CRESTANI_PRD.DRF1 i
             {filtro}
             order by i."LineNum"
                             """
+  print(query)
   items = anvil.server.call('hanaSelect', query)
 
   return [

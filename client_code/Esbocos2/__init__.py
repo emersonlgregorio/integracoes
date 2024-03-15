@@ -37,46 +37,14 @@ class Esbocos2(Esbocos2Template):
 
     if not unidade and not nroNota and not status:
       alert("Preencha um filtro")
-    elif unidade and nroNota and status:
+    else:
       filtro = f"""
-                WHERE o."BPLId" = {unidade}
-                and o."Serial" = {nroNota}
-                and o."DocStatus" = '{status}'
+                WHERE (o."BPLId" = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
+                and (o."Serial" = '{nroNota}' or '{nroNota}' is null or '{nroNota}' = '')
+                and (o."DocStatus" = '{status}' or '{status}' is null or '{status}' = '')
               """
       self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
-    elif unidade and nroNota and not status:
-      filtro = f"""
-                WHERE o."BPLId" = {unidade}
-                and o."Serial" = {nroNota}
-              """
-      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
-    elif unidade and not nroNota and status:
-      filtro = f"""
-                WHERE o."BPLId" = {unidade}
-                and o."DocStatus" = '{status}'
-              """
-      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
-    elif not unidade and nroNota and status:
-      filtro = f"""
-                WHERE o."DocStatus" = '{status}'
-                and o."Serial" = {nroNota}
-              """
-      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
-    elif not unidade and nroNota and not status:
-      filtro = f"""
-                WHERE o."Serial" = {nroNota}
-              """
-      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
-    elif unidade and not nroNota and not status:
-      filtro = f"""
-                WHERE o."BPLId" = {unidade}
-              """
-      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
-    elif not unidade and not nroNota and status:
-      filtro = f"""
-                WHERE o."DocStatus" = '{status}'
-              """
-      self.repeating_panel_1.items = anvil.server.call('get_drafts', filtro)
+    
 
 
 
