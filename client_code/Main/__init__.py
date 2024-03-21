@@ -10,7 +10,6 @@ from anvil.tables import app_tables
 from ..Monitor2 import Monitor2
 from ..Esbocos2 import Esbocos2
 from ..Conferencia import Conferencia
-import custom_signup.login_flow
 
 class Main(MainTemplate):
   def __init__(self, **properties):
@@ -54,22 +53,3 @@ class Main(MainTemplate):
     """Reset all the roles on the navbar links."""
     for link in self.link_home, self.monitor_link, self.esboco_link:
       link.role = ''
-
-  def login_button_click(self, **event_args):
-    custom_signup.login_flow.login_with_form()
-
-  def update_login_status(self):
-  # Get the currently logged in user (if any)
-    user = anvil.users.get_user()
-    if user is None:
-      self.login_status.text = "You are not logged in"
-    else:
-      self.login_status.text = f"You are logged in as {user['email']}"
-
-  def login_button_click(self, **event_args):
-    custom_signup.login_flow.login_with_form()
-    self.update_login_status() # add this line
-
-  def signup_button_click(self, **event_args):
-    custom_signup.login_flow.signup_with_form()
-    self.update_login_status()
