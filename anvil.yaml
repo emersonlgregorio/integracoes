@@ -13,7 +13,7 @@ services:
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true,
     confirm_email: true, use_google: false, require_secure_passwords: true, allow_remember_me: true,
-    remember_me_days: 30}
+    remember_me_days: 1}
   server_config: {user_table: users, email_from_address: ti@agrocrestani.com.br}
 - source: /runtime/services/google.yml
   client_config: {}
