@@ -2,6 +2,10 @@ dependencies:
 - dep_id: dep_mrq00i3z00wbaq
   version: {dev: false}
   resolution_hints: {app_id: TGQCF3WT6FVL2EM2, name: Tabulator, package_name: tabulator}
+- dep_id: dep_sd6hileljehl8
+  version: {dev: false}
+  resolution_hints: {app_id: 2FYXUCYRURUYG3J5, name: Clone of Custom sign-up flow,
+    package_name: custom_signup}
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
