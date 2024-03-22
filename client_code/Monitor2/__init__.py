@@ -12,9 +12,9 @@ from tabulator.Tabulator import Tabulator
 from tabulator.Tabulator import row_selection_column
 
 Tabulator.modules.remove("FrozenColumns")
-# Tabulator.modules.add("Filter")
-# Tabulator.modules.add("Menu")
-# Tabulator.modules.add("Format")
+Tabulator.modules.add("Filter")
+Tabulator.modules.add("Menu")
+Tabulator.modules.add("Format")
 Tabulator.default_options["selectable"] = True
 Tabulator.default_options['layout'] = 'fitDataStretch'
 # Tabulator.theme = "midnight"
@@ -91,12 +91,13 @@ class Monitor2(Monitor2Template):
         {
           "title": "Criação", 
           "field": "datacriacao", 
-          "editor": "datetime",
-          "sorter": "datetime",
-          "formatter": "datetime",
+          "editor": "date",
+          "sorter": "date",
+          "formatter": self.get_datepicker,
+          # "datetime": True,
           # "formatter_params": {"format": "iso", "tz": None},
-          "formatter_params": {"format": "%d/%m/%y %H:%M:%S"},
-          "editor_params": {"format": "%d/%m/%y %H:%M:%S"},
+          # "formatter_params": {"format": "%d/%m/%Y"},
+          # "editor_params": {"format": "%d/%m/%Y %H:%M:%S"},
           "hoz_align": "center",
         },
         {"title": "Documento", "field": "nrdocumento", "sorter": "string"},
@@ -118,7 +119,12 @@ class Monitor2(Monitor2Template):
 
     
       self.card_1.visible = True
-      
+
+  def get_datepicker(cell):
+    date_str = cell.get_value()
+    date = datetime.datetime.strptime("%%d/%m/%Y %H:%M:%S").date() # or whatever format you have
+    picker = DatePicker(date=date, enabled=False)
+    return picker
 
   def date_picker_data_change(self, **event_args):
     """This method is called when the selected date changes"""
