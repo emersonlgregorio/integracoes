@@ -8,6 +8,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
+import anvil.js
 from tabulator.Tabulator import Tabulator
 from tabulator.Tabulator import row_selection_column
 
