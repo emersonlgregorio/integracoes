@@ -23,9 +23,7 @@ components:
     event_bindings: {change: search}
   - name: drop_down_rota
     properties:
-      items: [AlteraNumeracao, AlteraPesoRomEntrada, AplicacoesFarmbox, EntradaSementes,
-        NotaFiscalEntrada, NotaFiscalSaida, NotaTerceiro, RetornoNotaFiscal, RetornoTerceiro,
-        RomaneioEntrada, RomSaida, RomSaidaGraosParceria, SaidaAbastecimento, SaidaTransferencia]
+      items: [AlteraNumeracao, AlteraPesoRomEntrada, AplicacoesFarmbox, EntradaSementes, NotaFiscalEntrada, NotaFiscalSaida, NotaTerceiro, RetornoNotaFiscal, RetornoTerceiro, RomaneioEntrada, RomSaida, RomSaidaGraosParceria, SaidaAbastecimento, SaidaTransferencia]
       placeholder: Rota
       include_placeholder: true
       align: full
@@ -43,8 +41,7 @@ components:
     layout_properties: {width: 108.3833}
     event_bindings: {change: search}
   - name: button_1
-    properties: {text: '', icon: 'fa:refresh', tooltip: Atualiza dados, role: primary-color,
-      background: 'theme:Secondary 700'}
+    properties: {text: '', icon: 'fa:refresh', tooltip: Atualiza dados, role: primary-color, background: 'theme:Secondary 700'}
     type: Button
     event_bindings: {click: search}
 - name: content_panel

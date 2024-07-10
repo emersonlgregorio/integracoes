@@ -33,9 +33,11 @@ components:
     type: Label
     layout_properties: {x: 219.5, y: 0, width: 108}
   - name: label_4
-    properties: {text: 'Qtde Origem
-
-        ', align: right, bold: true}
+    properties:
+      text: |
+        Qtde Origem
+      align: right
+      bold: true
     type: Label
     layout_properties: {x: 421.5, y: 0, width: 147}
   - name: label_5
@@ -43,15 +45,19 @@ components:
     type: Label
     layout_properties: {x: 586.5, y: 0, width: 89}
   - name: label_6
-    properties: {text: 'Dep Destino
-
-        ', align: center, bold: true}
+    properties:
+      text: |
+        Dep Destino
+      align: center
+      bold: true
     type: Label
     layout_properties: {x: 685.5, y: 0, width: 87}
   - name: label_7
-    properties: {align: right, text: 'Qtde Destino
-
-        ', bold: true}
+    properties:
+      align: right
+      text: |
+        Qtde Destino
+      bold: true
     type: Label
     layout_properties: {x: 780, y: 0, width: 187}
 - name: flow_panel_2

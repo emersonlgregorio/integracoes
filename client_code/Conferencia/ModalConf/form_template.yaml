@@ -154,9 +154,12 @@ components:
   layout_properties: {grid_position: 'DYRHXO,BEDBED'}
   components:
   - name: headline_2
-    properties: {role: subheading, text: 'Conferência
-
-        ', bold: true, background: '#67D5C3'}
+    properties:
+      role: subheading
+      text: |
+        Conferência
+      bold: true
+      background: '#67D5C3'
     type: Label
     layout_properties: {grid_position: 'RMRCIZ,MUKORK'}
   - name: flow_panel_3
@@ -186,9 +189,11 @@ components:
     layout_properties: {grid_position: 'ITSPDP,EFXXBX'}
     components:
     - name: label_9
-      properties: {text: 'Descrição da solução:
-
-          ', spacing_below: none, spacing_above: none}
+      properties:
+        text: |
+          Descrição da solução:
+        spacing_below: none
+        spacing_above: none
       type: Label
       layout_properties: {grid_position: 'SXIOJQ,LKEUXL'}
     - name: text_area_obs

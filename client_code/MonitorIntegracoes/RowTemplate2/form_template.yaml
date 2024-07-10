@@ -14,9 +14,10 @@ components:
     layout_properties: {grid_position: 'NGKYLY,BPHLKA'}
     components:
     - name: label_1
-      properties: {text: 'Seq Planilha:
-
-          ', bold: true}
+      properties:
+        text: |
+          Seq Planilha:
+        bold: true
       type: Label
       layout_properties: {grid_position: 'HPOLQU,WEXYLE'}
     - name: text_box_2
@@ -31,9 +32,10 @@ components:
     layout_properties: {grid_position: 'NGKYLY,DDQOUD'}
     components:
     - name: label_2
-      properties: {text: 'Documento:
-
-          ', bold: true}
+      properties:
+        text: |
+          Documento:
+        bold: true
       type: Label
       layout_properties: {grid_position: 'ZWZDXW,UJWNLF'}
     - name: text_box_1
@@ -61,10 +63,13 @@ components:
     layout_properties: {grid_position: 'NGKYLY,ATITUM'}
     components:
     - name: label_3
-      properties: {text: 'Op.:
-
-          ', tooltip: 'Operação: (I)nsert, (A)lteração, (C)ancelamento.', bold: true,
-        spacing_below: small, spacing_above: small}
+      properties:
+        text: |
+          Op.:
+        tooltip: 'Operação: (I)nsert, (A)lteração, (C)ancelamento.'
+        bold: true
+        spacing_below: small
+        spacing_above: small
       type: Label
       layout_properties: {grid_position: 'EMPHQI,IYGRAR'}
     - name: text_box_4

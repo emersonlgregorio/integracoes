@@ -72,8 +72,7 @@ components:
     type: TextBox
     layout_properties: {width: 412}
     data_bindings:
-    - {property: text, code: 'self.item[''ItemCode'']+'' ''+self.item[''ItemName'']',
-      writeback: false}
+    - {property: text, code: 'self.item[''ItemCode'']+'' ''+self.item[''ItemName'']', writeback: false}
   - name: label_7
     properties: {text: 'Qtde:', spacing_below: none, spacing_above: none}
     type: Label

@@ -27,9 +27,9 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''rota'']', writeback: false}
   - name: label_3
-    properties: {text: 'Operação:
-
-        '}
+    properties:
+      text: |
+        Operação:
     type: Label
     layout_properties: {grid_position: 'WFBRBW,SCDXCS'}
   - name: text_box_operacao
@@ -39,9 +39,9 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''operacao'']', writeback: false}
   - name: label_4
-    properties: {text: 'Tipo Ent:
-
-        '}
+    properties:
+      text: |
+        Tipo Ent:
     type: Label
     layout_properties: {grid_position: 'WFBRBW,JSTFSU'}
   - name: text_box_tipoEntrada
@@ -51,9 +51,9 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''tipoEntrada'']', writeback: false}
   - name: label_5
-    properties: {text: 'Criação:
-
-        '}
+    properties:
+      text: |
+        Criação:
     type: Label
     layout_properties: {grid_position: 'VJSFRH,EEVEZA'}
   - name: text_box_1
@@ -63,9 +63,9 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''criacao'']', writeback: false}
   - name: label_5_copy
-    properties: {text: 'Envio Integração:
-
-        '}
+    properties:
+      text: |
+        Envio Integração:
     type: Label
     layout_properties: {grid_position: 'VJSFRH,DRYRAE'}
   - name: text_box_2

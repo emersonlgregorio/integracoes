@@ -3,8 +3,7 @@ container:
   data_bindings: []
 components:
 - name: headline_1
-  properties: {role: subheading, text: Dados da Integração, bold: false, background: 'theme:Secondary
-      500', foreground: 'theme:Gray 100', align: center}
+  properties: {role: subheading, text: Dados da Integração, bold: false, background: 'theme:Secondary 500', foreground: 'theme:Gray 100', align: center}
   type: Label
   layout_properties: {grid_position: 'LIUVTY,YLURGT'}
 - name: flow_panel_1
@@ -93,10 +92,14 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''outros_dados'']', writeback: false}
 - name: headline_origem
-  properties: {role: subheading, text: 'Dados Origem
-
-      ', background: 'theme:Secondary 500', foreground: 'theme:Gray 100', align: center,
-    bold: false}
+  properties:
+    role: subheading
+    text: |
+      Dados Origem
+    background: theme:Secondary 500
+    foreground: theme:Gray 100
+    align: center
+    bold: false
   type: Label
   layout_properties: {grid_position: 'TENUVX,OQALPF'}
 - name: column_panel_unisystem
@@ -119,9 +122,9 @@ components:
       layout_properties: {width: 188, expand: false}
       data_bindings: []
     - name: label_9
-      properties: {text: 'Depósito:
-
-          '}
+      properties:
+        text: |
+          Depósito:
       type: Label
       layout_properties: {}
     - name: text_box_deposito
@@ -130,9 +133,9 @@ components:
       layout_properties: {width: 80, expand: true}
       data_bindings: []
     - name: label_10
-      properties: {text: 'Destino:
-
-          '}
+      properties:
+        text: |
+          Destino:
       type: Label
       layout_properties: {}
     - name: text_box_destino
@@ -234,9 +237,9 @@ components:
       type: TextBox
       layout_properties: {width: 100}
     - name: label_19
-      properties: {text: 'Código:
-
-          '}
+      properties:
+        text: |
+          Código:
       type: Label
       layout_properties: {}
     - name: text_box_code
@@ -276,8 +279,7 @@ components:
   layout_properties: {grid_position: 'BXNESW,EUHFAT'}
   components:
   - name: headline_2
-    properties: {role: subheading, text: Destino SAP, background: 'theme:Secondary
-        500', foreground: 'theme:Gray 100', align: center}
+    properties: {role: subheading, text: Destino SAP, background: 'theme:Secondary 500', foreground: 'theme:Gray 100', align: center}
     type: Label
     layout_properties: {grid_position: 'HENOXU,SOEHMA'}
   - name: flow_panel_10

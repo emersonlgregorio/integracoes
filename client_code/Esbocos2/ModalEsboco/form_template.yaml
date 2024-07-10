@@ -16,9 +16,12 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''CardName'']', writeback: false}
   - name: label_2
-    properties: {text: 'Data lançamento:
-
-        ', align: right, role: null, spacing_below: none}
+    properties:
+      text: |
+        Data lançamento:
+      align: right
+      role: null
+      spacing_below: none
     type: Label
     layout_properties: {row: YZTURR, width_xs: 2, col_xs: 8}
   - name: text_box_2
@@ -31,9 +34,10 @@ components:
   layout_properties: {grid_position: 'EBDAVQ,YBXXGP'}
   components:
   - name: label_3
-    properties: {text: 'Nfe nro:
-
-        ', spacing_above: none}
+    properties:
+      text: |
+        Nfe nro:
+      spacing_above: none
     type: Label
     layout_properties: {}
   - name: text_box_3
@@ -43,9 +47,10 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''Serial'']', writeback: false}
   - name: label_4
-    properties: {text: 'Série
-
-        ', spacing_above: none}
+    properties:
+      text: |
+        Série
+      spacing_above: none
     type: Label
     layout_properties: {}
   - name: text_box_4
@@ -78,8 +83,7 @@ components:
     type: DataGrid
     components:
     - name: repeating_panel_1
-      properties: {item_template: Esbocos2.ModalEsboco.RowTemplate4, spacing_below: none,
-        spacing_above: none, role: null}
+      properties: {item_template: Esbocos2.ModalEsboco.RowTemplate4, spacing_below: none, spacing_above: none, role: null}
       type: RepeatingPanel
       layout_properties: {}
     layout_properties: {grid_position: 'MLWPXF,XUWFGN'}
