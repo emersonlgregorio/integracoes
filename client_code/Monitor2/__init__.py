@@ -62,7 +62,9 @@ class Monitor2(Monitor2Template):
     
     if data or rota or status or unidade or seqPlanilha: #Verifica se todos os filtros estão selecionados
       filtro = f"""
-                  where (ai.DATA_CRIACAO >= to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS')
+                  where 
+                        sistema <> 2
+                    and (ai.DATA_CRIACAO >= to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS')
                         or to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') is null 
                         or to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS') = '')
                     and (ai.DATA_CRIACAO <= to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
