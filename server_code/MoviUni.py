@@ -12,19 +12,33 @@ import anvil.server
 def dadosOrigem(filtro):
   
   query = f"""
-      SELECT
-          m.SEQ_PLANILHA,
-          m.NR_DOCUMENTO, 
-          m.MODULO,
-          m.DATA_MVTO,
-          m.ITEM,
-          p.DESCRICAO_PRODUTO,
-          m.QUANTIDADE,
-          m.DEPOSITO,
-          m.DESTINO
-      FROM AC_VW_PROD_MOVIMENTOS m 
-      INNER JOIN produtos p ON m.SEQ_PLA_PRODUTO = p.SEQ_PLA_PRODUTO  
-      WHERE m.seq_planilha = '{filtro}'
+            SELECT
+              0.SEQ_PLA_NOTA SEQ_PLANILHA,
+              0.NR_DOCUMENTO,
+              0.FORM_LANCAMENTO MODULO,
+              0.DATA_EMISSAO DATA_MVTO,
+              1.ITEM,
+              1.DESC_PRODUTO DESCRICAO_PRODUTO,
+              1.QUANTIDADE,
+              1.DEPOSITO,
+              1.DESTINO
+            FROM AC_VW_NF_SAIDAS T0
+            INNER JOIN AC_VW_NF_SAI_ITENS T1 ON t0.SEQ_PLA_NOTA = t1.SEQ_PLA_NOTA
+            WHERE t0.SEQ_PLA_NOTA = '{filtro}'
+            UNION 
+            SELECT 
+              0.SEQ_PLA_NOTA SEQ_PLANILHA,
+              0.NR_DOCUMENTO,
+              0.FORM_LANCAMENTO MODULO,
+              0.DATA_EMISSAO DATA_MVTO,
+              1.ITEM,
+              1.DESC_PRODUTO DESCRICAO_PRODUTO,
+              1.QUANTIDADE,
+              1.DEPOSITO,
+              ULL DESTINO
+            FROM AC_VW_NF_ENTRADAS T0
+            INNER JOIN AC_VW_NF_ENT_ITENS T1 ON t0.SEQ_PLA_NOTA = t1.SEQ_PLA_NOTA
+            WHERE t0.SEQ_PLA_NOTA = '{filtro}'
   """
 
   origem = anvil.server.call('oracleSelect',query)
