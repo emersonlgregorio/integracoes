@@ -31,12 +31,12 @@ class ModalIntegracao(ModalIntegracaoTemplate):
     self.date_picker_data_mvto.date = origem['data_mvto']
     self.text_box_deposito.text = origem['deposito']
     self.text_box_destino.text = origem['destino']
-    self.text_box_destino.text = origem['destino']
     self.text_box_nr_documento.text = origem['nr_documento']
     self.text_box_item.text = origem['item']
     self.text_box_desc_item.text = origem['descricao_produto']
     self.text_box_quantidade.text = origem['quantidade']
     self.text_box_modulo.text = origem['modulo']
+    # self.repeating_panel_detalhe.items = detalhe['input_movimentations']
     
   def origemFarmbox(self,origem, detalhe):
     self.headline_origem.text = 'Origem: FARMBOX'
