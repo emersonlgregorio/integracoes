@@ -54,3 +54,7 @@ class Main(MainTemplate):
     for link in self.link_home, self.monitor_link, self.esboco_link:
       link.role = ''
 
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('send_email_with_pdf')
+

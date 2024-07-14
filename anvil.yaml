@@ -18,7 +18,12 @@ startup: {type: form, module: Main}
 package_name: Integracoes
 allow_embedding: false
 name: Integracoes
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-sandbox
+  server_spec: null
+  server_spec_disabled: {requirements: '', base: python310-minimal}
 metadata: {title: Integrações, description: Integrações Crestani, logo_img: 'asset:logoCrestani.jpeg'}
 startup_form: null
 native_deps: {head_html: ''}

@@ -9,7 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import ujson
-from datetime import datetime
+
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -41,29 +41,7 @@ def repFarmbox(idFarmbox, operacao):
 
 @anvil.server.callable
 def fetch_data():
-    data_atual = datetime.now()
-    data_atual = data_atual.strftime("%d/%m/%Y")
-    dtInicial = data_atual+" 00:00:00" 
-    dtFinal = data_atual+" 23:59:59"
-    query = f"""
-                SELECT 
-                	ai.SEQ_PLANILHA,
-                	ai.rota,
-                	ai.operacao,
-                	ai.OUTROS_DADOS,
-                	to_date(to_char(ai.data_criacao,'DD-MM-YYYY HH24:MI:SS'),'DD-MM-YYYY HH24:MI:SS') data_criacao,
-                  decode(nvl(ai.cod_filial, 0), 0, m.FILIAL, ai.cod_filial) filial,
-                  nvl(ai.nr_documento, m.NR_DOCUMENTO) nr_documento,
-                FROM  AC_INTEGRACOES ai 
-                LEFT JOIN AC_VW_DOCUMENTOS m ON ai.SEQ_PLANILHA = m.SEQ_PLANILHA   
-                where 
-                    sistema <> 2
-                and (ai.DATA_CRIACAO >= to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS')
-                and (ai.DATA_CRIACAO <= to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS')
-                and status = 'E'
-          """
-    # print(query)
-    rows = anvil.server.call('oracleSelect',query)
+    rows = anvil.server.call('get_integracoes_email')
     return rows
   
 

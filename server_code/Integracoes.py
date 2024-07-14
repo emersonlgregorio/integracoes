@@ -7,6 +7,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+from datetime import datetime
 
 @anvil.server.callable
 def get_integracoes(filtro = "where status = 'O'"):
@@ -40,3 +41,31 @@ def reprocessar(id_integracao):
           WHERE ID_INTEGRACAO = '{id_integracao}'
       """
   anvil.server.call('oracleExecute',query)
+
+
+@anvil.server.callable
+def get_integracoes_email():
+    data_atual = datetime.now()
+    data_atual = data_atual.strftime("%d/%m/%Y")
+    dtInicial = data_atual+" 00:00:00" 
+    dtFinal = data_atual+" 23:59:59"
+    query = f"""
+                SELECT 
+                	ai.SEQ_PLANILHA,
+                	ai.rota,
+                	ai.operacao,
+                	ai.OUTROS_DADOS,
+                	to_date(to_char(ai.data_criacao,'DD-MM-YYYY HH24:MI:SS'),'DD-MM-YYYY HH24:MI:SS') data_criacao,
+                  decode(nvl(ai.cod_filial, 0), 0, m.FILIAL, ai.cod_filial) filial,
+                  nvl(ai.nr_documento, m.NR_DOCUMENTO) nr_documento
+                FROM  AC_INTEGRACOES ai 
+                LEFT JOIN AC_VW_DOCUMENTOS m ON ai.SEQ_PLANILHA = m.SEQ_PLANILHA   
+                where 
+                    sistema <> 2
+                and (ai.DATA_CRIACAO >= to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS'))
+                and (ai.DATA_CRIACAO <= to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS'))
+                and status = 'E'
+          """
+    # print(query)
+    items = anvil.server.call('oracleSelect',query)
+    return items
