@@ -34,14 +34,18 @@ class RowTemplate1(RowTemplate1Template):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    print('Clicou na planilha')
+    rotaRomaneio = ['RomaneioEntrada', 'AlteraPesoRomEntrada']
     idOrigem = self.item['seq_planilha']
-    if self.item['rota'] != 'AplicacoesFarmbox':
-      self.origem = anvil.server.call('dadosOrigem', idOrigem)
-      modal = ModalIntegracao(item=self.item, origem=self.origem)
-    else:
+
+    if self.item['rota'] == 'AplicacoesFarmbox':
       self.origem, self.detalhe = anvil.server.call('dadosOrigemFarmbox', idOrigem)
       modal = ModalIntegracao(item=self.item, origem=self.origem, detalhe=self.detalhe)
+    elif self.item['rota'] not in rotaRomaneio:
+      self.origem = anvil.server.call('dadosOrigem', idOrigem)
+      modal = ModalIntegracao(item=self.item, origem=self.origem)
+    elif self.item['rota'] in rotaRomaneio:
+      self.origem = anvil.server.call('dadosOrigemRomaneio', idOrigem)
+      modal = ModalIntegracao(item=self.item, origem=self.origem)
     alert(modal, large=True, role="wide-alert-20vw" ,title="Dados da Integração", buttons=[])
     
   

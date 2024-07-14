@@ -14,10 +14,7 @@ class Monitor2(Monitor2Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     anvil.users.login_with_form()
-    # self.date_picker_data.format = "%d/%m/%Y"
-    # self.date_picker_data.date = datetime.date.today()
-    # self.date_picker_data_change()
-    # self.set_event_handler('x-refresh', self.date_picker_data_change)
+
 
     self.drop_down_unidade.items = [
       ("Colorado","3"),
@@ -34,16 +31,19 @@ class Monitor2(Monitor2Template):
   
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
-    data = self.date_picker_data.date 
-    data = data if data != None else ''
+    dataInicial = self.date_picker_dataInicial.date 
+    dataInicial = dataInicial if dataInicial != None else ''
+    dataFinal = self.date_picker_dataFinal.date 
+    dataFinal = dataFinal if dataFinal != None else ''
     
-    if data != '':
-      data = data.strftime("%d/%m/%Y")
-      dtInicial = data+" 00:00:00" if data != None else ''
-      dtFinal = data+" 23:59:59" if data != None else ''
+    if dataInicial != '' and dataFinal != '':
+      dataInicial = dataInicial.strftime("%d/%m/%Y")
+      dtInicial = dataInicial+" 00:00:00" if dataInicial != None else ''
+      dataFinal = dataFinal.strftime("%d/%m/%Y")
+      dtFinal = dataFinal+" 23:59:59" if dataFinal != None else ''
       orderby = "order by data_criacao desc"
     else:
-      data = ''
+      # data = ''
       dtInicial = ''
       dtFinal = ''
       orderby = "order by seq_planilha"
@@ -60,7 +60,7 @@ class Monitor2(Monitor2Template):
     seqPlanilha = self.text_box_search.text
     seqPlanilha = seqPlanilha if seqPlanilha != None else ''
     
-    if data or rota or status or unidade or seqPlanilha: #Verifica se todos os filtros estão selecionados
+    if dtInicial or dtFinal: #Verifica se todos os filtros estão selecionados
       filtro = f"""
                   where 
                         sistema <> 2
@@ -81,7 +81,7 @@ class Monitor2(Monitor2Template):
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
     else:
-      alert("Informar pelo menos 1 filtro")
+      alert("Data Inicial e Final são obrigatórios!")
       
   def date_picker_data_change(self, **event_args):
     """This method is called when the selected date changes"""
@@ -107,4 +107,19 @@ class Monitor2(Monitor2Template):
     self.label_1.text = f'Sucessos: {sucessos}'
     self.label_2.text = f'Erros: {erros}'
     self.label_3.text = f'Processando: {process}'
-    self.label_4.text = f'Novos: {novos}'
+    self.label_4.text = f'Novos: {novos}' 
+
+  def enableFields(self, **event_args):
+    print('Data Inicial:', self.date_picker_dataInicial.date)
+    print('Data Final:', self.date_picker_dataFinal.date)
+    
+    if self.date_picker_dataInicial.date and self.date_picker_dataFinal.date:
+      self.drop_down_rota.enabled = True
+      self.drop_down_status.enabled = True
+      self.drop_down_unidade.enabled = True
+      self.text_box_search.enabled = True
+    else: 
+      self.drop_down_rota.enabled = False
+      self.drop_down_status.enabled = False
+      self.drop_down_unidade.enabled = False
+      self.text_box_search.enabled = False
