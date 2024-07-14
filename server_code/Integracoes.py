@@ -10,7 +10,6 @@ import anvil.server
 
 @anvil.server.callable
 def get_integracoes(filtro = "where status = 'O'"):
-    print("Alterado as 19h")
     query = f"""
                 SELECT 
                 	ai.SEQ_PLANILHA,
