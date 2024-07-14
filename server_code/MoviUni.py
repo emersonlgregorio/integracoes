@@ -10,7 +10,6 @@ import anvil.server
 
 @anvil.server.callable
 def dadosOrigem(filtro):
-  
   query = f"""
             SELECT
               T0.SEQ_PLA_NOTA SEQ_PLANILHA,
@@ -40,8 +39,29 @@ def dadosOrigem(filtro):
             INNER JOIN AC_VW_NF_ENT_ITENS T1 ON t0.SEQ_PLA_NOTA = t1.SEQ_PLA_NOTA
             WHERE t0.SEQ_PLA_NOTA = '{filtro}'
   """
-
   origem = anvil.server.call('oracleSelect',query)
 
+
+@anvil.server.callable
+def dadosOrigemRomaneio(filtro):
+  query = f"""
+            SELECT
+            	t0.SEQ_PLA_ROMANEIO SEQ_PLANILHA,
+            	t0.NR_ROMANEIO NR_DOCUMENTO,
+              'RomaneioEntrada' MODULO,
+            	t0.DATA_ENTRADA DATA_MVTO,
+            	t0.ITEM,
+            	t0.DESC_PRODUTO DESCRICAO_PRODUTO,
+            	t0.QUANTIDADE,
+            	t0.DEPOSITO,
+            	NULL DESTINO
+            FROM AC_VW_ROMANEIO_ENTRADA t0
+            WHERE t0.SEQ_PLA_ROMANEIO = '{filtro}'
+  """
+  origem = anvil.server.call('oracleSelect',query)
+
+
+
+  
   return origem
 
