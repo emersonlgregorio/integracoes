@@ -40,6 +40,7 @@ def dadosOrigem(filtro):
             WHERE t0.SEQ_PLA_NOTA = '{filtro}'
   """
   origem = anvil.server.call('oracleSelect',query)
+  return origem
 
 
 @anvil.server.callable
@@ -60,8 +61,5 @@ def dadosOrigemRomaneio(filtro):
   """
   origem = anvil.server.call('oracleSelect',query)
 
-
-
-  
   return origem
 
