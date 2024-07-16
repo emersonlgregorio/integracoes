@@ -15,15 +15,18 @@ components:
 - name: data_grid_1
   properties:
     columns:
-    - {id: JKSDUP, title: SeqPlanilha, data_key: self.seqplanilha, width: 137, expand: false}
-    - {id: VJQQOR, title: Rota, data_key: self.rota, width: 212, expand: false}
-    - {id: OJLQEN, title: Data, data_key: self.data, width: 123, expand: false}
-    - {id: IWRHXU, data_key: self.documento, title: Documento, width: 121, expand: false}
-    - {id: KAMXDZ, data_key: self.mensagem, title: Mensagem}
+    - {id: JKSDUP, title: SeqPlanilha, data_key: seqplanilha, width: 137, expand: false}
+    - {id: VJQQOR, title: Rota, data_key: rota, width: 201, expand: false}
+    - {id: OJLQEN, title: Data, data_key: Data, width: 168, expand: false}
+    - {id: IWRHXU, data_key: nr_documento, title: Documento, width: 121, expand: false}
+    - {id: KAMXDZ, data_key: outros_dados, title: Mensagem}
+    show_page_controls: false
+    rows_per_page: 30
   type: DataGrid
   components:
   - name: repeating_panel_1
-    properties: {item_template: Monitor2.ErrosIntegracao.RowTemplate12}
+    properties: {item_template: Monitor2.ErrosIntegracao.RowTemplate12, spacing_above: none, spacing_below: none}
     type: RepeatingPanel
-  layout_properties: {grid_position: 'NSRZAF,FIKVYH'}
+    layout_properties: {}
+  layout_properties: {grid_position: 'NSRZAF,FIKVYH', full_width_row: false}
 is_package: true
