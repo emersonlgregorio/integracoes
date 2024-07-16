@@ -37,6 +37,8 @@ class Monitor2(Monitor2Template):
     dataFinal = dataFinal if dataFinal != None else ''
     
     if dataInicial != '' and dataFinal != '':
+      print(dataInicial)
+      print(dataFinal)
       dataInicial = dataInicial.strftime("%d/%m/%Y")
       dtInicial = dataInicial+" 00:00:00" if dataInicial != None else ''
       dataFinal = dataFinal.strftime("%d/%m/%Y")
