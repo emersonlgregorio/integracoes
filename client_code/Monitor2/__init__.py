@@ -77,7 +77,7 @@ class Monitor2(Monitor2Template):
                          (ai.nr_documento = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = ''))
                     {orderby}
                 """
-      # print(filtro)
+      print(filtro)
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
     else:
