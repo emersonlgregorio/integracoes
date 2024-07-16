@@ -47,7 +47,7 @@ def fetch_data():
     dtFinal = data_atual+" 23:59:59"
     query = f"""
                 SELECT 
-                	ai.SEQ_PLANILHA,
+                	ai.SEQ_PLANILHA seqplanilha,
                 	ai.rota,
                 	ai.operacao,
                 	ai.OUTROS_DADOS,
@@ -58,8 +58,10 @@ def fetch_data():
                 LEFT JOIN AC_VW_DOCUMENTOS m ON ai.SEQ_PLANILHA = m.SEQ_PLANILHA   
                 where 
                     sistema <> 2
-                and (ai.DATA_CRIACAO >= to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS'))
-                and (ai.DATA_CRIACAO <= to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS'))
+                  AND (ai.DATA_CRIACAO >= to_date('15/07/2024 00:00:00', 'DD-MM-YYYY HH24:MI:SS'))
+                  and (ai.DATA_CRIACAO <= to_date('15/07/2024 23:59:59', 'DD-MM-YYYY HH24:MI:SS'))
+                --and (ai.DATA_CRIACAO >= to_date('{dtInicial}', 'DD-MM-YYYY HH24:MI:SS'))
+                --and (ai.DATA_CRIACAO <= to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS'))
                 and status = 'E'
           """
     # print(query)
