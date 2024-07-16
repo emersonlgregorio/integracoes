@@ -9,7 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..Monitor2 import Monitor2
 from ..Esbocos2 import Esbocos2
-from ..Conferencia import Conferencia
+from ..Monitor2.ErrosIntegracao import ErrosIntegracao
 
 class Main(MainTemplate):
   def __init__(self, **properties):
@@ -41,16 +41,20 @@ class Main(MainTemplate):
     self.deselect_all_links()
     self.esboco_link.role = 'selected'
 
-  def switch_to_conferencia(self, **event_args):
+  def switch_to_errosIntegracao(self, **event_args):
     """Switch to the Gallery view."""
     self.content_panel.clear()
-    self.content_panel.add_component(Conferencia(), full_width_row=True)
-    self.headline_main.text = 'Conferência'
+    self.content_panel.add_component(ErrosIntegracao(), full_width_row=True)
+    self.headline_main.text = 'Erros de Integração'
     self.deselect_all_links()
-    self.conferencia_link.role = 'selected'
+    self.errosIntegracao_link.role = 'selected'
 
   def deselect_all_links(self):
     """Reset all the roles on the navbar links."""
-    for link in self.link_home, self.monitor_link, self.esboco_link:
+    for link in self.link_home, self.monitor_link, self.esboco_link, self.errosIntegracao_link:
       link.role = ''
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('send_email_with_pdf')
 

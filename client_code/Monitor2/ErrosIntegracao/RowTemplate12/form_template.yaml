@@ -1,0 +1,9 @@
+is_package: true
+container: {type: DataRowPanel}
+components:
+- name: date_picker_1
+  properties: {pick_time: true, format: '%d/%m/%y %H:%M:%S', date: null, spacing_above: none, spacing_below: none}
+  type: DatePicker
+  layout_properties: {column: OJLQEN}
+  data_bindings:
+  - {property: date, code: 'self.item[''data_criacao'']', writeback: false}

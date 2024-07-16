@@ -51,11 +51,11 @@ components:
       data_bindings: []
       event_bindings: {click: switch_to_esbocos}
       components: []
-    - name: conferencia_link
-      properties: {text: Conferência Unisystem, visible: false}
+    - name: errosIntegracao_link
+      properties: {text: Erros Integracao, visible: true}
       type: Link
       layout_properties: {grid_position: 'BGQHXD,WHYKQI'}
-      event_bindings: {click: switch_to_conferencia}
+      event_bindings: {click: switch_to_errosIntegracao}
     - name: link_1
       properties: {text: Conferência FarmBox, visible: false}
       type: Link

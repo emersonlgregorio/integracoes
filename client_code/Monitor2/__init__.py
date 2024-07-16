@@ -37,6 +37,8 @@ class Monitor2(Monitor2Template):
     dataFinal = dataFinal if dataFinal != None else ''
     
     if dataInicial != '' and dataFinal != '':
+      print(dataInicial)
+      print(dataFinal)
       dataInicial = dataInicial.strftime("%d/%m/%Y")
       dtInicial = dataInicial+" 00:00:00" if dataInicial != None else ''
       dataFinal = dataFinal.strftime("%d/%m/%Y")
@@ -72,12 +74,12 @@ class Monitor2(Monitor2Template):
                         or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') = '')
                     AND (rota = '{rota}' or '{rota}' is null or '{rota}' = '')
                     AND (status = '{status}' or '{status}' is null or '{status}' = '')
-                    AND (m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
+                    AND ((m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '') or (ai.cod_filial = '{unidade}' or '{unidade}' is null or '{unidade}' = ''))
                     AND ((ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '') or
                          (ai.nr_documento = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = ''))
                     {orderby}
                 """
-      # print(filtro)
+      print(filtro)
       self.repeating_panel_1.items = anvil.server.call('get_integracoes', filtro)
       self.contadores(self.repeating_panel_1.items)
     else:
