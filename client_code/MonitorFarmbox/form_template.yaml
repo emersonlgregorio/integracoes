@@ -82,7 +82,7 @@ components:
       layout_properties: {grid_position: 'YWFZYJ,JIBWQA'}
       components:
       - name: repeating_panel_1
-        properties: {item_template: Monitor2.RowTemplate1}
+        properties: {item_template: MonitorUnisystem.RowTemplate1}
         type: RepeatingPanel
   - name: label_1
     properties: {text: ''}

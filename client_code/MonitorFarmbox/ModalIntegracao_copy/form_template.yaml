@@ -270,7 +270,7 @@ components:
       type: DataGrid
       components:
       - name: repeating_panel_detalhe
-        properties: {item_template: Monitor2.ModalIntegracao.RowTemplate10}
+        properties: {item_template: MonitorUnisystem.ModalIntegracao.RowTemplate10}
         type: RepeatingPanel
       layout_properties: {width: 963.567}
 - name: column_panel_1
@@ -296,7 +296,7 @@ components:
       type: DataGrid
       components:
       - name: repeating_panel_1
-        properties: {item_template: Monitor2.ModalIntegracao.RowTemplate11}
+        properties: {item_template: MonitorUnisystem.ModalIntegracao.RowTemplate11}
         type: RepeatingPanel
       layout_properties: {width: 965.567}
 is_package: true

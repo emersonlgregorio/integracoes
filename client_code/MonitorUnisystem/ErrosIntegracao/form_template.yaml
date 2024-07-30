@@ -25,7 +25,7 @@ components:
   type: DataGrid
   components:
   - name: repeating_panel_1
-    properties: {item_template: Monitor2.ErrosIntegracao.RowTemplate12, spacing_above: none, spacing_below: none}
+    properties: {item_template: MonitorUnisystem.ErrosIntegracao.RowTemplate12, spacing_above: none, spacing_below: none}
     type: RepeatingPanel
     layout_properties: {}
   layout_properties: {grid_position: 'NSRZAF,FIKVYH', full_width_row: false}

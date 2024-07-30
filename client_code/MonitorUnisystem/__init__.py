@@ -1,4 +1,4 @@
-from ._anvil_designer import Monitor2Template
+from ._anvil_designer import MonitorUnisystemTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -9,7 +9,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
 
-class Monitor2(Monitor2Template):
+class MonitorUnisystem(MonitorUnisystemTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -74,7 +74,8 @@ class Monitor2(Monitor2Template):
                         or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') = '')
                     AND (rota = '{rota}' or '{rota}' is null or '{rota}' = '')
                     AND (status = '{status}' or '{status}' is null or '{status}' = '')
-                    AND ((m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '') or (ai.cod_filial = '{unidade}' or '{unidade}' is null or '{unidade}' = ''))
+                    AND ((m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '') 
+                      or (ai.cod_filial = '{unidade}' or '{unidade}' is null or '{unidade}' = ''))
                     AND ((ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '') or
                          (ai.nr_documento = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = ''))
                     {orderby}
