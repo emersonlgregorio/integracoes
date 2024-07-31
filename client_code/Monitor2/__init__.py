@@ -87,7 +87,7 @@ class Monitor2(Monitor2Template):
                         or to_date('{dtFinal}', 'DD-MM-YYYY HH24:MI:SS') = '')
                     AND (rota = '{rota}' or '{rota}' is null or '{rota}' = '')
                     AND (status = '{status}' or '{status}' is null or '{status}' = '')
-                    AND (m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '')
+                    AND ((m.filial = '{unidade}' or '{unidade}' is null or '{unidade}' = '') or (ai.cod_filial = '{unidade}' or '{unidade}' is null or '{unidade}' = ''))
                     AND ((ai.seq_planilha = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = '') or
                          (ai.nr_documento = '{seqPlanilha}' or '{seqPlanilha}' is null or '{seqPlanilha}' = ''))
                     {orderby}
