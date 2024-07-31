@@ -22,7 +22,7 @@ def get_integracoes(filtro = "where status = 'O'"):
                 	to_date(to_char(ai.ULTIMA_ALTERACAO,'DD-MM-YYYY HH24:MI:SS'),'DD-MM-YYYY HH24:MI:SS') ULTIMA_ALTERACAO,
                 	ai.status,
                 	ai.ID_INTEGRACAO,
-                  m.FILIAL,
+                  decode(nvl(ai.cod_filial,0),0,m.FILIAL,ai.cod_filial) filial,
                   nvl(ai.nr_documento, m.NR_DOCUMENTO) nr_documento,
                   ai.nome_form
                 FROM  AC_INTEGRACOES ai 
@@ -34,19 +34,20 @@ def get_integracoes(filtro = "where status = 'O'"):
     for i in items:
       if i['filial'] == 17:
         i['filial'] = 4
-      elif i['filial'] == 17:
-        i['filial'] = 4
-      elif i['filial'] == 17:
-        i['filial'] = 4
-      elif i['filial'] == 17:
-        i['filial'] = 4
-      elif i['filial'] == 17:
-        i['filial'] = 4
-      elif i['filial'] == 17:
-        i['filial'] = 4
-      elif i['filial'] == 17:
-        i['filial'] = 4
-      
+      elif i['filial'] == 16:
+        i['filial'] = 3
+      elif i['filial'] == 23:
+        i['filial'] = 11
+      elif i['filial'] == 4:
+        i['filial'] = 7
+      elif i['filial'] == 3:
+        i['filial'] = 8
+      elif i['filial'] == 7:
+        i['filial'] = 9
+      elif i['filial'] == 18:
+        i['filial'] = 10
+      elif i['filial'] == 15:
+        i['filial'] = 2
     return items
 
 @anvil.server.callable
