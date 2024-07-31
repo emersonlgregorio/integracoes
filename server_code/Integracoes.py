@@ -31,6 +31,22 @@ def get_integracoes(filtro = "where status = 'O'"):
           """
     # print(query)
     items = anvil.server.call('oracleSelect',query)
+    for i in items:
+      if i['filial'] == 17:
+        i['filial'] = 4
+      elif i['filial'] == 17:
+        i['filial'] = 4
+      elif i['filial'] == 17:
+        i['filial'] = 4
+      elif i['filial'] == 17:
+        i['filial'] = 4
+      elif i['filial'] == 17:
+        i['filial'] = 4
+      elif i['filial'] == 17:
+        i['filial'] = 4
+      elif i['filial'] == 17:
+        i['filial'] = 4
+      
     return items
 
 @anvil.server.callable
