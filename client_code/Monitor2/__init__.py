@@ -17,17 +17,30 @@ class Monitor2(Monitor2Template):
 
 
     self.drop_down_unidade.items = [
-      ("Colorado","3"),
-      ("Curupai","5"),
-      ("Arm.Germ.BRA","11"),
-      ("Germ. Sementes","7"),
-      ("Arm.Germ.TGA","8"),
+      ("Colorado","16"),
+      ("Curupai","19"),
+      ("Arm.Germ.BRA","23"),
+      ("Germ. Sementes","4"),
+      ("Arm.Germ.TGA","3"),
       ("Querência","1"),
-      ("Que.Emp.TGA","9"),
-      ("Que.Emp.CJO","10"),
-      ("Promissão","2"),
-      ("São Carlos","4"),
+      ("Que.Emp.TGA","7"),
+      ("Que.Emp.CJO","18"),
+      ("Promissão","15"),
+      ("São Carlos","17"),
     ]
+
+  # self.drop_down_unidade.items = [
+  #     ("Colorado","3"),
+  #     ("Curupai","5"),
+  #     ("Arm.Germ.BRA","11"),
+  #     ("Germ. Sementes","7"),
+  #     ("Arm.Germ.TGA","8"),
+  #     ("Querência","1"),
+  #     ("Que.Emp.TGA","9"),
+  #     ("Que.Emp.CJO","10"),
+  #     ("Promissão","2"),
+  #     ("São Carlos","4"),
+  #   ]
   
   def search(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
