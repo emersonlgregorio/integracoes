@@ -58,7 +58,7 @@ class Monitor2(Monitor2Template):
       dtFinal = dataFinal+" 23:59:59" if dataFinal != None else ''
       orderby = "order by data_criacao desc"
     else:
-      # data = ''
+      # data = '' 
       dtInicial = ''
       dtFinal = ''
       orderby = "order by seq_planilha"
