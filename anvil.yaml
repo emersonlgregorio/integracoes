@@ -4,7 +4,12 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true, confirm_email: true, use_google: false, require_secure_passwords: true, allow_remember_me: true, remember_me_days: 30}
-  server_config: {user_table: users, email_from_address: ti@agrocrestani.com.br}
+  server_config:
+    user_table: users
+    email_from_address: integracoes@agrocrestani.com.br
+    email_content:
+      confirm_address: {html: '<p>Obrigado por registrar sua conta conosco. Por favor, clique no link a seguir para confirmar que esta conta é sua:</p><p><br></p><p>{{confirm_link}}</p><p><br></p><p><br></p><p>Obrigado,</p><p><br></p><p>Equipe de TI</p>'}
+      reset_password: {html: '<p>Olá,</p><p>Você solicitou a redefinição de senha para a sua conta {{email}}. Para redefinir sua senha, clique no link abaixo:</p><p><br></p><p>{{reset_link}}</p><p><br></p><p>Este link expirará em dez minutos.</p>'}
 - source: /runtime/services/google.yml
   client_config: {}
   server_config: {}
@@ -13,7 +18,7 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true, smtp_host: mail.agrocrestani.com.br, smtp_port: 587, smtp_encryption: starttls, smtp_user: emerson.gregorio, smtp_password: /lZG9jqTCe+lhOVV8mqAqx/WiFMYa3ntFa6Gwe1IKISGEJFmLyZ+T37afIu/unKRbmjEptkjGMOwCbmte9P6udKn3YzgicsqJ+RKVpRTzbY4aQNy4NP/oigY7sc+Y+8deEoGzaXeyr4Rf0mu6CNdkVGS/i1z5pIQ8/v7InpbWFiy53FO}
+  server_config: {custom_smtp: true, smtp_host: smtp-mail.outlook.com, smtp_port: 587, smtp_encryption: starttls, smtp_user: integracoes@agrocrestani.com.br, smtp_password: SoEH4TntaJWltgASmdYH9KI+OJH4mHfAyMwzIaDK0zTiQ4LIu9Dk8IQHhI3fRUuhtusCKgCIK4TR5Dgvaox16PtDvSLGmU/bNObFs94dZ51DhskogILUaikV3HGNK0zFqxXeDUSrILgSaD+z5boGxL8OjOCeRCFg6+Sy32dqaQGCv8DkYwo=}
 startup: {type: form, module: Main}
 package_name: Integracoes
 allow_embedding: false
